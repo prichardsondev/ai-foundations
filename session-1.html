@@ -37,6 +37,17 @@
       </ul>
     </section>
 
+    <article class="card lesson-card" style="margin-bottom: 1.5rem;">
+      <h3>What this session covers</h3>
+      <ul>
+        <li>What AI actually is — in plain English, not jargon</li>
+        <li>How a model learns and why that shapes how it behaves</li>
+        <li>Why GPT tools are useful but can still get things wrong</li>
+        <li>A five-part prompt structure that works for most workplace tasks</li>
+        <li>Hands-on practice with the Prompt Workshop</li>
+      </ul>
+    </article>
+
     <section class="lesson-section">
       <div class="section-heading">
         <h2>1. What AI actually is</h2>
@@ -49,10 +60,10 @@
       </article>
 
       <article class="callout">
-        <h3>Quick visual summary</h3>
-        <p><strong>Runtime</strong> = engine</p>
-        <p><strong>Parameters</strong> = what it learned</p>
-        <p><strong>Inference</strong> = using the model to answer</p>
+        <h3>Three things to know</h3>
+        <p>An AI tool runs on a <strong>model</strong> — a system trained to recognize patterns in language.</p>
+        <p>Training produces <strong>learned values</strong> (sometimes called parameters) — the adjustments that shape how the model responds to any given input.</p>
+        <p>When you send a prompt, the model uses those learned values to generate a response. That process is called <strong>inference</strong>.</p>
       </article>
 
       <div class="stack">
@@ -60,17 +71,17 @@
           <h3>What a model is</h3>
           <p>
             A model is the part of the AI system that has learned patterns from a very large amount of example data.
-            In plain English, it is a trained prediction engine.
+            In plain English, it is software that has been trained to produce useful responses — not a search engine, not a database, and not a person.
           </p>
         </article>
 
         <article class="card lesson-card">
-          <h3>Runtime and parameter files</h3>
+          <h3>How a model learns</h3>
           <p>
-            The runtime is the software engine that runs the model. The parameter files are the learned numeric values from training.
+            During training, the model works through enormous amounts of text and fine-tunes its internal patterns — its parameters — until it becomes reliable at predicting useful responses.
           </p>
           <p>
-            A simple way to think about this is: the runtime is the engine doing the work, and the parameters are the learned values that shape how the model responds.
+            Think of it like a very well-read assistant who has absorbed millions of examples. It does not look things up in real time. It draws on what it learned during training.
           </p>
         </article>
 
@@ -100,16 +111,34 @@
         </article>
         <article class="card lesson-card">
           <h3>Transformer</h3>
-          <p>It is designed to pay attention to how words relate to each other in context, which helps it produce more coherent responses.</p>
+          <p>It reads your full conversation — not just your last message — to produce a more relevant response. That is why adding context to a prompt usually improves the answer.</p>
+        </article>
+      </div>
+
+      <div class="grid-two" style="margin-bottom: 1rem;">
+        <article class="card lesson-card">
+          <h3>What GPT tools are good at</h3>
+          <ul>
+            <li>Drafting emails, updates, and summaries</li>
+            <li>Explaining concepts in plain language</li>
+            <li>Reorganizing or reformatting your text</li>
+            <li>Generating options when you are stuck</li>
+          </ul>
+        </article>
+        <article class="card lesson-card">
+          <h3>Where GPT tools fall short</h3>
+          <ul>
+            <li>They can state wrong facts with full confidence</li>
+            <li>They do not know your company, team, or situation unless you tell them</li>
+            <li>They have a training cutoff and may not know recent information</li>
+            <li>They cannot verify whether what they produce is accurate</li>
+          </ul>
         </article>
       </div>
 
       <article class="callout">
-        <h3>How this creates strengths and weaknesses</h3>
-        <p>
-          Because GPT systems are trained on patterns in language, they are often strong at drafting, summarizing, explaining, and organizing.
-          For the same reason, they can also sound confident when they are wrong, incomplete, or missing important context.
-        </p>
+        <h3>What "confident but wrong" looks like</h3>
+        <p>If you ask a GPT tool for a specific regulation, policy number, or fact it was not trained on, it may produce a plausible-sounding answer that is completely made up. For example, it might cite "OSHA regulation 29 CFR 1910.278" — a number that does not exist — with complete confidence. This is called a hallucination. It looks like a real answer — but it is not.</p>
       </article>
     </section>
 
@@ -164,15 +193,10 @@ Output format: Email with subject line and body</code></pre>
     <section class="lesson-section workshop-section">
       <div class="section-heading">
         <h2>4. Prompt Workshop</h2>
-        <p>Use the fields below to build a stronger prompt step by step for real workplace tasks.</p>
+        <p>Build a real prompt step by step, then copy and paste it into any AI tool you use at work.</p>
       </div>
 
       <p>A strong prompt does not need to be long. It just needs to remove guesswork.</p>
-
-      <article class="callout">
-        <h3>Key reminder</h3>
-        <p>Prompting is not about sounding clever. It is about reducing guesswork so the tool can help more effectively and more safely.</p>
-      </article>
 
       <div class="workshop-layout">
         <form class="card workshop-form" id="prompt-workshop">
@@ -182,24 +206,24 @@ Output format: Email with subject line and body</code></pre>
             <button class="button quick-fill" type="button" data-example="supervisor">Supervisor update</button>
           </div>
           <div class="form-row">
-            <label for="role">Role</label>
-            <input id="role" name="role" type="text" value="Professional workplace communication assistant">
+            <label for="role">Role <span class="small-note">— who the AI should act like</span></label>
+            <input id="role" name="role" type="text" value="Professional workplace communication assistant" placeholder="e.g. Training assistant, professional writing assistant">
           </div>
           <div class="form-row">
-            <label for="task">Task</label>
-            <textarea id="task" name="task" rows="3">Draft a short email to notify staff about a meeting change.</textarea>
+            <label for="task">Task <span class="small-note">— what you want it to do</span></label>
+            <textarea id="task" name="task" rows="3" placeholder="e.g. Draft a short email about a schedule change">Draft a short email to notify staff about a meeting change.</textarea>
           </div>
           <div class="form-row">
-            <label for="context">Context</label>
-            <textarea id="context" name="context" rows="4">The meeting originally scheduled for Thursday at 2 PM is now Friday at 10 AM.</textarea>
+            <label for="context">Context <span class="small-note">— the details it needs</span></label>
+            <textarea id="context" name="context" rows="4" placeholder="e.g. The meeting moved from Thursday 2 PM to Friday 10 AM. Audience is all department staff.">The meeting originally scheduled for Thursday at 2 PM is now Friday at 10 AM.</textarea>
           </div>
           <div class="form-row">
-            <label for="constraints">Constraints</label>
-            <textarea id="constraints" name="constraints" rows="3">Keep the tone clear and professional. Keep it under 120 words.</textarea>
+            <label for="constraints">Constraints <span class="small-note">— limits, tone, length, or rules</span></label>
+            <textarea id="constraints" name="constraints" rows="3" placeholder="e.g. Keep it under 120 words. Professional but friendly tone.">Keep the tone clear and professional. Keep it under 120 words.</textarea>
           </div>
           <div class="form-row">
-            <label for="format">Output format</label>
-            <input id="format" name="format" type="text" value="Email with subject line and short body">
+            <label for="format">Output format <span class="small-note">— how the answer should look</span></label>
+            <input id="format" name="format" type="text" value="Email with subject line and short body" placeholder="e.g. Email with subject line, bullet list, short paragraph">
           </div>
           <div class="button-row">
             <button class="button button-primary" type="button" id="copy-prompt">Copy Prompt</button>
@@ -213,36 +237,9 @@ Output format: Email with subject line and body</code></pre>
             <span class="status-pill">Updates as you type</span>
           </div>
           <pre id="assembled-prompt" class="assembled-prompt"></pre>
+          <p class="workshop-hint">Copy your prompt, then paste it into ChatGPT, Microsoft Copilot, or any AI tool you use at work.</p>
         </section>
       </div>
-
-      <div class="grid-two example-grid">
-        <article class="card lesson-card">
-          <h3>Bad examples</h3>
-          <ul>
-            <li>"Fix this"</li>
-            <li>"Make this sound better"</li>
-            <li>"Help with this email"</li>
-          </ul>
-        </article>
-        <article class="card lesson-card">
-          <h3>Better examples</h3>
-          <ul>
-            <li>"Write a short update to staff about a changed meeting time."</li>
-            <li>"Summarize this policy in plain English for frontline staff."</li>
-            <li>"Turn these rough notes into a professional email."</li>
-          </ul>
-        </article>
-      </div>
-
-      <article class="card lesson-card">
-        <h3>Best example using the full structure</h3>
-        <pre><code>Role: Workplace communication assistant
-Task: Write a staff email about a meeting schedule change
-Context: The meeting originally scheduled for Thursday at 2 PM is now Friday at 10 AM. The audience is all department staff.
-Constraints: Use a professional but friendly tone. Keep it short and easy to scan.
-Output format: Subject line plus email body</code></pre>
-      </article>
 
       <div class="grid-two example-grid">
         <article class="card lesson-card">
@@ -297,7 +294,7 @@ Output format: Short email</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>Common mistakes beginners make</h2>
+        <h2>5. Common mistakes beginners make</h2>
         <p>Most early problems come from vague prompts, missing context, or trusting the first answer too quickly.</p>
       </div>
 
@@ -325,30 +322,25 @@ Output format: Short email</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>Key reminders</h2>
+        <h2>6. Key reminders</h2>
         <p>A short summary of the most important ideas to remember from this session.</p>
       </div>
 
-      <div class="grid-two">
-        <article class="card lesson-card">
-          <h3>How to work through this session</h3>
-          <ul>
-            <li>Start with what you already think AI is</li>
-            <li>Learn what model, runtime, parameters, and inference mean in plain English</li>
-            <li>Notice why GPT tools can be useful but still make mistakes</li>
-            <li>Practice the five-part prompt structure</li>
-            <li>Use the Prompt Workshop to build stronger prompts</li>
-          </ul>
-        </article>
-        <article class="card lesson-card">
-          <h3>What to remember</h3>
-          <ul>
-            <li>AI predicts likely output. It does not think like a person.</li>
-            <li>Clear prompts reduce guesswork.</li>
-            <li>Confident wording does not guarantee accuracy.</li>
-            <li>You should verify facts and avoid sharing sensitive information.</li>
-          </ul>
-        </article>
+      <article class="card lesson-card">
+        <h3>What to remember</h3>
+        <ul>
+          <li>AI predicts likely output. It does not think like a person.</li>
+          <li>Clear prompts reduce guesswork.</li>
+          <li>Confident wording does not guarantee accuracy.</li>
+          <li>Always verify facts and avoid sharing sensitive information.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="cta-row">
+        <a href="sessions.html" class="button">All sessions</a>
+        <a href="sessions.html" class="button button-primary">See what's coming next →</a>
       </div>
     </section>
   </main>
