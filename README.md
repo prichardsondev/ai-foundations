@@ -1,21 +1,29 @@
 # AI Foundations for Everyone
 
-Minimal static class site for the "AI Foundations for Everyone" course.
+Static class site for the "AI Foundations for Everyone" course.
 
 ## Structure
 
-- `index.html` - home page based on the course flyer
-- `sessions.html` - five-session overview page
+- `index.html` - home page with flyer banner, course overview, and links into the lesson content
+- `sessions.html` - five-session overview page plus the optional AI models reference page
 - `session-1.html` - detailed Session 1 lesson page
+- `ai-models.html` - plain-English reference page covering major AI model categories and examples
+- `hallucination-associates.html` - parody bonus page linked from the home page footer
 - `styles.css` - shared site styles
 - `prompt-workshop.js` - small client-side interactivity for the Prompt Workshop
 - `AI_Flyer260218_01.pdf` - source flyer used for course details
+- `AI_Flyer_header.png` - header image extracted from the flyer for the home page banner
+- `HANDOFF.md` - current project handoff notes
+- `.gitignore` - excludes local-only working folders such as `bkup/`
 
 ## Notes
 
 - This site uses plain HTML, one shared CSS file, and one small JavaScript file.
 - There is no backend and no framework.
 - Session 1 is the main detailed lesson and includes the Prompt Workshop tool.
+- The home page now includes a course banner, an AI workflow note, and links to the AI models reference page.
+- The AI models page is intended as a supporting classroom explainer for non-chatbot model types.
+- `hallucination-associates.html` is intentionally separate from the main course flow and presented as bonus/parody content.
 
 ## Local use
 

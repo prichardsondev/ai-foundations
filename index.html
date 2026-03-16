@@ -6,15 +6,77 @@
   <title>AI Foundations for Everyone</title>
   <meta name="description" content="A simple class site for AI Foundations for Everyone.">
   <link rel="stylesheet" href="styles.css">
+<style>
+
+    .course-banner-wrap {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .course-banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border-bottom: 6px solid #ffffff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+    }
+
+  
+    .site-footer {
+      margin-top: 3rem;
+      padding: 1.5rem 0 2.5rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-note {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .footer-bonus {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .footer-bonus a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  
+    
+    <div class="wrap course-banner-wrap">
+      <img
+        class="course-banner"
+        src="AI_Flyer_header.png"
+        alt="Southern Maine Community College Workforce Training - AI Foundations for Everyone"
+      />
+    </div>
+
+<header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">AI Foundations for Everyone</a>
       <nav class="site-nav" aria-label="Main navigation">
         <a class="active" href="index.html" aria-current="page">Home</a>
         <a href="sessions.html">Sessions</a>
         <a href="session-1.html">Session 1</a>
+        <a href="ai-models.html">AI Models</a>
       </nav>
     </div>
   </header>
@@ -30,6 +92,7 @@
         <div class="hero-actions">
           <a class="button button-primary" href="session-1.html">Start Session 1</a>
           <a class="button" href="sessions.html">View All Sessions</a>
+          <a class="button" href="ai-models.html">AI Model Categories</a>
         </div>
       </div>
       <aside class="hero-panel card">
@@ -89,7 +152,7 @@
           <ul>
             <li>Emails, writing, and summaries</li>
             <li>SOPs, checklists, and training materials</li>
-            <li>Spreadsheets, forms, and document drafting</li>
+            <li>Spreadsheet and document support</li>
             <li>Reusable prompts and templates for your role</li>
           </ul>
         </article>
@@ -125,6 +188,38 @@
 
     <section class="wrap page-section">
       <div class="section-heading">
+        <h2>How this site was built</h2>
+        <p>A practical example of the same AI workflow this course teaches.</p>
+      </div>
+      <article class="card">
+        <p>
+          This course site is also a real-world example of practical AI use. It was planned with ChatGPT,
+          built with Codex, reviewed with Claude, and finalized by a human instructor. Each tool helped with
+          a different part of the work, but none of them replaced judgment. That is one of the core ideas of
+          this class: use AI to assist, improve, and accelerate work — not to turn your brain off.
+        </p>
+      </article>
+    </section>
+
+    <section class="wrap page-section">
+      <div class="section-heading">
+        <h2>AI model categories at a glance</h2>
+        <p>A quick big-picture page you can use in class to show that AI is much bigger than chatbots.</p>
+      </div>
+      <article class="card feature-card">
+        <div>
+          <p class="label">New reference page</p>
+          <h3>Language, vision, detection, speech, forecasting, and more</h3>
+          <p>
+            Use this page to explain where GPT-style tools fit, and how models like YOLO, SAM, and Whisper solve different kinds of problems.
+          </p>
+        </div>
+        <a class="button button-primary" href="ai-models.html">Open AI Models Page</a>
+      </article>
+    </section>
+
+    <section class="wrap page-section">
+      <div class="section-heading">
         <h2>Get started</h2>
         <p>Session 1 is the main detailed lesson in this site.</p>
       </div>
@@ -143,5 +238,13 @@
       </article>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-note">AI Foundations for Everyone</p>
+      <p class="footer-bonus">Bonus: <a href="hallucination-associates.html">Hallucination &amp; Associates</a></p>
+    </div>
+  </footer>
+
 </body>
 </html>

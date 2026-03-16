@@ -453,3 +453,31 @@ a {
     min-height: auto;
   }
 }
+
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+.info-table th,
+.info-table td {
+  padding: 0.85rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.info-table th {
+  color: var(--heading);
+  background: var(--surface-muted);
+}
+
+.info-table tr:last-child td {
+  border-bottom: none;
+}

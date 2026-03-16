@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hallucination & Associates</title>
+  <meta name="description" content="A parody page about AI, truth, and conflicting realities.">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+    }
+
+    .header-inner, .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .brand, .back-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero {
+      padding: 4.5rem 0 2rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .parent-firm {
+      margin: 0 0 1rem;
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+
+    .parent-firm strong {
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.05;
+    }
+
+    .tagline {
+      margin: 1rem 0 0;
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      color: #cbd5e1;
+      max-width: 48rem;
+    }
+
+    .lead {
+      margin: 1.5rem 0 0;
+      max-width: 52rem;
+      color: #dbe4f0;
+      font-size: 1.08rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .card h2, .card h3 {
+      margin-top: 0;
+    }
+
+    .fine-print {
+      border-top: 1px solid var(--line);
+      padding-top: 1.25rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .quote {
+      margin: 0;
+      padding-left: 1rem;
+      border-left: 3px solid rgba(248, 250, 252, 0.35);
+      color: #f8fafc;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 1rem 0 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="hallucination-associates.html">Hallucination &amp; Associates</a>
+      <a class="back-link" href="index.html">Back to AI Foundations</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Parody page · clearly for fun</p>
+        <p class="parent-firm">An AI Law subsidiary of <strong>Dewy, Cheatem &amp; Hallucinate</strong></p>
+        <h1>We reconcile conflicting realities.</h1>
+        <p class="tagline">Operational truth for a probabilistic age.</p>
+        <p class="lead">When one system says yes, another says no, and a third invents an appendix, we help establish an operational truth.</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Practice areas</h2>
+        <ul>
+          <li>Model disagreement arbitration</li>
+          <li>Prompt liability containment</li>
+          <li>Synthetic evidence review</li>
+          <li>Enterprise truth alignment</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Parent firm legacy</h2>
+        <p>Backed by the seasoned professionals at Dewy, Cheatem &amp; Hallucinate, we bring decades of adjacent expertise to matters involving disputed evidence, model drift, and negotiable truth.</p>
+      </article>
+
+      <article class="card">
+        <h2>Client advisory</h2>
+        <p class="quote">If you want different facts, ask a different AI model.</p>
+      </article>
+
+      <article class="card">
+        <h2>Statement of purpose</h2>
+        <p>We represent organizations navigating the modern burden of confident outputs, inconsistent summaries, and beautifully formatted uncertainty.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Disclaimer</h2>
+      <p>This page is a parody about AI, truth, hallucinations, and the strange legal future ahead. It is not an actual law firm, not legal advice, and not a substitute for judgment.</p>
+      <p class="fine-print">Human review remains strongly recommended.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Hallucination &amp; Associates</span>
+      <span>A subsidiary of Dewy, Cheatem &amp; Hallucinate.</span>
+    </div>
+  </footer>
+</body>
+</html>
