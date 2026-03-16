@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session 1 | AI Foundations for Everyone</title>
+  <meta name="description" content="Session 1: AI Basics and Better Prompting.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">AI Foundations for Everyone</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="sessions.html">Sessions</a>
+        <a class="active" href="session-1.html" aria-current="page">Session 1</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page-shell lesson-shell">
+    <section class="page-title">
+      <p class="eyebrow">Session 1</p>
+      <h1>AI Basics and Better Prompting</h1>
+      <p class="lead">
+        A plain-English introduction to what AI is, how GPT tools work at a high level, and how to ask better questions to get more useful answers.
+      </p>
+    </section>
+
+    <section class="card outcomes-card">
+      <h2>Session outcomes</h2>
+      <ul>
+        <li>Explain AI in practical, non-technical terms</li>
+        <li>Recognize common strengths and limits of AI tools</li>
+        <li>Use a basic prompt structure to get more useful answers</li>
+      </ul>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>1. What AI actually is</h2>
+        <p>AI tools are good at predicting useful language and patterns from your input, but they are not judgment, common sense, or truth.</p>
+      </div>
+
+      <article class="callout">
+        <h3>Key idea</h3>
+        <p>AI is not magic. It is software that learned patterns from training data and is often good at predicting useful responses, but that does not mean it understands situations the way people do.</p>
+      </article>
+
+      <article class="callout">
+        <h3>Quick visual summary</h3>
+        <p><strong>Runtime</strong> = engine</p>
+        <p><strong>Parameters</strong> = what it learned</p>
+        <p><strong>Inference</strong> = using the model to answer</p>
+      </article>
+
+      <div class="stack">
+        <article class="card lesson-card">
+          <h3>What a model is</h3>
+          <p>
+            A model is the part of the AI system that has learned patterns from a very large amount of example data.
+            In plain English, it is a trained prediction engine.
+          </p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Runtime and parameter files</h3>
+          <p>
+            The runtime is the software engine that runs the model. The parameter files are the learned numeric values from training.
+          </p>
+          <p>
+            A simple way to think about this is: the runtime is the engine doing the work, and the parameters are the learned values that shape how the model responds.
+          </p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Inference</h3>
+          <p>
+            Inference is using the model to generate an answer from input. In everyday terms, it is the moment when your prompt goes in and the model produces a response.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>2. What a GPT is</h2>
+        <p>GPT is a useful label because each part of the name helps explain how the tool works and why it behaves the way it does.</p>
+      </div>
+
+      <div class="grid-three">
+        <article class="card lesson-card">
+          <h3>Generative</h3>
+          <p>It creates new text based on patterns it learned. It does not simply retrieve one stored answer.</p>
+        </article>
+        <article class="card lesson-card">
+          <h3>Pre-trained</h3>
+          <p>It learned from large amounts of data before you ever started using it.</p>
+        </article>
+        <article class="card lesson-card">
+          <h3>Transformer</h3>
+          <p>It is designed to pay attention to how words relate to each other in context, which helps it produce more coherent responses.</p>
+        </article>
+      </div>
+
+      <article class="callout">
+        <h3>How this creates strengths and weaknesses</h3>
+        <p>
+          Because GPT systems are trained on patterns in language, they are often strong at drafting, summarizing, explaining, and organizing.
+          For the same reason, they can also sound confident when they are wrong, incomplete, or missing important context.
+        </p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>3. Prompt engineering basics</h2>
+        <p>A better prompt gives the tool a clearer job, clearer context, and a clearer target for the answer.</p>
+      </div>
+
+      <article class="callout">
+        <h3>Simple prompt structure</h3>
+        <p><strong>Role</strong>: who the AI should act like</p>
+        <p><strong>Task</strong>: what you want it to do</p>
+        <p><strong>Context</strong>: the details it needs</p>
+        <p><strong>Constraints</strong>: limits, tone, length, or rules</p>
+        <p><strong>Output format</strong>: how the answer should be presented</p>
+      </article>
+
+      <article class="callout">
+        <h3>Why this matters</h3>
+        <p>When prompts are vague, the tool fills in the blanks on its own. When prompts are clear, the output is usually more useful and easier to verify.</p>
+      </article>
+
+      <div class="stack">
+        <article class="card lesson-card">
+          <h3>Bad prompt</h3>
+          <p class="example-label">Weak example</p>
+          <pre><code>Help with this email.</code></pre>
+          <p>Too vague. The AI has to guess the audience, tone, details, and format.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Better prompt</h3>
+          <p class="example-label">Clearer example</p>
+          <pre><code>Write a short professional email telling my team that the meeting moved from Thursday at 2 PM to Friday at 10 AM.</code></pre>
+          <p>Better, because it gives the task, audience, and key change.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Best prompt</h3>
+          <p class="example-label">Structured example</p>
+          <pre><code>Role: Professional workplace communication assistant
+Task: Draft an email to my team about a schedule change
+Context: The meeting originally scheduled for Thursday at 2 PM is now Friday at 10 AM
+Constraints: Keep it friendly, clear, and under 120 words
+Output format: Email with subject line and body</code></pre>
+          <p>Best, because it gives the AI a role, a task, the key facts, clear limits, and a target format.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section workshop-section">
+      <div class="section-heading">
+        <h2>4. Prompt Workshop</h2>
+        <p>Use the fields below to build a stronger prompt step by step for real workplace tasks.</p>
+      </div>
+
+      <p>A strong prompt does not need to be long. It just needs to remove guesswork.</p>
+
+      <article class="callout">
+        <h3>Key reminder</h3>
+        <p>Prompting is not about sounding clever. It is about reducing guesswork so the tool can help more effectively and more safely.</p>
+      </article>
+
+      <div class="workshop-layout">
+        <form class="card workshop-form" id="prompt-workshop">
+          <div class="quick-fill-row" aria-label="Quick-fill examples">
+            <button class="button quick-fill" type="button" data-example="meeting">Meeting change</button>
+            <button class="button quick-fill" type="button" data-example="sop">SOP summary</button>
+            <button class="button quick-fill" type="button" data-example="supervisor">Supervisor update</button>
+          </div>
+          <div class="form-row">
+            <label for="role">Role</label>
+            <input id="role" name="role" type="text" value="Professional workplace communication assistant">
+          </div>
+          <div class="form-row">
+            <label for="task">Task</label>
+            <textarea id="task" name="task" rows="3">Draft a short email to notify staff about a meeting change.</textarea>
+          </div>
+          <div class="form-row">
+            <label for="context">Context</label>
+            <textarea id="context" name="context" rows="4">The meeting originally scheduled for Thursday at 2 PM is now Friday at 10 AM.</textarea>
+          </div>
+          <div class="form-row">
+            <label for="constraints">Constraints</label>
+            <textarea id="constraints" name="constraints" rows="3">Keep the tone clear and professional. Keep it under 120 words.</textarea>
+          </div>
+          <div class="form-row">
+            <label for="format">Output format</label>
+            <input id="format" name="format" type="text" value="Email with subject line and short body">
+          </div>
+          <div class="button-row">
+            <button class="button button-primary" type="button" id="copy-prompt">Copy Prompt</button>
+            <button class="button" type="button" id="reset-prompt">Reset</button>
+          </div>
+        </form>
+
+        <section class="card output-card">
+          <div class="output-header">
+            <h3>Live assembled prompt</h3>
+            <span class="status-pill">Updates as you type</span>
+          </div>
+          <pre id="assembled-prompt" class="assembled-prompt"></pre>
+        </section>
+      </div>
+
+      <div class="grid-two example-grid">
+        <article class="card lesson-card">
+          <h3>Bad examples</h3>
+          <ul>
+            <li>"Fix this"</li>
+            <li>"Make this sound better"</li>
+            <li>"Help with this email"</li>
+          </ul>
+        </article>
+        <article class="card lesson-card">
+          <h3>Better examples</h3>
+          <ul>
+            <li>"Write a short update to staff about a changed meeting time."</li>
+            <li>"Summarize this policy in plain English for frontline staff."</li>
+            <li>"Turn these rough notes into a professional email."</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="card lesson-card">
+        <h3>Best example using the full structure</h3>
+        <pre><code>Role: Workplace communication assistant
+Task: Write a staff email about a meeting schedule change
+Context: The meeting originally scheduled for Thursday at 2 PM is now Friday at 10 AM. The audience is all department staff.
+Constraints: Use a professional but friendly tone. Keep it short and easy to scan.
+Output format: Subject line plus email body</code></pre>
+      </article>
+
+      <div class="grid-two example-grid">
+        <article class="card lesson-card">
+          <h3>Workplace example: SOP summary</h3>
+          <p class="example-label">Rough source text a person might actually start with</p>
+          <pre><code>Forklift battery change basic steps:
+Park forklift in battery area
+Turn off machine
+Put on gloves and face shield
+Open battery compartment carefully
+Disconnect old battery
+Use lift tool to remove battery
+Put in charged battery and reconnect
+Check connection before starting forklift
+If battery looks damaged tell supervisor</code></pre>
+          <p class="example-label">Prompt built from that rough input</p>
+          <pre><code>Role: Training assistant
+Task: Summarize this SOP for new employees
+Context: Forklift battery change basic steps:
+Park forklift in battery area
+Turn off machine
+Put on gloves and face shield
+Open battery compartment carefully
+Disconnect old battery
+Use lift tool to remove battery
+Put in charged battery and reconnect
+Check connection before starting forklift
+If battery looks damaged tell supervisor
+Constraints: Use plain English. Focus on the most important safety and process steps. Keep it under 8 bullet points.
+Output format: Bullet list</code></pre>
+        </article>
+        <article class="card lesson-card">
+          <h3>Workplace example: Supervisor update</h3>
+          <pre><code>Role: Professional writing assistant
+Task: Draft a short update for my supervisor
+Context: I need to explain that shipment delays affected this week's schedule
+Constraints: Keep it clear, direct, and under 150 words
+Output format: Short email</code></pre>
+        </article>
+      </div>
+
+      <article class="callout">
+        <h3>Workplace reminder</h3>
+        <p>Even with a strong prompt, always review the output before using it. Check facts, names, dates, and anything sensitive before you send or share it.</p>
+      </article>
+
+      <article class="callout">
+        <h3>Practical tip</h3>
+        <p>AI often works better when you bring rough notes, draft instructions, or plain workplace text for the tool to improve. That is usually easier and more realistic than starting from a blank page.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>Common mistakes beginners make</h2>
+        <p>Most early problems come from vague prompts, missing context, or trusting the first answer too quickly.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Prompt mistakes</h3>
+          <ul>
+            <li>Being too vague about the task</li>
+            <li>Leaving out important context</li>
+            <li>Not asking for a clear output format</li>
+            <li>Giving too many mixed instructions at once</li>
+          </ul>
+        </article>
+        <article class="card lesson-card">
+          <h3>Usage mistakes</h3>
+          <ul>
+            <li>Assuming confident wording means the answer is correct</li>
+            <li>Skipping basic fact-checking</li>
+            <li>Sharing sensitive information too freely</li>
+            <li>Using AI output without editing it for the real audience</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>Key reminders</h2>
+        <p>A short summary of the most important ideas to remember from this session.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>How to work through this session</h3>
+          <ul>
+            <li>Start with what you already think AI is</li>
+            <li>Learn what model, runtime, parameters, and inference mean in plain English</li>
+            <li>Notice why GPT tools can be useful but still make mistakes</li>
+            <li>Practice the five-part prompt structure</li>
+            <li>Use the Prompt Workshop to build stronger prompts</li>
+          </ul>
+        </article>
+        <article class="card lesson-card">
+          <h3>What to remember</h3>
+          <ul>
+            <li>AI predicts likely output. It does not think like a person.</li>
+            <li>Clear prompts reduce guesswork.</li>
+            <li>Confident wording does not guarantee accuracy.</li>
+            <li>You should verify facts and avoid sharing sensitive information.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="prompt-workshop.js"></script>
+</body>
+</html>
