@@ -1,56 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 4 | AI Foundations for Everyone</title>
-<meta name="description" content="Session 4 placeholder page for AI Foundations for Everyone.">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session 4 | AI Foundations for Everyone</title>
+  <meta name="description" content="Session 4: GPT chat models vs AI agents, workflow automation, human review, and practical 2026 business use.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="site-header">
-<div class="wrap header-inner">
-<a class="brand" href="index.html">AI Foundations for Everyone</a>
-<nav class="site-nav" aria-label="Main navigation">
-<a href="index.html">Home</a>
-<a href="sessions.html" class="active" aria-current="page">Sessions</a>
-<a href="ai-models.html">AI Models</a>
-</nav>
-</div>
-</header>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">AI Foundations for Everyone</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="sessions.html" class="active" aria-current="page">Sessions</a>
+        <a href="ai-models.html">AI Models</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="wrap page-shell lesson-shell">
-<section class="page-title">
-<p class="eyebrow">Session 4</p>
-<h1>GPT Chat Models vs AI Agents</h1>
-<p class="lead">
-  This page is a temporary placeholder while Session 4 content is being developed.
-</p>
-</section>
+  <main class="wrap page-shell lesson-shell">
+    <section class="page-title">
+      <p class="eyebrow">Session 4</p>
+      <h1>GPT Chat Models vs AI Agents</h1>
+      <p class="lead">
+        This session explains the difference between asking AI for an answer and setting up AI to work through a task. The goal is to help you spot where chat is enough, where workflow automation helps, and where agent-style systems can add real business value.
+      </p>
+    </section>
 
-<section class="card outcomes-card">
-<h2>Planned focus</h2>
-<ul>
-<li>Compare chat-based AI tools with agent-style systems</li>
-<li>Explain what each type does well</li>
-<li>Show where human review and caution matter most</li>
-</ul>
-</section>
+    <section class="card outcomes-card">
+      <h2>Session outcomes</h2>
+      <ul>
+        <li>Explain the difference between a chat model, a workflow, and an agent</li>
+        <li>Recognize practical 2026 examples of agent-style work</li>
+        <li>Choose when automation is useful and when human review must stay involved</li>
+        <li>Identify safe first steps for non-technical users</li>
+        <li>Complete one simple in-class activity with no coding required</li>
+      </ul>
+    </section>
 
-<section class="lesson-section">
-<article class="callout">
-<h3>Coming soon</h3>
-<p>Session 4 will be added here soon. For now, use the Sessions page to continue through the course.</p>
-</article>
-</section>
+    <article class="card lesson-card" style="margin-bottom: 1.5rem;">
+      <h3>What this session covers</h3>
+      <ul>
+        <li>Chat model vs AI agent in plain English</li>
+        <li>Examples that show how agents are used in real work</li>
+        <li>Workflow automation vs agent-style systems</li>
+        <li>Where caution and human approval matter most</li>
+        <li>How beginners can get started without building a giant system</li>
+        <li>A hands-on task classification activity</li>
+      </ul>
+    </article>
 
-<section class="lesson-section">
-<div class="cta-row">
-<a href="session-3.html" class="button">← Back to Session 3</a>
-<a href="sessions.html" class="button button-primary">Back to All Sessions</a>
-<a href="session-5.html" class="button">Continue to Session 5 →</a>
-</div>
-</section>
-</main>
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>1. The basic difference</h2>
+        <p>Both use AI, but they are not the same kind of tool.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="callout">
+          <h3>Chat model</h3>
+          <p>A chat model is mainly there to answer, draft, explain, rewrite, summarize, and help you think.</p>
+          <p>You ask for something. It responds. In most cases, you stay in charge of the next step.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>AI agent</h3>
+          <p>An agent is closer to a system working toward a goal.</p>
+          <p>It may have tools, files, instructions, steps, and rules. It can gather information, make decisions inside limits, take actions, and hand work back to a person for approval.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>2. A simple way to remember it</h2>
+        <p>Use this mental model when someone says “agent.”</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ul>
+          <li>Chat model = answers, drafts, explains</li>
+          <li>Agent = goal + tools + steps + actions + guardrails</li>
+          <li>Workflow automation = fixed path with known steps</li>
+          <li>Many real systems combine all three</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>3. A few tech terms you should know</h2>
+        <p>You do not need to be a programmer to understand agents, but these terms will help when you use AI tools or workflow platforms such as n8n.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>API</h3>
+          <p>An API is a way for one program to talk to another program.</p>
+          <p>Example: an AI system might use an API to read a calendar, check a database, send a message, or call an AI model.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>HTTPS</h3>
+          <p>HTTPS is the secure version of a website connection.</p>
+          <p>It helps protect data as it moves between systems, which matters when agents handle business information.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Authentication</h3>
+          <p>Authentication means proving who you are.</p>
+          <p>Examples include signing in, using a token, or using an API key.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Permissions</h3>
+          <p>Permissions determine what a user or system is allowed to access or do.</p>
+          <p>An agent may be allowed to read a file but not delete it. Good permissions reduce risk.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>JSON</h3>
+          <p>JSON is a common text format used to send structured data between systems.</p>
+          <p>If you use APIs, automation tools, or AI integrations, you will probably see JSON often.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Webhook</h3>
+          <p>A webhook is a way for one system to notify another when something happens.</p>
+          <p>Example: when a new form is submitted, a webhook can trigger a workflow automatically.</p>
+        </article>
+      </div>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Real Example: Calling an API</h3>
+        <p>Imagine a small local app that reads two temperature sensors from these endpoints:</p>
+        <ul>
+          <li><code>/api/temp1</code></li>
+          <li><code>/api/temp2</code></li>
+        </ul>
+        <p>One response might look like this:</p>
+        <pre><code>{
+  "sensor": "temp1",
+  "location": "near pellet stove",
+  "temperatureF": 78.4,
+  "timestamp": "2026-04-05T14:05:00"
+}</code></pre>
+        <p>A tiny JavaScript example:</p>
+        <pre><code>const response = await fetch('/api/temp1');
+const data = await response.json();
+console.log(data.temperatureF);</code></pre>
+        <p>Plain English: the app asked the <code>/api/temp1</code> address for data, got back JSON, and then pulled out the temperature value.</p>
+      </article>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Simple Automation Example</h3>
+        <p>Sensor 1 is near the pellet stove. Sensor 2 is across the basement. A small app checks both readings every few minutes.</p>
+        <p>If the temperature difference is large enough, the app reports that the stove is likely running.</p>
+        <p>This is workflow automation, not yet a full agent. The logic is known ahead of time and the steps are fixed.</p>
+      </article>
+
+      <div class="grid-two" style="margin-top: 1rem;">
+        <article class="card lesson-card">
+          <h3>Coded logic version</h3>
+          <p>The app uses a simple rule such as: if <code>temp1 - temp2 &gt; 8</code>, mark the stove as likely on.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>AI analysis version</h3>
+          <p>The app could send both readings to a local Ollama API endpoint and ask the model to describe the likely situation in plain English.</p>
+          <p>That adds AI analysis, but it still starts with the same sensor data and API calls.</p>
+        </article>
+      </div>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Workflow automation</h3>
+        <p>A workflow is a series of steps a system follows.</p>
+        <p>Example: receive an email, classify it, save it, and notify a person. This is often different from an agent, which may choose among tools and adapt its steps.</p>
+      </article>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Quick comparison: API vs webhook vs workflow</h3>
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>Simple meaning</th>
+                <th>Easy example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Term">API</td>
+                <td data-label="Simple meaning">A way for one system to ask another system for data or an action.</td>
+                <td data-label="Easy example">An agent asks Google Calendar for tomorrow's meetings.</td>
+              </tr>
+              <tr>
+                <td data-label="Term">Webhook</td>
+                <td data-label="Simple meaning">A message sent automatically when an event happens.</td>
+                <td data-label="Easy example">A form submission triggers a workflow the moment the form is completed.</td>
+              </tr>
+              <tr>
+                <td data-label="Term">Workflow</td>
+                <td data-label="Simple meaning">A set of connected steps that move work from one stage to the next.</td>
+                <td data-label="Easy example">A new request comes in, gets categorized, logged, and assigned to a person.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="callout">
+        <h3>Why these terms matter</h3>
+        <p>Agents usually depend on these building blocks. They connect to tools, work through secure web systems, use APIs, follow permissions, and take action inside workflows.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>4. What this looks like at work</h2>
+        <p>Now that you know the basic building blocks, here is what agent-style work looks like in normal business situations.</p>
+        <p>The best examples are not science fiction. They are ordinary business tasks.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Chat-based examples</h3>
+          <ul>
+            <li>Draft a reply to a difficult email</li>
+            <li>Summarize a meeting transcript</li>
+            <li>Explain a spreadsheet formula in plain English</li>
+            <li>Rewrite a policy so it is easier to understand</li>
+            <li>Brainstorm questions for a customer interview</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Agent-style examples</h3>
+          <ul>
+            <li>Process incoming email, sort it by type, draft responses, and route the rest to the right person</li>
+            <li>Prepare for calendar meetings by reading notes, reviewing related files, and creating a short briefing</li>
+            <li>Read folders of documents and produce structured summaries or action lists</li>
+            <li>Analyze spreadsheets, spot exceptions, and draft a manager update</li>
+            <li>Monitor Slack or Teams channels for issues, summarize patterns, and assign follow-up tasks</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>5. Why agents get attention</h2>
+        <p>Agents matter when the work is bigger than one answer.</p>
+      </div>
+
+      <article class="callout">
+        <h3>Plain-English example</h3>
+        <p>A chat tool can help write one email. An agent-style system might read the email, check related documents, look at the calendar, draft a response, update a task list, and ask a human for approval before sending anything.</p>
+      </article>
+
+      <article class="card lesson-card">
+        <p>The key idea is not “autonomy for everything.” The key idea is coordinated help across multiple steps.</p>
+        <p>That is why agents are often discussed alongside tools, permissions, approvals, and monitoring.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>6. Workflow automation vs agents</h2>
+        <p>Do not jump to agents if a simpler workflow will do the job.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Workflow automation may be enough</th>
+              <th>An agent may be more appropriate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Question">Are the steps mostly known in advance?</td>
+              <td data-label="Workflow automation may be enough">Yes. The path is fixed and repeatable.</td>
+              <td data-label="An agent may be more appropriate">No. The system must figure out which path fits.</td>
+            </tr>
+            <tr>
+              <td data-label="Question">Does it need to choose among tools?</td>
+              <td data-label="Workflow automation may be enough">Rarely. The tool sequence is already set.</td>
+              <td data-label="An agent may be more appropriate">Yes. It may need to select tools based on the situation.</td>
+            </tr>
+            <tr>
+              <td data-label="Question">Does it need multi-step reasoning?</td>
+              <td data-label="Workflow automation may be enough">Only a little.</td>
+              <td data-label="An agent may be more appropriate">Yes. It needs to gather, compare, decide, and adapt.</td>
+            </tr>
+            <tr>
+              <td data-label="Question">Will exceptions happen often?</td>
+              <td data-label="Workflow automation may be enough">No. The job is predictable.</td>
+              <td data-label="An agent may be more appropriate">Yes. The task changes based on what it finds.</td>
+            </tr>
+            <tr>
+              <td data-label="Question">Good starting advice</td>
+              <td data-label="Workflow automation may be enough">Start with a workflow tool such as n8n when the process is mostly known and fixed.</td>
+              <td data-label="An agent may be more appropriate">Consider an agent when the system must reason through steps, choose tools, and adapt.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Important reality</h3>
+        <p>Many real business solutions combine both approaches. A workflow might handle the predictable parts, while an agent handles the parts that require judgment, reading, classification, or adapting to new information.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>7. Automation Tools and Agent Tools</h2>
+        <p>Different tools fit different kinds of work.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Automation / workflow tools</h3>
+          <ul>
+            <li><strong>n8n</strong>: A flexible workflow tool for connecting apps, APIs, and logic when the steps are mostly known.</li>
+            <li><strong>Make</strong>: A visual automation platform that helps you link services and build step-by-step processes.</li>
+            <li><strong>Zapier</strong>: A beginner-friendly automation tool for connecting common business apps and repetitive tasks.</li>
+            <li><strong>Apache Airflow</strong>: A more technical workflow scheduler often used for data pipelines and repeated backend jobs.</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Agent-style tools</h3>
+          <ul>
+            <li><strong>ChatGPT agent</strong>: Can work through a task with tools, files, and multiple steps inside clear limits.</li>
+            <li><strong>Codex app</strong>: An agent-style coding tool that can inspect a codebase, make changes, and work toward a goal.</li>
+            <li><strong>Claude Code</strong>: A coding-focused agent that can reason through software tasks and use tools while you review the work.</li>
+            <li><strong>Antigravity</strong> (optional): An agent-first coding environment built around goal-driven work rather than single prompts.</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="callout">
+        <h3>Simple rule of thumb</h3>
+        <p>Workflow tools are best when the steps are mostly known. Agent tools are best when the system needs to choose tools, adapt, or work through multiple steps. Many real systems combine both.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>8. Where agents are heading in 2026</h2>
+        <p>The direction is practical, not magical.</p>
+      </div>
+
+      <article class="callout">
+        <h3>2026 direction</h3>
+        <p>The strongest trend is toward narrow, useful, trustworthy agents. Businesses are looking for systems that save time on a specific job, work inside clear limits, and make human review easy.</p>
+        <p>In other words, 2026 is less about flashy autonomy and more about dependable systems that fit real work.</p>
+      </article>
+
+      <article class="card lesson-card">
+        <ul>
+          <li>More agents will be built around one role or one workflow, not “do everything” promises</li>
+          <li>Trust, permissions, approval steps, and audit trails will matter as much as raw intelligence</li>
+          <li>Packaged business tools will continue to make agents easier for non-technical teams to try</li>
+          <li>Reliable handoff to a human will remain part of good system design</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>9. When agents are useful in real business settings</h2>
+        <p>Use agents where the value comes from combining information and helping move work forward.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Good use cases</h3>
+          <ul>
+            <li>Preparing meeting briefs from calendars, notes, and documents</li>
+            <li>Sorting, summarizing, and routing incoming requests</li>
+            <li>Reviewing files or spreadsheets for patterns, exceptions, or missing details</li>
+            <li>Monitoring communication channels and surfacing items that need attention</li>
+            <li>Creating first drafts of summaries, updates, and task lists</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>What makes these work well</h3>
+          <ul>
+            <li>The task is narrow enough to define clearly</li>
+            <li>The system has the right inputs and tool access</li>
+            <li>There are clear rules for what it can and cannot do</li>
+            <li>A person can review important actions before they happen</li>
+            <li>Success can be measured in time saved, accuracy, or consistency</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>10. Where human review matters most</h2>
+        <p>This is where good judgment beats speed.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ul>
+          <li>Sending email to customers, vendors, or leadership</li>
+          <li>Modifying records in a system of record</li>
+          <li>Purchases, refunds, or anything involving money movement</li>
+          <li>Scheduling or changing calendar events that affect other people</li>
+          <li>External communication of any kind</li>
+          <li>Legal, financial, medical, compliance-related, or high-trust decisions</li>
+        </ul>
+      </article>
+
+      <article class="callout">
+        <h3>Good rule</h3>
+        <p>If the action could create cost, risk, confusion, or harm, add human approval before the final step.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>11. How non-technical users can get started</h2>
+        <p>Start with packaged tools, not a giant custom build.</p>
+        <p>Your best first project is usually one repeated task, not a full business process.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Good first steps</h3>
+          <ul>
+            <li>Try packaged tools first, such as ChatGPT agent features or Microsoft Copilot agents and Agent Builder</li>
+            <li>Start with one narrow task that happens often</li>
+            <li>Choose a task where success is easy to judge</li>
+            <li>Keep a person in the loop for anything risky</li>
+            <li>Improve the process before trying to expand it</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>A smart beginner approach</h3>
+          <ul>
+            <li>Pick one job such as meeting prep, inbox triage, or weekly summaries</li>
+            <li>Define the inputs, outputs, and approval point</li>
+            <li>Test with a small number of examples</li>
+            <li>Watch for errors, unclear instructions, and missing context</li>
+            <li>Only expand after the narrow version is dependable</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>12. Hands-on activity</h2>
+        <p>This activity helps you decide what kind of AI support fits a task.</p>
+      </div>
+
+      <article class="callout">
+        <h3>Activity goal</h3>
+        <p>Classify tasks as one of five options: chat model, workflow automation, agent, agent with human approval, or do not automate.</p>
+      </article>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Part 1: Classify the task</h3>
+          <p>For each example below, decide which category fits best.</p>
+          <ul>
+            <li>Rewrite a rough email so it sounds professional</li>
+            <li>Move form submissions into a spreadsheet and notify a manager</li>
+            <li>Read a shared folder, summarize the files, and prepare talking points for a meeting</li>
+            <li>Watch a team channel for urgent issues and draft follow-up tasks for approval</li>
+            <li>Automatically send refunds without any human check</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Part 2: Design a simple solution</h3>
+          <p>Use this worksheet structure to sketch a simple solution.</p>
+          <ul>
+            <li>Task: What job are we trying to complete?</li>
+            <li>Inputs: What information does the system need?</li>
+            <li>Tools: What systems or files would it use?</li>
+            <li>Output: What should it produce?</li>
+            <li>Approval point: Where should a human review the result?</li>
+            <li>Do not automate: What should stay fully human?</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>13. Discussion prompt</h2>
+        <p>Bring the session back to real life.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <p>Ask yourself: Where in your own work or life do you have a repeating task that involves reading information, making a simple decision, and preparing a draft or next step?</p>
+        <p>Then ask yourself: Should that task use a chat model, a workflow, an agent, or an agent with human approval?</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>14. Key takeaway</h2>
+        <p>Keep the idea simple and useful.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ul>
+          <li>Use chat when you mainly need answers, drafts, or explanations</li>
+          <li>Use workflow automation when the process is clear and repeatable</li>
+          <li>Use an agent when the system must work through steps, use tools, and adapt</li>
+          <li>Keep humans involved when the outcome affects money, records, trust, or compliance</li>
+          <li>Start small, stay practical, and build trust before expanding</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="cta-row">
+        <a href="session-3.html" class="button">← Back to Session 3</a>
+        <a href="sessions.html" class="button button-primary">Back to All Sessions</a>
+        <a href="session-5.html" class="button">Continue to Session 5 →</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
