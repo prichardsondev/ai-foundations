@@ -35,7 +35,7 @@
         <li>Recognize practical 2026 examples of agent-style work</li>
         <li>Choose when automation is useful and when human review must stay involved</li>
         <li>Identify safe first steps for non-technical users</li>
-        <li>Complete one simple in-class activity with no coding required</li>
+        <li>Complete one simple in-class activity and inspect a real API in the browser</li>
       </ul>
     </section>
 
@@ -133,47 +133,6 @@
       </div>
 
       <article class="card lesson-card" style="margin-top: 1rem;">
-        <h3>Real Example: Calling an API</h3>
-        <p>Imagine a small local app that reads two temperature sensors from these endpoints:</p>
-        <ul>
-          <li><code>/api/temp1</code></li>
-          <li><code>/api/temp2</code></li>
-        </ul>
-        <p>One response might look like this:</p>
-        <pre><code>{
-  "sensor": "temp1",
-  "location": "near pellet stove",
-  "temperatureF": 78.4,
-  "timestamp": "2026-04-05T14:05:00"
-}</code></pre>
-        <p>A tiny JavaScript example:</p>
-        <pre><code>const response = await fetch('/api/temp1');
-const data = await response.json();
-console.log(data.temperatureF);</code></pre>
-        <p>Plain English: the app asked the <code>/api/temp1</code> address for data, got back JSON, and then pulled out the temperature value.</p>
-      </article>
-
-      <article class="card lesson-card" style="margin-top: 1rem;">
-        <h3>Simple Automation Example</h3>
-        <p>Sensor 1 is near the pellet stove. Sensor 2 is across the basement. A small app checks both readings every few minutes.</p>
-        <p>If the temperature difference is large enough, the app reports that the stove is likely running.</p>
-        <p>This is workflow automation, not yet a full agent. The logic is known ahead of time and the steps are fixed.</p>
-      </article>
-
-      <div class="grid-two" style="margin-top: 1rem;">
-        <article class="card lesson-card">
-          <h3>Coded logic version</h3>
-          <p>The app uses a simple rule such as: if <code>temp1 - temp2 &gt; 8</code>, mark the stove as likely on.</p>
-        </article>
-
-        <article class="card lesson-card">
-          <h3>AI analysis version</h3>
-          <p>The app could send both readings to a local Ollama API endpoint and ask the model to describe the likely situation in plain English.</p>
-          <p>That adds AI analysis, but it still starts with the same sensor data and API calls.</p>
-        </article>
-      </div>
-
-      <article class="card lesson-card" style="margin-top: 1rem;">
         <h3>Workflow automation</h3>
         <p>A workflow is a series of steps a system follows.</p>
         <p>Example: receive an email, classify it, save it, and notify a person. This is often different from an agent, which may choose among tools and adapt its steps.</p>
@@ -181,33 +140,24 @@ console.log(data.temperatureF);</code></pre>
 
       <article class="card lesson-card" style="margin-top: 1rem;">
         <h3>Quick comparison: API vs webhook vs workflow</h3>
-        <div class="table-wrap">
-          <table class="info-table">
-            <thead>
-              <tr>
-                <th>Term</th>
-                <th>Simple meaning</th>
-                <th>Easy example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="Term">API</td>
-                <td data-label="Simple meaning">A way for one system to ask another system for data or an action.</td>
-                <td data-label="Easy example">An agent asks Google Calendar for tomorrow's meetings.</td>
-              </tr>
-              <tr>
-                <td data-label="Term">Webhook</td>
-                <td data-label="Simple meaning">A message sent automatically when an event happens.</td>
-                <td data-label="Easy example">A form submission triggers a workflow the moment the form is completed.</td>
-              </tr>
-              <tr>
-                <td data-label="Term">Workflow</td>
-                <td data-label="Simple meaning">A set of connected steps that move work from one stage to the next.</td>
-                <td data-label="Easy example">A new request comes in, gets categorized, logged, and assigned to a person.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="grid-three">
+          <article class="card lesson-card">
+            <h3>API</h3>
+            <p><strong>Simple meaning:</strong> A way for one system to ask another system for data or an action.</p>
+            <p><strong>Easy example:</strong> An app asks the basement temperature API for the latest reading.</p>
+          </article>
+
+          <article class="card lesson-card">
+            <h3>Webhook</h3>
+            <p><strong>Simple meaning:</strong> A message sent automatically when an event happens.</p>
+            <p><strong>Easy example:</strong> A form submission triggers a workflow the moment the form is completed.</p>
+          </article>
+
+          <article class="card lesson-card">
+            <h3>Workflow</h3>
+            <p><strong>Simple meaning:</strong> A set of connected steps that move work from one stage to the next.</p>
+            <p><strong>Easy example:</strong> A new request comes in, gets categorized, logged, and assigned to a person.</p>
+          </article>
         </div>
       </article>
 
@@ -219,7 +169,90 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>4. What this looks like at work</h2>
+        <h2>4. Real Example: Sensors, APIs, and Automation</h2>
+        <p>This classroom demo uses real hardware, real data, and a real public API.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <h3>The basement demo in plain English</h3>
+        <p>We built a small basement temperature demo using two Raspberry Pis and DHT22 sensors.</p>
+        <p>One Raspberry Pi is on the far side of the basement. The other is near the pellet stove. The public-facing Pi is exposed through Cloudflare at <a class="text-link" href="https://basetemp.raspberrynode.com">basetemp.raspberrynode.com</a>.</p>
+        <p>That public API can return one local reading, both sensor readings together, or a simple decision about whether the stove is likely running.</p>
+      </article>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Try these endpoints in a browser</h3>
+        <ul>
+          <li><a class="text-link" href="https://basetemp.raspberrynode.com/api/temp" target="_blank" rel="noopener noreferrer">https://basetemp.raspberrynode.com/api/temp</a> = one raw local sensor reading from the far-side Pi</li>
+          <li><a class="text-link" href="https://basetemp.raspberrynode.com/api/all" target="_blank" rel="noopener noreferrer">https://basetemp.raspberrynode.com/api/all</a> = both raw sensor readings returned as JSON</li>
+          <li><a class="text-link" href="https://basetemp.raspberrynode.com/api/status" target="_blank" rel="noopener noreferrer">https://basetemp.raspberrynode.com/api/status</a> = fixed coded logic that returns <code>LIKELY RUNNING</code> or <code>LIKELY OFF</code></li>
+        </ul>
+      </article>
+
+      <div class="grid-two" style="margin-top: 1rem;">
+        <article class="card lesson-card">
+          <h3>Example JSON</h3>
+          <pre><code>{
+  "far_side": {
+    "temperature_f": 66.2,
+    "humidity": 42.1
+  },
+  "near_stove": {
+    "temperature_f": 78.9,
+    "humidity": 31.4
+  },
+  "time": "2026-04-06T14:05:00Z"
+}</code></pre>
+          <p>A simplified <code>/api/all</code> response like this shows both raw readings in JSON. This is the kind of data a browser, app, workflow, or AI tool can read from an API.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Where APIs show up</h3>
+          <ul>
+            <li>Websites and cloud services</li>
+            <li>n8n and other workflow tools</li>
+            <li>Calendars, email, Slack, Teams, and CRMs</li>
+            <li>Databases, sensors, and AI systems</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid-two" style="margin-top: 1rem;">
+        <article class="card lesson-card">
+          <h3>Why <code>/api/status</code> is automation, not yet a full agent</h3>
+          <p>It follows the same fixed process every time:</p>
+          <ul>
+            <li>Read sensor A</li>
+            <li>Read sensor B</li>
+            <li>Compare the values</li>
+            <li>Apply a threshold</li>
+            <li>Return a result</li>
+          </ul>
+          <p>This uses APIs, but the <code>/api/status</code> result is still coded automation, not yet a full agent.</p>
+          <p>That is useful automation, but it is still fixed logic rather than a system adapting its own approach.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>What an AI or agent version could add</h3>
+          <ul>
+            <li>Look at the last hour or day of readings</li>
+            <li>Detect unusual patterns instead of one simple difference</li>
+            <li>Generate a plain-English explanation with uncertainty</li>
+            <li>Decide whether a person should be alerted</li>
+            <li>Call another system to log, message, or report the result</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="callout">
+        <h3>Quick browser activity</h3>
+        <p>Open <code>/api/temp</code>, <code>/api/all</code>, and <code>/api/status</code> in a browser. Then identify which one is raw data, which one combines both systems, and which one applies logic before returning a result.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>5. What this looks like at work</h2>
         <p>Now that you know the basic building blocks, here is what agent-style work looks like in normal business situations.</p>
         <p>The best examples are not science fiction. They are ordinary business tasks.</p>
       </div>
@@ -251,7 +284,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>5. Why agents get attention</h2>
+        <h2>6. Why agents get attention</h2>
         <p>Agents matter when the work is bigger than one answer.</p>
       </div>
 
@@ -268,47 +301,32 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>6. Workflow automation vs agents</h2>
+        <h2>7. Workflow automation vs agents</h2>
         <p>Do not jump to agents if a simpler workflow will do the job.</p>
       </div>
 
-      <div class="table-wrap">
-        <table class="info-table">
-          <thead>
-            <tr>
-              <th>Question</th>
-              <th>Workflow automation may be enough</th>
-              <th>An agent may be more appropriate</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Question">Are the steps mostly known in advance?</td>
-              <td data-label="Workflow automation may be enough">Yes. The path is fixed and repeatable.</td>
-              <td data-label="An agent may be more appropriate">No. The system must figure out which path fits.</td>
-            </tr>
-            <tr>
-              <td data-label="Question">Does it need to choose among tools?</td>
-              <td data-label="Workflow automation may be enough">Rarely. The tool sequence is already set.</td>
-              <td data-label="An agent may be more appropriate">Yes. It may need to select tools based on the situation.</td>
-            </tr>
-            <tr>
-              <td data-label="Question">Does it need multi-step reasoning?</td>
-              <td data-label="Workflow automation may be enough">Only a little.</td>
-              <td data-label="An agent may be more appropriate">Yes. It needs to gather, compare, decide, and adapt.</td>
-            </tr>
-            <tr>
-              <td data-label="Question">Will exceptions happen often?</td>
-              <td data-label="Workflow automation may be enough">No. The job is predictable.</td>
-              <td data-label="An agent may be more appropriate">Yes. The task changes based on what it finds.</td>
-            </tr>
-            <tr>
-              <td data-label="Question">Good starting advice</td>
-              <td data-label="Workflow automation may be enough">Start with a workflow tool such as n8n when the process is mostly known and fixed.</td>
-              <td data-label="An agent may be more appropriate">Consider an agent when the system must reason through steps, choose tools, and adapt.</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Workflow automation may be enough when...</h3>
+          <ul>
+            <li><strong>Steps are known in advance:</strong> The path is fixed and repeatable.</li>
+            <li><strong>Tool choice is already set:</strong> The sequence is mostly decided ahead of time.</li>
+            <li><strong>Reasoning is limited:</strong> The system mainly follows rules.</li>
+            <li><strong>Exceptions are rare:</strong> The job is predictable.</li>
+            <li><strong>Good starting advice:</strong> Start with a workflow tool such as n8n when the process is mostly known and fixed.</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>An agent may be more appropriate when...</h3>
+          <ul>
+            <li><strong>Steps are not fully known:</strong> The system must figure out which path fits.</li>
+            <li><strong>It must choose among tools:</strong> The best next step depends on the situation.</li>
+            <li><strong>It needs multi-step reasoning:</strong> It must gather, compare, decide, and adapt.</li>
+            <li><strong>Exceptions happen often:</strong> The task changes based on what it finds.</li>
+            <li><strong>Good starting advice:</strong> Consider an agent when the system must reason through steps, choose tools, and adapt.</li>
+          </ul>
+        </article>
       </div>
 
       <article class="card lesson-card" style="margin-top: 1rem;">
@@ -319,7 +337,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>7. Automation Tools and Agent Tools</h2>
+        <h2>8. Automation Tools and Agent Tools</h2>
         <p>Different tools fit different kinds of work.</p>
       </div>
 
@@ -353,14 +371,14 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>8. Where agents are heading in 2026</h2>
+        <h2>9. Where agents are heading in 2026</h2>
         <p>The direction is practical, not magical.</p>
       </div>
 
       <article class="callout">
         <h3>2026 direction</h3>
         <p>The strongest trend is toward narrow, useful, trustworthy agents. Businesses are looking for systems that save time on a specific job, work inside clear limits, and make human review easy.</p>
-        <p>In other words, 2026 is less about flashy autonomy and more about dependable systems that fit real work.</p>
+        <p>The direction is less about flashy autonomy and more about dependable systems that fit real work.</p>
       </article>
 
       <article class="card lesson-card">
@@ -375,7 +393,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>9. When agents are useful in real business settings</h2>
+        <h2>10. When agents are useful in real business settings</h2>
         <p>Use agents where the value comes from combining information and helping move work forward.</p>
       </div>
 
@@ -406,7 +424,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>10. Where human review matters most</h2>
+        <h2>11. Where human review matters most</h2>
         <p>This is where good judgment beats speed.</p>
       </div>
 
@@ -429,7 +447,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>11. How non-technical users can get started</h2>
+        <h2>12. How non-technical users can get started</h2>
         <p>Start with packaged tools, not a giant custom build.</p>
         <p>Your best first project is usually one repeated task, not a full business process.</p>
       </div>
@@ -461,7 +479,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>12. Hands-on activity</h2>
+        <h2>13. Hands-on activity</h2>
         <p>This activity helps you decide what kind of AI support fits a task.</p>
       </div>
 
@@ -500,7 +518,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>13. Discussion prompt</h2>
+        <h2>14. Discussion prompt</h2>
         <p>Bring the session back to real life.</p>
       </div>
 
@@ -512,7 +530,7 @@ console.log(data.temperatureF);</code></pre>
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>14. Key takeaway</h2>
+        <h2>15. Key takeaway</h2>
         <p>Keep the idea simple and useful.</p>
       </div>
 

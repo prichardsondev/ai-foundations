@@ -226,6 +226,16 @@ a {
   padding-left: 1.1rem;
 }
 
+.checklist {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.companion-note {
+  margin-top: 1rem;
+  color: var(--text-soft);
+}
+
 .feature-card,
 .output-header,
 .session-meta {
@@ -295,6 +305,11 @@ a {
   padding: 1rem 1.1rem;
   background: var(--accent-soft);
   box-shadow: none;
+}
+
+.warning {
+  background: #fff4db;
+  border-color: #e5c982;
 }
 
 .callout h3,
