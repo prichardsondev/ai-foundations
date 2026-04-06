@@ -51,7 +51,7 @@ function buildPrompt() {
     `Output format: ${format || "[Add an output format]"}`
   ];
 
-  output.textContent = parts.join("\n");
+  output.textContent = parts.join("\n\n");
 }
 
 function resetForm() {
@@ -60,25 +60,26 @@ function resetForm() {
 }
 
 function fillForm(values) {
-  document.querySelector("#role").value = values.role;
-  document.querySelector("#task").value = values.task;
-  document.querySelector("#context").value = values.context;
-  document.querySelector("#constraints").value = values.constraints;
-  document.querySelector("#format").value = values.format;
+  document.querySelector("#role").value = values.role || "";
+  document.querySelector("#task").value = values.task || "";
+  document.querySelector("#context").value = values.context || "";
+  document.querySelector("#constraints").value = values.constraints || "";
+  document.querySelector("#format").value = values.format || "";
 }
 
 async function copyPrompt() {
   try {
     await navigator.clipboard.writeText(output.textContent);
-    copyButton.textContent = "Copied";
+    const originalText = copyButton.textContent;
+    copyButton.textContent = "Copied!";
     window.setTimeout(() => {
-      copyButton.textContent = "Copy Prompt";
-    }, 1200);
+      copyButton.textContent = originalText;
+    }, 1800);
   } catch (error) {
-    copyButton.textContent = "Copy failed";
+    copyButton.textContent = "Failed";
     window.setTimeout(() => {
       copyButton.textContent = "Copy Prompt";
-    }, 1200);
+    }, 1500);
   }
 }
 
