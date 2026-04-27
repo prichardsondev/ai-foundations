@@ -327,6 +327,37 @@ a {
   margin-top: 2.25rem;
 }
 
+.part-two-teaser-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.part-two-teaser {
+  max-width: 760px;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #eef6ff 0%, #f8fbff 100%);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.part-two-teaser h2 {
+  margin-bottom: 0.35rem;
+}
+
+.part-two-subtitle {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.part-two-teaser .button {
+  margin-top: 0.75rem;
+}
+
 .text-link {
   color: var(--accent);
   font-weight: 600;
