@@ -93,7 +93,7 @@ a {
 
 .course-welcome {
   max-width: 860px;
-  padding: 2.25rem 0 2.5rem;
+  padding: 2.35rem 0 2.25rem;
 }
 
 .hero {
@@ -185,17 +185,25 @@ a {
   background: var(--accent-strong);
 }
 
-.page-section,
+.page-section {
+  margin-top: 3.25rem;
+  margin-bottom: 0;
+}
+
+.course-welcome + .page-section {
+  margin-top: 2rem;
+}
+
 .lesson-section {
   margin-bottom: 2rem;
 }
 
 .section-heading {
-  margin-bottom: 1rem;
+  margin-bottom: 0.45rem;
 }
 
 .section-heading h2 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.5rem;
 }
 
 .card,
@@ -280,6 +288,11 @@ a {
   min-width: 12rem;
 }
 
+.course-welcome .landing-actions {
+  margin-top: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
 .page-title {
   margin-bottom: 1.5rem;
 }
@@ -311,7 +324,7 @@ a {
 }
 
 .support-section {
-  margin-top: 3rem;
+  margin-top: 2.25rem;
 }
 
 .text-link {
