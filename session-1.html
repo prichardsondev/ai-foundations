@@ -3,84 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 1: AI Basics & Better Prompting | AI Foundations for Everyone</title>
-<meta name="description" content="Learn what AI really is, how GPT models work, and how to write much better prompts with a hands-on workshop.">
+<title>Session 1: AI Basics, Safe Use & Better Prompting | AI Foundations for Everyone</title>
+<meta name="description" content="Learn what AI really is, how GPT models work, how to use AI safely, and how to build reusable prompts for practical work.">
 <link rel="stylesheet" href="styles.css">
-<style>
-    .prompt-workshop {
-        background: #f8f9fc;
-        padding: 2.5rem;
-        border-radius: 16px;
-        margin: 2.5rem 0;
-    }
-
-    .quick-fill-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-bottom: 2rem;
-    }
-
-    .quick-fill-buttons button {
-        padding: 0.75rem 1.4rem;
-        font-size: 0.97rem;
-        background: #fff;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-    .quick-fill-buttons button:hover {
-        background: #f0f4ff;
-        border-color: #0066ff;
-    }
-
-    .form-grid {
-        display: grid;
-        gap: 1.6rem;
-    }
-
-    .form-field label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: #333;
-    }
-
-    .form-field input,
-    .form-field textarea {
-        width: 100%;
-        padding: 0.9rem 1rem;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        font-size: 1rem;
-        resize: vertical;
-    }
-
-    .form-field textarea {
-        min-height: 80px;
-    }
-
-    #assembled-prompt {
-        background: #ffffff;
-        border: 2px solid #0066ff;
-        padding: 1.8rem;
-        border-radius: 10px;
-        white-space: pre-wrap;
-        font-family: ui-monospace, monospace;
-        line-height: 1.65;
-        font-size: 1.02rem;
-        color: #222;
-        min-height: 220px;
-    }
-
-    .button-group {
-        margin-top: 1.5rem;
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-</style>
 </head>
 <body>
 <header class="site-header">
@@ -97,9 +22,9 @@
 <main class="wrap page-shell lesson-shell">
 <section class="page-title">
 <p class="eyebrow">Session 1</p>
-<h1>AI Basics & Better Prompting</h1>
+<h1>AI Basics, Safe Use & Better Prompting</h1>
 <p class="lead">
-    A friendly introduction to what AI actually is, how GPT-style tools work, and how to get much better results by writing clearer prompts.
+    A friendly introduction to what AI actually is, how GPT-style tools work, and how to get useful results with safer, clearer, reusable prompts.
 </p>
 </section>
 
@@ -109,21 +34,32 @@
 <li>Explain AI and GPT models in simple, practical terms</li>
 <li>Understand what these tools are good at — and where they fall short</li>
 <li>Use a clear 5-part structure to write stronger prompts</li>
-<li>Practice with a hands-on prompt workshop</li>
+<li>Start a reusable prompt library you can keep improving</li>
+<li>Practice safer habits before using AI for real work</li>
 </ul>
 </section>
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>What this session covers</h2>
+<h2>Course overview</h2>
+<p>Across the course, we will move from basic prompting to practical AI use in daily work, safe habits, verification, reusable prompts, and real workflows.</p>
 </div>
-<ul class="checklist">
-<li>What AI really is (no hype, no jargon)</li>
-<li>How a model learns and why that matters</li>
-<li>Strengths and limitations of GPT-style tools</li>
-<li>A simple 5-part prompt framework</li>
-<li>Hands-on Prompt Workshop</li>
-</ul>
+<div class="teaching-flow">
+<article class="card lesson-card">
+<h3>How we will use AI in class</h3>
+<p>We will use AI as a thinking partner, writing assistant, summarizer, planner, and workflow helper. The goal is not to trust it blindly. The goal is to learn how to ask better questions, review the answers, and save the prompts that work.</p>
+</article>
+<article class="card lesson-card">
+<h3>Today's path</h3>
+<ol>
+<li>Learn what AI and GPT-style tools are</li>
+<li>Practice the 5-part prompt framework</li>
+<li>Use a short safety check before prompting</li>
+<li>Build the first pieces of your personal prompt library</li>
+<li>Save your work so you can reuse it next session</li>
+</ol>
+</article>
+</div>
 <p class="companion-note">
     For the bigger picture on different AI model types, visit the <a href="ai-models.html">AI Models</a> reference page.
 </p>
@@ -133,7 +69,7 @@
 <div class="section-heading">
 <h2>1. What AI actually is</h2>
 </div>
-<div class="grid-two">
+<div class="teaching-flow">
 <article class="card lesson-card">
 <h3>The core idea</h3>
 <p>AI tools like ChatGPT, Claude, or Grok are powerful prediction machines. They have been trained on enormous amounts of text and learned statistical patterns of language.</p>
@@ -156,7 +92,7 @@
 <h2>2. What is a GPT?</h2>
 </div>
 
-<div class="grid-three">
+<div class="teaching-flow">
 <article class="card lesson-card">
 <h3>Generative</h3>
 <p>It creates new text instead of just copying old answers.</p>
@@ -193,7 +129,29 @@
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>3. Better Prompting – The 5-Part Framework</h2>
+<h2>3. Safety check before prompting</h2>
+<p>Before you paste anything into a public AI tool, pause for a quick privacy and verification check.</p>
+</div>
+
+<article class="callout warning">
+<h3>Use safe examples today</h3>
+<p>Use fictional, public, or sanitized examples. Do not paste sensitive workplace information, private customer data, employee records, financial details, passwords, confidential documents, or anything you would not be allowed to share outside your organization.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Plain-English safety habit</h3>
+<ul>
+<li>Replace real names with roles like “customer,” “vendor,” or “supervisor”</li>
+<li>Remove account numbers, addresses, phone numbers, and internal identifiers</li>
+<li>Use made-up numbers when the exact numbers are not needed</li>
+<li>Check important answers against a trusted source before acting on them</li>
+</ul>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>4. Better Prompting – The 5-Part Framework</h2>
 <p>A well-structured prompt dramatically improves the quality of the AI’s response.</p>
 </div>
 
@@ -209,70 +167,165 @@
 </article>
 </section>
 
-<!-- Improved Prompt Workshop -->
 <section class="lesson-section">
 <div class="section-heading">
-<h2>4. Prompt Workshop</h2>
-<p>Try it yourself! Use the 5-part structure to build better prompts.</p>
+<h2>5. Build Your AI Starter Kit</h2>
+<p>Your Prompt Library is the saved file where your reusable prompts live. Your AI Starter Kit is the full workflow: AI Working Agreement, Personal Context Prompt, Task Playbook Prompt, and one test chat or project.</p>
 </div>
 
-<div class="prompt-workshop">
-    <h3>Build Your Prompt</h3>
-    
-    <div class="quick-fill-buttons">
-        <button type="button" class="quick-fill" data-example="meeting">Meeting Change Email</button>
-        <button type="button" class="quick-fill" data-example="sop">SOP Summary</button>
-        <button type="button" class="quick-fill" data-example="supervisor">Supervisor Update</button>
-    </div>
+<article class="callout">
+<h3>Activity goal</h3>
+<p>If this were the only AI class you ever took, this is the workflow I would want you to leave with.</p>
+<p>Use fictional, public, or sanitized examples while you build. Save each result in one Prompt Library file so you can reuse it later.</p>
+</article>
 
-    <form id="prompt-workshop" class="form-grid">
-        <div class="form-field">
-            <label for="role">1. Role</label>
-            <input type="text" id="role" placeholder="e.g. Professional workplace communication assistant">
-        </div>
+<div class="teaching-flow">
+<article class="card lesson-card">
+<p class="label">Step 1</p>
+<h3>Create your AI Working Agreement</h3>
+<p>This prompt tells the AI how you want to be helped. It can set expectations for plain language, useful questions, honest uncertainty, and reminders to verify important information.</p>
+<p class="example-label">Copy/paste builder prompt</p>
+<pre class="copy-prompt-block">Help me create my AI Working Agreement.
 
-        <div class="form-field">
-            <label for="task">2. Task</label>
-            <textarea id="task" rows="2" placeholder="What exactly do you want the AI to do?"></textarea>
-        </div>
+Ask me 5 short questions about how I want AI to help me.
 
-        <div class="form-field">
-            <label for="context">3. Context</label>
-            <textarea id="context" rows="3" placeholder="Background information the AI needs to know"></textarea>
-        </div>
+Use my answers to draft a short reusable AI Working Agreement that includes:
+- How I want responses written
+- When the AI should ask clarifying questions
+- How the AI should handle uncertainty
+- How the AI should remind me to verify important information
+- What kinds of information I should not paste into public AI tools
 
-        <div class="form-field">
-            <label for="constraints">4. Constraints</label>
-            <textarea id="constraints" rows="2" placeholder="Tone, length, style, or other limits"></textarea>
-        </div>
+Keep the language plain-English and practical.</pre>
+<p class="workshop-hint">Save the result in a Halo, document, or notes file under <strong>My AI Working Agreement</strong>.</p>
+</article>
 
-        <div class="form-field">
-            <label for="format">5. Output Format</label>
-            <input type="text" id="format" placeholder="e.g. Short email with subject line, Bullet list, Table...">
-        </div>
+<article class="card lesson-card">
+<p class="label">Step 2</p>
+<h3>Create your Personal Context Prompt</h3>
+<p>This gives the AI safe background about your role, goals, preferences, and common work. Keep it sanitized and non-sensitive. Do not include private, confidential, customer, employee, financial, legal, medical, or internal company information.</p>
+<p class="example-label">Copy/paste builder prompt</p>
+<pre class="copy-prompt-block">Help me create a safe Personal Context Prompt.
 
-        <div class="button-group">
-            <button type="button" id="reset-prompt">Reset to Default</button>
-            <button type="button" id="copy-prompt">Copy Prompt</button>
-        </div>
-    </form>
+Ask me 6 short questions about:
+- My general role or type of work
+- The kinds of tasks I want help with
+- My preferred writing style
+- My audience
+- My skill level with AI
+- Any safe boundaries or preferences
 
-    <h4>Your Assembled Prompt:</h4>
-    <pre id="assembled-prompt">Your prompt will appear here once you start filling in the fields...</pre>
+Do not ask for confidential, private, customer, employee, financial, legal, medical, or internal company information.
+
+After I answer, draft a reusable context prompt I can paste at the start of future AI chats.</pre>
+<p class="workshop-hint">Save the result under the same <strong>My Prompt Library</strong> file, below your AI Working Agreement.</p>
+</article>
+
+<article class="card lesson-card">
+<p class="label">Step 3</p>
+<h3>Create one Task Playbook Prompt</h3>
+<p>Task Playbook Prompts are reusable prompts for common work tasks. Pick one task you do often, then let AI interview you and turn it into a reusable template.</p>
+<div class="callout">
+<h4>Task ideas to choose from</h4>
+<ul>
+<li>Email helper</li>
+<li>Meeting summary helper</li>
+<li>SOP builder</li>
+<li>Presentation builder</li>
+<li>Spreadsheet / number analysis helper</li>
+<li>Report or memo helper</li>
+<li>Training material builder</li>
+<li>Troubleshooting helper</li>
+<li>Research / comparison helper</li>
+</ul>
+</div>
+<p class="example-label">Copy/paste builder prompt</p>
+<pre class="copy-prompt-block">Help me create a reusable Task Playbook Prompt.
+
+First, interview me with short questions about the repeatable task I want help with.
+
+Ask about:
+- The task type
+- The audience
+- What information I can safely provide
+- What output I need
+- Tone, length, or format preferences
+- How I should review the result before using it
+
+Do not ask me to provide sensitive workplace information.
+
+After I answer, create a reusable task prompt template using this structure:
+Role:
+Task:
+Context needed:
+Constraints:
+Output format:
+Review checklist:
+
+Include blanks I can fill in next time.</pre>
+<p class="workshop-hint">Save the finished template under <strong>Task Playbook Prompts</strong> in your Prompt Library.</p>
+</article>
+
+<article class="card lesson-card">
+<p class="label">Step 4</p>
+<h3>Use your three prompts together</h3>
+<p>Start a new ChatGPT chat or project. Paste your three saved prompts in this order:</p>
+<ol>
+<li>My AI Working Agreement</li>
+<li>My Personal Context Prompt</li>
+<li>One Task Playbook Prompt</li>
+</ol>
+<p>Then test the setup with a fictional, public, or sanitized task. This is the beginning of your reusable AI workspace.</p>
+
+<div class="callout">
+<h4>Sanitized test task ideas</h4>
+<ul>
+<li>Draft a professional follow-up email from fictional notes</li>
+<li>Turn messy meeting notes into action items</li>
+<li>Create a 5-slide presentation outline</li>
+<li>Summarize a public article</li>
+<li>Build a simple checklist from a fake SOP</li>
+</ul>
+</div>
+
+<div class="callout">
+<h4>Simple test instruction</h4>
+<p>“Use the prompts above to help me with this sanitized task. Ask any missing questions first, then draft the output and include a short review checklist.”</p>
+</div>
+</article>
 </div>
 </section>
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>5. Quick Tips for Better Results</h2>
+<h2>6. Quick Tips for Better Results</h2>
 </div>
 <ul>
 <li>Be as specific as possible</li>
 <li>Give examples when it helps</li>
-<li>Ask the AI to “think step by step” for complex tasks</li>
+<li>Ask the AI to break complex tasks into clear steps</li>
 <li>Iterate — improve your prompt based on the first response</li>
 <li>Always review important outputs carefully</li>
 </ul>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>7. Closing activity: save and test</h2>
+<p>By the end of Session 1, you should have a saved Prompt Library and one test chat or project using your three prompts.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>What to leave with</h3>
+<ul>
+<li>A Halo, document, or notes file called <strong>My Prompt Library</strong></li>
+<li>Your AI Working Agreement saved in that file</li>
+<li>Your Personal Context Prompt saved in that file</li>
+<li>One Task Playbook Prompt saved in that file</li>
+<li>One test chat or project where you tried all three prompts together</li>
+</ul>
+<p>Bring this file back in future sessions so you can improve it as your AI skills grow.</p>
+</article>
 </section>
 
 <section class="lesson-section">
@@ -283,6 +336,5 @@
 </section>
 </main>
 
-<script src="prompt-workshop.js"></script>
 </body>
 </html>
