@@ -1,0 +1,11 @@
+date,area,shift,issue_type,count,notes
+2026-04-01,Packaging,A,Label misprint,3,Printer alignment checked after shift
+2026-04-01,Packaging,B,Label misprint,5,Similar issue reported twice
+2026-04-02,Assembly,A,Missing part,2,Part bin restocked at 10:30
+2026-04-02,Shipping,B,Late pickup,1,Carrier arrived after scheduled window
+2026-04-03,Packaging,A,Label misprint,4,Operator requested clearer setup checklist
+2026-04-03,Assembly,B,Missing part,6,Inventory count did not match work order
+2026-04-04,Quality,A,Rework needed,2,Two units held for inspection
+2026-04-04,Shipping,A,Late pickup,2,Weather delay reported by carrier
+2026-04-05,Assembly,A,Missing part,1,Resolved before lunch
+2026-04-05,Quality,B,Rework needed,7,Repeat measurement issue noted

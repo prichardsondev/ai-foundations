@@ -3,22 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 2: Using AI for Everyday Work Tasks | AI Foundations for Everyone</title>
-<meta name="description" content="Practical session on using AI tools like ChatGPT for common workplace tasks such as emails, summaries, rewriting, and more.">
+<title>Session 2: Everyday AI Workflows | AI Foundations for Everyone</title>
+<meta name="description" content="Hands-on session on using AI for workplace messages, summaries, uploaded file analysis, pre-meeting briefs, and careful review.">
 <link rel="stylesheet" href="styles.css">
 <style>
     .task-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.5rem;
-        margin: 2rem 0;
+        gap: 1rem;
+        margin: 1rem 0;
     }
+
     .prompt-example {
         background: #f8f9fc;
-        padding: 1.5rem;
+        padding: 1rem;
         border-radius: 10px;
         border-left: 5px solid #0066ff;
-        font-family: ui-monospace, monospace;
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
         white-space: pre-wrap;
     }
 </style>
@@ -38,21 +39,21 @@
 <main class="wrap page-shell lesson-shell">
 <section class="page-title">
 <p class="eyebrow">Session 2</p>
-<h1>Using AI for Everyday Work Tasks</h1>
+<h1>Everyday AI Workflows: Workplace Tasks, Files, and Review</h1>
 <p class="lead">
-    A practical session showing how to use AI tools like ChatGPT for common workplace tasks — drafting emails, summarizing notes, rewriting instructions, and turning rough ideas into polished content.
+    A hands-on session for using AI with everyday work: messages, summaries, rough notes, uploaded file analysis, pre-meeting briefs, and careful review before sharing.
 </p>
 </section>
 
 <section class="card outcomes-card">
 <h2>What you'll take away</h2>
 <ul>
-<li>Use AI confidently for everyday writing and organizing tasks</li>
-<li>Improve emails, notes, instructions, and announcements</li>
-<li>Set up basic personalization and safe habits</li>
-<li>Upload images or documents and get useful help from them</li>
-<li>Create at least one polished work-related result during the hands-on lab</li>
-<li>Understand simple privacy and review practices</li>
+<li>Use AI for common workplace writing and organizing tasks</li>
+<li>Turn rough notes into clear messages, checklists, and summaries</li>
+<li>Upload safe sample files and ask useful questions about them</li>
+<li>Analyze attached practice files for patterns, repeated issues, totals, and trends</li>
+<li>Create a one-page pre-meeting brief from multiple safe sources</li>
+<li>Review AI output before using or sharing it at work</li>
 </ul>
 </section>
 
@@ -61,187 +62,298 @@
 <h2>What this session covers</h2>
 </div>
 <ul class="checklist">
-<li>Getting started with ChatGPT and finding key features</li>
-<li>Basic settings and safe personalization</li>
-<li>Everyday workplace tasks AI handles well</li>
-<li>Better prompting for real work</li>
-<li>Using uploads (images and documents)</li>
-<li>Hands-on Lab: Turn a rough idea into polished output</li>
+<li>Safe personalization and settings</li>
+<li>Everyday emails, messages, summaries, and rewritten notes</li>
+<li>Uploaded files, screenshots, notes, and sample documents</li>
+<li>Attached file analysis with fake workforce-style data</li>
+<li>Pre-meeting briefs from multiple sources</li>
+<li>Review before use: facts, names, dates, numbers, policies, and claims</li>
 </ul>
 </section>
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>1. Getting Started with ChatGPT</h2>
-<p>Before diving into tasks, spend a few minutes getting comfortable with the tool.</p>
+<h2>1. Pick the Right AI for the Job</h2>
+<p>Before you use AI, match the tool to the work in front of you.</p>
 </div>
 
-<article class="callout">
-<h3>Quick start steps</h3>
-<p>Go to <strong>chatgpt.com</strong> and sign in with Google, Microsoft, or create a free account.</p>
-<p>A free account is enough for everything we’ll cover today.</p>
+<article class="card lesson-card">
+<h3>Pick the Right AI for the Job</h3>
+<p>ChatGPT-style tools are language models, so they are useful for drafting emails, summaries, instructions, and meeting notes. Other AI tools are better for different inputs, such as images, audio, repeated issues, or trends over time.</p>
+<ul>
+<li><strong>Drafting emails and summaries:</strong> language models</li>
+<li><strong>Uploaded notes and reports:</strong> language models plus careful review</li>
+<li><strong>CSV files and repeated issues:</strong> pattern finding or classification</li>
+<li><strong>Screenshots and images:</strong> vision models</li>
+<li><strong>Object detection:</strong> detection models like YOLO</li>
+<li><strong>Object outlines and movement tracking:</strong> segmentation models like SAM</li>
+<li><strong>Audio notes:</strong> speech models</li>
+<li><strong>Trends over time:</strong> forecasting models</li>
+</ul>
+<p>Before using AI, ask: What kind of input do I have? What kind of output do I need? What needs human review before I use it?</p>
+<p class="companion-note">Use the <a href="ai-models.html">AI Models</a> page as a reference. You do not need to memorize the categories. The goal is to match the tool to the job.</p>
 </article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>2. Start with Safe Settings</h2>
+<p>A little background helps the AI respond more usefully, but do not give it private or confidential information.</p>
+</div>
 
 <div class="grid-two">
 <article class="card lesson-card">
-<h3>Key buttons to know</h3>
-<ul>
-<li><strong>New chat</strong> – Start a fresh conversation</li>
-<li><strong>Settings</strong> – Usually behind your profile or gear icon</li>
-<li><strong>Attach / Upload</strong> – Add images, screenshots, or documents</li>
-</ul>
-</article>
-<article class="card lesson-card">
-<h3>Personalization</h3>
-<p>Inside Settings you can tell the tool about your role and preferred style. This helps it give better answers without you repeating yourself.</p>
-</article>
-</div>
-</section>
-
-<section class="lesson-section">
-<div class="section-heading">
-<h2>2. Safe Personalization & Settings</h2>
-<p>A little background helps the AI respond more usefully — but safety comes first.</p>
-</div>
-
-<article class="callout">
-<h3>Safe example you can use</h3>
-<pre>I often use AI to draft clear workplace emails, summaries, and training materials. I prefer professional but plain English.</pre>
+<h3>Safe personalization example</h3>
+<pre class="prompt-example">I often use AI to draft clear workplace emails, summaries, checklists, and training materials. I prefer professional but plain English. Ask clarifying questions when details are missing.</pre>
 </article>
 
 <article class="callout warning">
-<h3>Privacy reminder</h3>
-<p>Never paste passwords, payroll data, private employee records, customer information, or confidential company data into AI tools.</p>
-<p>Treat it as a helpful assistant, not a secure storage system.</p>
+<h3>Do not upload or paste</h3>
+<ul>
+<li>Payroll data, passwords, or access codes</li>
+<li>Confidential customer data or company secrets</li>
+<li>Private employee records or performance issues</li>
+<li>Protected health data or legal records</li>
+<li>Internal documents you are not allowed to share outside your organization</li>
+</ul>
 </article>
+</div>
 </section>
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>3. Everyday Work Tasks AI Handles Well</h2>
-<p>Here are realistic tasks where AI can save you time.</p>
+<h2>3. Everyday Work Tasks</h2>
+<p>These are quick examples of everyday AI tasks. Today's main lab will focus on uploaded files and a supervisor-ready summary.</p>
 </div>
 
 <div class="task-grid">
 <article class="card lesson-card">
-<h3>Office & Knowledge Work</h3>
+<h3>Turn rough notes into a professional message</h3>
+<p>Use this when you have messy notes and need a short email, team update, or announcement.</p>
+<pre class="prompt-example">Turn these rough notes into a short professional email or team update.
+
+Audience: [team / supervisor / customer / vendor]
+Tone: clear, respectful, direct
+Length: under 150 words
+
+Rough notes:
+[paste sanitized notes here]</pre>
+</article>
+
+<article class="card lesson-card">
+<h3>Rewrite instructions as a checklist</h3>
+<p>Use this when a procedure is too long, unclear, or hard for a new employee to follow.</p>
+<pre class="prompt-example">Rewrite this rough procedure so a new employee can follow it.
+
+Use:
+- Plain English
+- Numbered steps
+- Safety reminders where appropriate
+- A short "check before finishing" section
+
+Rough procedure:
+[paste sanitized procedure here]</pre>
+</article>
+
+<article class="card lesson-card">
+<h3>Summarize notes into action items</h3>
+<p>Use this after a meeting, shift handoff, phone call, or planning conversation.</p>
+<pre class="prompt-example">Summarize these notes into:
+1. Key points
+2. Decisions made
+3. Open questions
+4. Action items with owners if listed
+5. Anything that needs verification
+
+Notes:
+[paste sanitized notes here]</pre>
+</article>
+
+<article class="card lesson-card">
+<h3>Improve a draft without changing the meaning</h3>
+<p>Use this when you already know what you want to say but need it cleaned up.</p>
+<pre class="prompt-example">Improve this draft for clarity and professionalism.
+
+Do not add new facts.
+Do not change the meaning.
+Keep it plain-English and workplace appropriate.
+
+Draft:
+[paste draft here]</pre>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>4. Get the Practice Files</h2>
+<p>You do not need to create files during class. Use the prepared fake class files so you can focus on prompting, uploading, analysis, and review.</p>
+</div>
+
+<article class="callout">
+<h3>Class sample files</h3>
+<p>For today’s lab, use these fake sample materials:</p>
 <ul>
-<li>Drafting or rewriting professional emails</li>
-<li>Summarizing meeting notes into clear bullets</li>
-<li>Turning rough notes into readable updates</li>
-<li>Creating short announcements or team messages</li>
-<li>Organizing ideas or training plans</li>
+<li><a class="text-link" href="class-samples/workforce-issues-sample.csv">workforce-issues-sample.csv</a></li>
+<li><a class="text-link" href="class-samples/pre-meeting-notes-sample.txt">pre-meeting-notes-sample.txt</a></li>
+<li><a class="text-link" href="class-samples/rough-sop-sample.txt">rough-sop-sample.txt</a></li>
 </ul>
 </article>
 
 <article class="card lesson-card">
-<h3>Shop-Floor & Operations</h3>
+<h3>What we will practice</h3>
 <ul>
-<li>Rewriting instructions in plain English for new employees</li>
-<li>Simplifying SOPs or procedures</li>
-<li>Creating safety reminders or checklists</li>
-<li>Turning verbal descriptions into written steps</li>
-<li>Writing short shift or equipment updates</li>
+<li>Attach the CSV, meeting notes, and rough SOP sample</li>
+<li>Ask AI to find useful patterns and repeated issues</li>
+<li>Turn the findings into a supervisor-ready pre-meeting brief</li>
+<li>Review facts, numbers, assumptions, and anything AI says to verify</li>
 </ul>
-</article>
-</div>
-
-<article class="callout">
-<h3>Important reality check</h3>
-<p>AI usually gives you a good starting draft — not a final product. Always review, adjust, and make it your own before sharing at work.</p>
 </article>
 </section>
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>4. Better Prompting for Real Work</h2>
-<p>Clear prompts lead to much better results.</p>
+<h2>5. Build the Detailed Prompt with Halo Forge</h2>
+<p>Halo Forge can help build the detailed prompt faster. You can also write or edit the prompt manually.</p>
 </div>
 
-<article class="callout">
-<h3>Helpful prompt ingredients</h3>
-<ul>
-<li>What you want the AI to do</li>
-<li>Who the output is for</li>
-<li>Key details or context</li>
-<li>Tone and length preferences</li>
-<li>Desired format (email, bullets, checklist, etc.)</li>
-</ul>
+<article class="card lesson-card">
+<h3>Uploaded file analysis prompt</h3>
+<pre class="prompt-example">Analyze the attached files, including the CSV, notes, and SOP sample. Look for useful patterns, repeated issues, totals, trends, and anything helpful for a supervisor.
+
+Do not invent facts.
+If the data is unclear, tell me what is missing.
+Show the most useful findings first.
+
+Include:
+- Most useful findings
+- Totals or trends worth noticing
+- Repeated issues
+- Connections between the CSV, notes, and SOP sample
+- What is missing or unclear
+- Recommendations for a supervisor
+- A short "what to verify" section
+
+Keep the response practical, plain-English, and workplace appropriate.</pre>
+<p>Use Halo Forge to generate a more complete version of this prompt, then copy it into ChatGPT, Grok, Claude, or another AI tool and attach the three practice files.</p>
+<div class="button-row">
+<a class="button" href="https://www.halolumin.io/prompt-builder" target="_blank" rel="noopener noreferrer">Open Halo Forge</a>
+</div>
 </article>
+
+<article class="callout warning">
+<h3>What to check</h3>
+<p>Check totals, labels, date ranges, missing rows, unusual values, and whether the data actually supports the conclusion. AI can summarize a table, but it can also misread one.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>6. Run the Prompt with the Files</h2>
+<p>Now use the prompt with the three prepared practice files.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>Run the workflow</h3>
+<ol>
+<li>Copy the prompt from Halo Forge, or use the class prompt above.</li>
+<li>Open your AI tool.</li>
+<li>Attach the three practice files.</li>
+<li>Paste the prompt.</li>
+<li>Run it.</li>
+<li>Read the result and look for what it found and what it says to verify.</li>
+</ol>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>7. Create a Pre-Meeting Brief</h2>
+<p>A pre-meeting brief helps you walk into a conversation with the main facts, questions, and decisions in one place.</p>
+</div>
 
 <div class="grid-two">
 <article class="card lesson-card">
-<h3>Email example</h3>
-<div class="prompt-example">
-Draft a clear professional email to my team letting them know Friday’s shift starts 30 minutes earlier than usual. Keep it under 100 words. Friendly but professional tone.
-</div>
+<h3>Second pass: brief from the analysis</h3>
+<p>After the first analysis, ask AI to turn the findings into a one-page pre-meeting brief.</p>
+<pre class="prompt-example">Use the analysis above and the attached practice files to create a one-page pre-meeting brief.
+
+Include:
+- Purpose
+- Key facts
+- Open questions
+- Risks
+- Decisions needed
+- Suggested next steps
+
+Do not invent facts. Mark anything uncertain.</pre>
 </article>
 
 <article class="card lesson-card">
-<h3>Rewrite example</h3>
-<div class="prompt-example">
-Rewrite these instructions so a new employee can follow them easily. Use plain English, keep steps in order, and number each step.
+<h3>Compare sources</h3>
+<pre class="prompt-example">Compare these sources and identify:
+- Where they agree
+- Where they differ
+- What seems unclear
+- What should be verified before the meeting
+- Questions I should ask
 
-[paste instructions here]
-</div>
+Keep the answer short and practical.</pre>
 </article>
 </div>
 </section>
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>5. Using Uploads (Images & Documents)</h2>
-<p>You can attach photos, screenshots, or documents and ask the AI to help you work with them.</p>
+<h2>8. Hands-on Lab</h2>
+<p>Follow the main workflow and produce a draft you can review.</p>
 </div>
 
-<article class="callout">
-<h3>Good things to upload</h3>
+<article class="card lesson-card">
+<h3>Lab checklist</h3>
 <ul>
-<li>Photo of whiteboard notes or handwritten instructions</li>
-<li>Screenshot of a form or procedure</li>
-<li>Flyer or announcement you want to improve</li>
+<li>Open the practice files</li>
+<li>Build a detailed prompt with Halo Forge, or use the class prompt and edit it manually</li>
+<li>Run the prompt with the three attached files</li>
+<li>Create a supervisor summary or pre-meeting brief</li>
+<li>Review facts, numbers, and assumptions</li>
+<li>Save or share the final draft if appropriate</li>
 </ul>
 </article>
 
-<p><strong>Pro tip:</strong> Always add a clear question or task after uploading. For example: “Summarize this as five bullet points” or “Rewrite this so it’s easier for a new employee to follow.”</p>
+<article class="callout">
+<h3>Optional save/share step</h3>
+<p>After you review the final draft, Halo Lumin can help save or share the GPT-created brief as a clean page.</p>
+<div class="button-row">
+<a class="button button-primary" href="https://www.halolumin.io/" target="_blank" rel="noopener noreferrer">Open Halo Lumin</a>
+</div>
+</article>
 </section>
 
 <section class="lesson-section">
 <div class="section-heading">
-<h2>6. Hands-on Lab</h2>
-<p>Put what you’ve learned into practice. Turn one rough work idea into a polished result using AI.</p>
+<h2>9. Review Before Use</h2>
+<p>AI output is a draft, not final truth.</p>
 </div>
 
-<article class="card lesson-card">
-<h3>Choose one task to work on</h3>
+<article class="callout warning">
+<h3>Review and safety checklist</h3>
 <ul>
-<li>Improve a rough or unclear email</li>
-<li>Summarize meeting or shift handoff notes</li>
-<li>Rewrite a procedure or instructions for a new employee</li>
-<li>Create a short workplace announcement or safety reminder</li>
-<li>Build a simple one-page draft (welcome message, training note, shift update, etc.)</li>
+<li>Remove private or sensitive data before uploading anything</li>
+<li>Do not upload payroll, passwords, confidential customer data, private employee records, protected health data, or company secrets</li>
+<li>Check names, dates, numbers, policies, and claims before sharing</li>
+<li>Verify important facts against a trusted source</li>
+<li>Make sure the tone fits your workplace and audience</li>
+<li>Take responsibility for the final version before you send or post it</li>
 </ul>
 </article>
-
-<article class="callout">
-<h3>Starter prompt you can copy</h3>
-<div class="prompt-example">
-I am new to AI tools. Help me with a common work task. Ask me a few simple questions one at a time if needed. Then help me create a polished result.
-
-My task is: [describe your task here, e.g. writing an email / summarizing notes / rewriting instructions].
-
-Keep the language clear, professional, and easy to understand.
-</div>
-</article>
-
-<p><strong>Tips for success:</strong> Start with something real (even messy notes are fine). Review the first output, ask for changes if needed, and iterate until you’re happy with the result.</p>
 </section>
 
 <section class="lesson-section">
 <div class="cta-row">
-<a href="session-1.html" class="button">← Back to Session 1</a>
+<a href="session-1.html" class="button">&larr; Back to Session 1</a>
 <a href="sessions.html" class="button button-primary">Back to All Sessions</a>
-<a href="session-3.html" class="button">Continue to Session 3 →</a>
+<a href="session-3.html" class="button">Continue to Session 3 &rarr;</a>
 </div>
 </section>
 </main>

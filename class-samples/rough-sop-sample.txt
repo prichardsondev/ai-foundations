@@ -1,0 +1,5 @@
+Rough SOP sample for class practice
+
+Label printer setup before shift
+
+Check labels are right kind. Make sure printer has enough labels. Turn printer on and check screen. If there is an error ask lead. Open job on terminal. Make sure product number matches what is on work order. Print one label first. Look at it before running more. If print is crooked, stop and adjust. If label info does not match, do not keep printing. Tell lead. Put first good label on sample sheet. Then run labels needed for job. Clean area before leaving.

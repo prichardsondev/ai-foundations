@@ -1,0 +1,23 @@
+Sample pre-meeting notes for class practice
+
+Topic: Reducing repeated packaging label issues
+
+Purpose:
+Review recent label misprints and decide what follow-up is needed.
+
+Notes:
+- Packaging reported label misprints on three separate days.
+- The issue appeared on both A shift and B shift.
+- One note says the printer alignment was checked after shift.
+- Another note says the setup checklist may not be clear enough.
+- Assembly also reported missing part issues, but that may be a separate topic.
+- Quality reported rework on April 5, but the note does not say whether it is related to labels.
+
+Open questions:
+- Is the label printer setup process the same on both shifts?
+- Was the same product involved each time?
+- Did the checklist change recently?
+- Who owns the follow-up action?
+
+Decision needed:
+Decide whether to update the setup checklist, inspect the printer, or schedule a short refresher.
