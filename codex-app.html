@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codex App: A Real Agent Workspace | AI Foundations for Everyone</title>
+  <meta name="description" content="A plain-English teaching page that uses Codex App as a real-world example of an AI agent workspace.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">AI Foundations for Everyone</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="sessions.html" aria-current="page">Sessions</a>
+        <a href="ai-models.html">AI Models</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page-shell lesson-shell">
+    <section class="page-title">
+      <p class="eyebrow">Session 4 example</p>
+      <h1>Codex App: A Real Agent Workspace</h1>
+      <p class="lead">
+        Codex is a coding-focused AI agent, but the important class idea is broader. It shows what agent-style work looks like when an AI system has a goal, tools, files, permissions, actions, and human review.
+      </p>
+    </section>
+
+    <section class="card outcomes-card">
+      <h2>Use this page to notice</h2>
+      <ul>
+        <li>How an agent works inside a real project workspace</li>
+        <li>Why tools and permissions matter as much as the AI model</li>
+        <li>How review, tests, diffs, commits, and pull requests keep humans in charge</li>
+        <li>Why repeated agent tasks need narrow scope and safe boundaries</li>
+      </ul>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>1. What Codex App is</h2>
+        <p>A coding example that helps us understand agents more generally.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <p>Codex is an AI agent for software work. In Codex App, a person can give Codex a task inside a project, and Codex can inspect files, reason through steps, use tools, suggest edits, run checks, and hand the result back for review.</p>
+        <p>For this course, the main lesson is not "AI can write code." The main lesson is that an agent works inside a bounded workspace. It needs the right files, the right tools, the right settings, and a person who decides what becomes final.</p>
+      </article>
+
+      <article class="callout">
+        <h3>Access note</h3>
+        <p>Codex requires signing in with a ChatGPT account that has Codex access. Use of Codex may count toward your plan's agentic usage limits.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>2. Why it is an agent example</h2>
+        <p>Use the Session 4 formula: agent = goal + tools + steps + actions + guardrails.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Goal</h3>
+          <p>The user gives Codex a task, such as review this page, fix this issue, explain this file, or prepare a small change.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Tools</h3>
+          <p>Depending on setup, Codex can inspect project files, use a terminal, use browser or app tools, and connect to approved outside systems.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Steps</h3>
+          <p>Codex can plan, read, edit, test, revise, and explain what it changed. The work is more than one answer in one chat bubble.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Actions</h3>
+          <p>Codex can propose file changes, run checks, help with Git tasks, prepare commits, or help create a pull request when the project allows it.</p>
+        </article>
+      </div>
+
+      <article class="callout">
+        <h3>Guardrails</h3>
+        <p>Approvals, sandbox settings, project scope, network access, tool access, and human review define the boundaries. More access can be useful, but it also means more responsibility.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>3. Projects</h2>
+        <p>A project is the workbench the agent can see.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <p>In Codex App, a project is connected to a codebase or working folder. That project gives Codex the local context it needs: files, folders, commands, and project history.</p>
+        <p>A simple analogy: if Codex is the helper, the project is the workbench. The agent can only do useful work if the right materials are on the workbench and the boundaries are clear.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>4. Chats and threads</h2>
+        <p>Different threads can focus on different tasks.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <p>Some Codex conversations are project-scoped, meaning they are tied to a specific project or worktree. Others can be useful for planning, research, triage, or discussing an idea before making changes.</p>
+        <p>Different threads can work on different tasks. One thread might review a lesson page, another might draft a small update, and another might investigate why a test fails. The thread keeps the task, messages, and work together.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>5. Settings and permissions</h2>
+        <p>Settings are agent boundaries, not just preferences.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Approval mode</h3>
+          <p>Approval settings decide when Codex must stop and ask before it takes an action. This matters when work could change files, use network access, or affect another system.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Sandboxing</h3>
+          <p>A sandbox limits what Codex can touch. For example, it may be able to work inside the current project but need approval to reach outside that workspace.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Project scope</h3>
+          <p>Allowed directories and project scope define the files Codex can inspect or edit. A smaller scope is easier to understand and review.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Network and tools</h3>
+          <p>Network access, browser tools, app connectors, notifications, and other tools should match the task. Do not give broad access just because it is available.</p>
+        </article>
+      </div>
+
+      <article class="callout warning">
+        <h3>Safety message</h3>
+        <p>More access means more responsibility. A strong agent setup gives Codex only the access it needs, keeps risky actions visible, and makes review easy.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>6. Plugins, MCP, and skills</h2>
+        <p>These extend what Codex can do.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <p>Plugins are ways to package reusable workflows and app integrations for Codex. Official examples include plugins for Gmail, Google Drive, and Slack. Those kinds of connections can let an agent read information from outside tools or help take approved actions in them.</p>
+        <p>MCP stands for Model Context Protocol. In plain English, it is a standard way for AI tools to connect to other tools and systems.</p>
+        <p>A plugin can also include MCP servers, which give Codex access to additional tools or shared information outside the local project.</p>
+        <p>Skills are reusable instructions and resources for a specific kind of work. A skill can help Codex follow a known workflow reliably, such as using the right references or helper scripts for a task.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>7. Automations</h2>
+        <p>Automations let Codex run repeated tasks on a schedule.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Examples</h3>
+          <ul>
+            <li>Check a project each morning and summarize changes</li>
+            <li>Review recent changes and flag possible issues</li>
+            <li>Run a repeated documentation check</li>
+            <li>Watch a thread or project for a recurring task</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Safe automation habits</h3>
+          <ul>
+            <li>Keep the task narrow</li>
+            <li>Use the smallest useful project scope</li>
+            <li>Use safe permissions by default</li>
+            <li>Review findings before accepting changes</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="callout">
+        <h3>Key idea</h3>
+        <p>A scheduled agent is powerful because it can keep checking or improving something over time. Test the automation prompt manually first, then review the first few outputs before trusting a scheduled task.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>8. Human review</h2>
+        <p>The agent can do work, but the human decides what becomes real.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <p>In software work, a diff shows exactly what changed. Tests check whether the project still behaves as expected. A commit records an approved set of changes. A pull request is a place where people can review and discuss changes before they are merged into the main project.</p>
+        <p>Those ideas apply beyond coding too. When an agent drafts work, connects tools, or prepares an action, a person should be able to inspect the result, understand the change, and accept, revise, or reject it.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>9. Classroom demo</h2>
+        <p>A simple way to demonstrate agent-style work without turning class into a coding tutorial.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ol>
+          <li>Ask Codex to review <code>session-4.html</code> without changing anything.</li>
+          <li>Ask Codex to suggest one small improvement.</li>
+          <li>Ask Codex to make the change.</li>
+          <li>Review the diff.</li>
+          <li>Accept, revise, or reject the change.</li>
+        </ol>
+      </article>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Prompt 1</h3>
+          <pre><code>Review session-4.html for teaching flow. Do not make changes yet. Summarize what the page teaches, where the flow is strong, and where students may need a clearer real-world agent example.</code></pre>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Prompt 2</h3>
+          <pre><code>Add a short student-facing section that links Codex App to the idea of an agent workspace. Keep the tone non-technical. Do not turn this into a coding tutorial.</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>10. Optional demo: Codex for Everybody</h2>
+        <p>Use a fictional workplace folder to show agent-style review without making this a coding demo.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <p>For a longer non-coding activity, the <a class="text-link" href="demo-files/codex-for-everybody/README.md">Codex for Everybody demo files</a> show how Codex can help with training plans, spreadsheet review, manager-ready summaries, and report drafting across multiple simple files.</p>
+        <p>For a clean class sequence, use the <a class="text-link" href="demo-files/codex-for-everybody/DEMO_PROMPTS.md">demo prompts</a>.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>11. Key takeaway</h2>
+        <p>Codex App matters as an agent example, not only as a coding tool.</p>
+      </div>
+
+      <article class="callout">
+        <h3>Remember this</h3>
+        <p>Codex App is useful for this class because it shows how agent systems combine goals, tools, files, permissions, actions, and human review.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>Learn more from OpenAI</h2>
+        <p>These optional references explain Codex App features, settings, permissions, and related tools in more detail.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ul>
+          <li><a class="text-link" href="https://developers.openai.com/codex/app/features" target="_blank" rel="noopener noreferrer">Codex App features</a></li>
+          <li><a class="text-link" href="https://developers.openai.com/codex/app/settings" target="_blank" rel="noopener noreferrer">Codex App settings</a></li>
+          <li><a class="text-link" href="https://developers.openai.com/codex/app/automations" target="_blank" rel="noopener noreferrer">Codex App automations</a></li>
+          <li><a class="text-link" href="https://developers.openai.com/codex/agent-approvals-security" target="_blank" rel="noopener noreferrer">Codex agent approvals and security</a></li>
+          <li><a class="text-link" href="https://developers.openai.com/codex/plugins" target="_blank" rel="noopener noreferrer">Codex plugins</a></li>
+          <li><a class="text-link" href="https://developers.openai.com/codex/skills" target="_blank" rel="noopener noreferrer">Codex skills</a></li>
+          <li><a class="text-link" href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener noreferrer">Using Codex with your ChatGPT plan</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="cta-row">
+        <a href="session-4.html" class="button">Back to Session 4</a>
+        <a href="sessions.html" class="button button-primary">Back to All Sessions</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
