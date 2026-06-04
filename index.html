@@ -1,181 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Foundations for Everyone</title>
-  <meta name="description" content="A simple class site for AI Foundations for Everyone.">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .course-banner-wrap {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .course-banner {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      border-bottom: 6px solid #ffffff;
-      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
-    }
-
-
-    .site-footer {
-      margin-top: 3rem;
-      padding: 1.5rem 0 2.5rem;
-      border-top: 1px solid rgba(148, 163, 184, 0.25);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-note {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #475569;
-    }
-
-    .footer-bonus {
-      font-size: 0.95rem;
-      color: #475569;
-    }
-
-    .footer-bonus a {
-      color: inherit;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-  </style>
+  <meta name="description" content="Start with AI basics, build better prompts, practice verification, develop security-aware habits, and see how agents, automation, and real workflows fit into practical work.">
+  <link rel="stylesheet" href="styles.css?v=20260604-agentactions">
 </head>
-
 <body>
-
-
-  <div class="wrap course-banner-wrap">
-    <img class="course-banner" src="AI_Flyer_header.png"
-      alt="Southern Maine Community College Workforce Training - AI Foundations for Everyone" />
-  </div>
-
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">AI Foundations for Everyone</a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a class="active" href="index.html" aria-current="page">Home</a>
-        <a href="sessions.html">Sessions</a>
-        <a href="ai-models.html">AI Models</a>
+        <a class="active" aria-current="page" href="index.html">Part 1</a>
+        <a href="part2/">Part 2</a>
+        <a href="ai-models/">AI Models</a>
       </nav>
     </div>
   </header>
-
   <main>
-    <section class="course-welcome wrap">
-      <h1>AI Foundations for Everyone</h1>
+    <section class="course-welcome wrap" aria-labelledby="course-title">
+      <p class="eyebrow">Part 1</p>
+      <h1 id="course-title">AI Foundations for Everyone</h1>
       <p class="lead">A practical introduction to using AI safely, clearly, and effectively at work.</p>
-      <p>
-        We will start with AI basics, build better prompts, practice verification, develop security-aware habits,
-        and look at how agents, automation, and real workflows fit into practical work.
-      </p>
+      <p>Start with AI basics, build better prompts, practice verification, develop security-aware habits, and see how agents, automation, and real workflows fit into practical work.</p>
+      <div class="course-facts" aria-label="Course facts">
+        <span>Five sections</span>
+        <span>Workplace AI basics</span>
+        <span>Safe use and verification</span>
+      </div>
       <div class="hero-actions landing-actions">
-        <a class="button button-primary" href="session-1.html">Start Session 1</a>
-        <a class="button" href="sessions.html">View All Sessions</a>
-        <a class="button" href="ai-models.html">AI Model Categories</a>
+        <a class="button button-primary" href="session-1.html">Start Section 1</a>
+        <a class="button" href="ai-models/">Compare AI model types</a>
       </div>
     </section>
-
-    <section class="wrap page-section teaching-flow">
+    <section class="wrap page-section teaching-flow" id="why-this-matters">
       <div class="section-heading">
-        <h2>Why this matters now</h2>
+        <h2>Why this matters</h2>
+        
       </div>
-      <article class="card">
-        <h3>AI is no longer just a chatbot. It is becoming a workflow tool.</h3>
-        <p>
-          Current AI models can read large amounts of information, generate useful drafts, write and review code,
-          compare options, use tools, and follow multi-step instructions. Agents take that further by connecting AI
-          to actions, APIs, files, and workflows.
-        </p>
-        <p>
-          That is powerful for productivity, but it also raises the stakes. The same speed that helps someone draft
-          an email, summarize a report, or build a workflow can also speed up mistakes, weak assumptions, and security
-          risks.
-        </p>
-        <p>
-          This course teaches the practical habits that matter now: better prompts, safer examples, verification,
-          human judgment, and a clear understanding of when AI should — and should not — be used.
-        </p>
-      </article>
+      <div class="teaching-flow">
+        <article class="card">
+          
+          <h3>AI is no longer just a chatbot. It is becoming a workflow tool.</h3>
+          <p>Current AI models can read large amounts of information, generate useful drafts, write and review code, compare options, use tools, and follow multi-step instructions. Agents take that further by connecting AI to actions, APIs, files, and workflows.</p>
+          <p>That is powerful for productivity, but it also raises the stakes. The same speed that helps someone draft an email, summarize a report, or build a workflow can also speed up mistakes, weak assumptions, and security risks.</p>
+          <p>This course teaches the practical habits that matter now: better prompts, safer examples, verification, human judgment, and a clear understanding of when AI should - and should not - be used.</p>
+          
+          
+        </article>
+      </div>
     </section>
-
-    <section class="wrap page-section teaching-flow">
+    <section class="wrap page-section teaching-flow" id="what-this-course-is-about">
       <div class="section-heading">
         <h2>What this course is about</h2>
         <p>No technical background required. The focus is practical judgment, not hype.</p>
       </div>
-      <article class="card">
-        <ul>
-          <li>Plain-English AI foundations</li>
-          <li>Useful workplace prompting</li>
-          <li>Safe and responsible use</li>
-          <li>Verification and human judgment</li>
-          <li>Agents, automation, and real workflows</li>
-        </ul>
-      </article>
+      <div class="teaching-flow">
+        <article class="card">
+          
+          
+          
+          <ul>
+            <li>Plain-English AI foundations</li>
+            <li>Useful workplace prompting</li>
+            <li>Safe and responsible use</li>
+            <li>Verification and human judgment</li>
+            <li>Agents, automation, and real workflows</li>
+          </ul>
+          
+        </article>
+      </div>
     </section>
-
-    <section class="wrap page-section">
+    <section class="wrap page-section" id="section-details">
       <div class="section-heading">
-        <h2>Course roadmap</h2>
-        <p>Five sessions, each building toward practical AI use at work.</p>
+        <h2>Section details</h2>
+        <p>Each section includes a focused topic, practical activities, and a clear outcome participants can use after class.</p>
       </div>
-      <div class="roadmap-list">
-        <article class="card roadmap-item">
-          <p class="label">Session 1</p>
-          <h3>AI basics, safe use, and building your AI Starter Kit</h3>
+      <div class="section-list">
+        <article class="section-card" id="section-1">
+          <div class="section-meta">
+            <p class="label">Section 1</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>AI basics, safe use, and building your AI Starter Kit</h2>
+          <p>Start with plain-English AI basics, safe-use habits, and a practical starter kit learners can reuse at work.</p>
+          <ul>
+            <li>Understand what common AI tools can and cannot do</li>
+            <li>Set personal guardrails for safe workplace use</li>
+            <li>Create an AI Working Agreement and starter prompts</li>
+          </ul>
+          <div class="hero-actions"><a class="button" href="session-1.html">Open Section 1</a></div>
         </article>
-        <article class="card roadmap-item">
-          <p class="label">Session 2</p>
-          <h3>Better prompting, verification, and improving AI outputs</h3>
+        <article class="section-card" id="section-2">
+          <div class="section-meta">
+            <p class="label">Section 2</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>Better prompting, verification, and improving AI outputs</h2>
+          <p>Practice clearer prompts, stronger context, and verification habits so AI output becomes easier to review and improve.</p>
+          <ul>
+            <li>Write prompts with role, task, context, format, and constraints</li>
+            <li>Test outputs against source material and common-sense checks</li>
+            <li>Revise weak AI responses into usable drafts</li>
+          </ul>
+          <div class="hero-actions"><a class="button" href="session-2.html">Open Section 2</a></div>
         </article>
-        <article class="card roadmap-item">
-          <p class="label">Session 3</p>
-          <h3>Projects, reusable documents, Markdown, and sharing useful results</h3>
+        <article class="section-card" id="section-3">
+          <div class="section-meta">
+            <p class="label">Section 3</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>Projects, reusable documents, Markdown, and sharing useful results</h2>
+          <p>Move from one-off chats to reusable project materials, clean documents, and shareable outputs.</p>
+          <ul>
+            <li>Use AI projects and saved context to reduce repeated setup</li>
+            <li>Create structured documents with Markdown</li>
+            <li>Turn rough ideas into clear workplace artifacts</li>
+          </ul>
+          <div class="hero-actions"><a class="button" href="session-3.html">Open Section 3</a></div>
         </article>
-        <article class="card roadmap-item">
-          <p class="label">Session 4</p>
-          <h3>Agents, automation, APIs, and workflows</h3>
+        <article class="section-card" id="section-4">
+          <div class="section-meta">
+            <p class="label">Section 4</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>Agents, automation, APIs, and workflows</h2>
+          <p>Explore how agents and automation connect AI to files, tools, APIs, and repeatable workflows.</p>
+          <ul>
+            <li>Compare chatbot use with agent-assisted workflows</li>
+            <li>Identify tasks that benefit from repeatable automation</li>
+            <li>Decide where human review should stay in the loop</li>
+          </ul>
+          <div class="hero-actions"><a class="button" href="session-4.html">Open Section 4</a></div>
         </article>
-        <article class="card roadmap-item">
-          <p class="label">Session 5</p>
-          <h3>Security, private/local AI, and where AI is going next</h3>
+        <article class="section-card" id="section-5">
+          <div class="section-meta">
+            <p class="label">Section 5</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>Security, private/local AI, and where AI is going next</h2>
+          <p>Connect AI use to security, privacy, local/private options, and practical next steps for responsible adoption.</p>
+          <ul>
+            <li>Recognize sensitive data risks and safer sharing practices</li>
+            <li>Understand why local and private AI options matter</li>
+            <li>Plan practical next steps for responsible AI use</li>
+          </ul>
+          <div class="hero-actions"><a class="button" href="session-5.html">Open Section 5</a></div>
         </article>
       </div>
     </section>
-
+    <section class="wrap page-section teaching-flow" id="expected-outcomes">
+      <div class="section-heading">
+        <h2>Expected outcomes</h2>
+        
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+          
+          
+          
+          <ul>
+            <li>Use AI tools with clearer prompts and safer context.</li>
+            <li>Review AI outputs before acting on them.</li>
+            <li>Create reusable prompts and documents for common workplace tasks.</li>
+            <li>Explain where agents, automation, and human judgment fit.</li>
+            <li>Recognize security, privacy, and data-sharing risks.</li>
+          </ul>
+          
+        </article>
+      </div>
+    </section>
+    <section class="wrap page-section teaching-flow" id="registration">
+      <div class="section-heading">
+        <h2>Registration</h2>
+        <p>Section 1 starts with foundations and ends with a reusable AI Starter Kit.</p>
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+          <p class="label">Start here</p>
+          <h3>Build your AI Starter Kit</h3>
+          
+          <ul>
+            <li>AI Working Agreement</li>
+            <li>Personal Context Prompt</li>
+            <li>Task Playbook Prompt</li>
+            <li>One test chat or project</li>
+          </ul>
+          <div class="hero-actions"><a class="button button-primary" href="session-1.html">Start Section 1</a></div>
+        </article>
+      </div>
+    </section>
     <section class="wrap page-section teaching-flow">
       <div class="section-heading">
         <h2>Why security matters</h2>
+        
       </div>
-      <article class="callout warning">
-        <p>
-          AI can be useful, but learners need to know what not to share, how to sanitize examples, and why important
-          outputs need human review before anyone acts on them.
-        </p>
-      </article>
-      <article class="card">
-        <p>
-          A later session will cover security risks, private/local AI options, and safer workflows so you can make
-          better choices about which tool fits which task.
-        </p>
-      </article>
+      <div class="teaching-flow">
+        <article class="card">
+          
+          
+          <p>AI can be useful, but learners need to know what not to share, how to sanitize examples, and why important outputs need human review before anyone acts on them.</p>
+          <p>A later section will cover security risks, private/local AI options, and safer workflows so you can make better choices about which tool fits which task.</p>
+          
+          
+        </article>
+      </div>
     </section>
 
     <section class="wrap page-section teaching-flow">
@@ -183,134 +213,89 @@
         <h2>AI needs ownership</h2>
         <p>AI is becoming too important to manage casually.</p>
       </div>
-      <article class="card">
-        <p>
-          Modern AI can help people write, summarize, analyze, code, troubleshoot, and automate. Agents can go further
-          by connecting AI to files, tools, APIs, and workflows.
-        </p>
-        <p>
-          For organizations that depend on secure systems, this cannot be treated as only an IT issue or only a
-          programming issue. AI needs clear ownership across leadership, security, operations, software, and training.
-        </p>
-        <p>
-          That means approved tools, safe data practices, AI-aware security review, testing of AI-built systems,
-          monitoring for misuse, and people who are responsible for understanding how these tools change both
-          productivity and risk.
-        </p>
-      </article>
+      <div class="teaching-flow">
+        <article class="card">
+          
+          
+          <p>Modern AI can help people write, summarize, analyze, code, troubleshoot, and automate. Agents can go further by connecting AI to files, tools, APIs, and workflows.</p>
+          <p>For organizations that depend on secure systems, this cannot be treated as only an IT issue or only a programming issue. AI needs clear ownership across leadership, security, operations, software, and training.</p>
+          <p>That means approved tools, safe data practices, AI-aware security review, testing of AI-built systems, monitoring for misuse, and people who are responsible for understanding how these tools change both productivity and risk.</p>
+          
+          
+        </article>
+      </div>
     </section>
 
     <section class="wrap page-section teaching-flow">
       <div class="section-heading">
         <h2>Why agents matter</h2>
+        
       </div>
-      <article class="card">
-        <p>
-          Chatbots mostly respond to what you ask. Agents can plan steps, call tools, check files, work with APIs,
-          and help move a task from idea to action. That is why prompt quality, permissions, review, and security
-          habits matter more as AI becomes part of real workflows.
-        </p>
-      </article>
+      <div class="teaching-flow">
+        <article class="card">
+          
+          
+          <p>Chatbots mostly respond to what you ask. Agents can plan steps, call tools, check files, work with APIs, and help move a task from idea to action. That is why prompt quality, permissions, review, and security habits matter more as AI becomes part of real workflows.</p>
+          
+          
+        </article>
+      </div>
     </section>
 
     <section class="wrap page-section teaching-flow">
       <div class="section-heading">
-        <h2>Start today</h2>
-        <p>Session 1 starts with foundations and ends with a reusable AI Starter Kit.</p>
-      </div>
-      <article class="card feature-card">
-        <div>
-          <p class="label">Start here</p>
-          <h3>Build your AI Starter Kit</h3>
-          <ul>
-            <li>AI Working Agreement</li>
-            <li>Personal Context Prompt</li>
-            <li>Task Playbook Prompt</li>
-            <li>One test chat or project</li>
-          </ul>
-          <a class="button button-primary landing-cta" href="session-1.html">Start Session 1</a>
-        </div>
-      </article>
-    </section>
-
-    <section class="wrap page-section part-two-teaser-wrap">
-      <article class="part-two-teaser">
-        <p class="label">Coming Soon</p>
-        <h2>AI Foundations – Part 2</h2>
-        <p class="part-two-subtitle">Local AI, Private Workflows, and Practical Agent Systems</p>
-        <p>
-          Interested in what comes after the first course? Part 2 will explore local AI, private workflows, RAG,
-          lightweight model customization, and practical agent systems.
-        </p>
-        <p>
-          This follow-on course is designed for people who want a deeper understanding of how AI systems can run
-          closer to their own data, with more privacy, control, and transparency.
-        </p>
-        <a class="button button-primary landing-cta" href="https://www.halolumin.io/prichardsondev/ai-foundations-part-2" target="_blank" rel="noopener noreferrer">View Part 2 overview</a>
-      </article>
-    </section>
-
-    <section class="wrap page-section support-section">
-      <div class="section-heading">
         <h2>Additional course notes</h2>
         <p>Useful context and references for later in the course.</p>
       </div>
-      <div class="teaching-flow">
+      <div class="notes-grid">
         <article class="card">
+          
           <h3>Who this is for</h3>
-          <p>
-            This course is for employees across production, quality, maintenance, engineering, scheduling,
-            procurement, finance, HR, office staff, and leadership.
-          </p>
+          <p>This course is for employees across production, quality, maintenance, engineering, scheduling, procurement, finance, HR, office staff, and leadership.</p>
+          
+          
         </article>
         <article class="card">
+          
           <h3>Prerequisites</h3>
+          
           <ul>
             <li>At least 18 years of age</li>
             <li>High school diploma, GED, or HiSet</li>
             <li>Resident of Maine</li>
             <li>Proof of authorization to work in the U.S.</li>
           </ul>
+          
         </article>
         <article class="card">
-          <h3>New workplace demo</h3>
-          <p>
-            Microsoft 365 Copilot at Work shows how AI appears inside common work tools like Outlook, OneDrive,
-            Excel, Word, PowerPoint, and Teams.
-          </p>
-          <a class="button landing-cta" href="copilot-at-work.html">Open Copilot at Work</a>
+          
+          <h3>AI Foundations Part 2</h3>
+          <p>The follow-on course explores local AI, private workflows, RAG, lightweight model customization, and practical agent systems.</p>
+          
+          <div class="hero-actions"><a class="button button-primary" href="part2/">View Part 2 overview</a></div>
         </article>
         <article class="card">
+          
+          <h3>SMCC AI Adoption draft site</h3>
+          <p>A planning resource for AI adoption training, published as a draft companion site for review.</p>
+          
+          <div class="hero-actions"><a class="button" href="/smcc-ai-adoption/">Open SMCC AI Adoption</a></div>
+        </article>
+        <article class="card">
+          
           <h3>AI model categories at a glance</h3>
-          <p>
-            Use the AI Models page to explain where GPT-style tools fit, and how models like YOLO, SAM, and Whisper
-            solve different kinds of problems.
-          </p>
-          <a class="button landing-cta" href="ai-models.html">Open AI Models</a>
-        </article>
-        <article class="card">
-          <h3>How this site was built</h3>
-          <p>
-            This course site is also a real-world example of how I use AI in my own work. I planned the structure with
-            ChatGPT, used Codex to help build and revise the pages, reviewed ideas and wording with Claude, and then
-            made the final decisions myself as the instructor. Each tool helped with a different part of the process,
-            but none of them replaced human judgment.
-          </p>
-          <p class="small-note">
-            Future class dates are available through SMCC Workforce Training: smccworkforcereg@mainecc.edu or 207-741-5955
-          </p>
+          <p>Use the AI Models page to explain where GPT-style tools fit, and how models like YOLO, SAM, and Whisper solve different kinds of problems.</p>
+          
+          <div class="hero-actions"><a class="button" href="ai-models/">Compare AI model types</a></div>
         </article>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <p class="footer-note">AI Foundations for Everyone</p>
       <p class="footer-bonus">Bonus: <a href="hallucination-associates.html">Hallucination &amp; Associates</a></p>
     </div>
   </footer>
-
 </body>
-
 </html>

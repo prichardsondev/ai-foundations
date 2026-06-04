@@ -1,0 +1,14 @@
+{
+  "name": "ai-foundations-local-study-buddy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small classroom demo showing a web app talking to a local Ollama model.",
+  "main": "server.js",
+  "scripts": {
+    "build:courses": "node scripts/build-courses.mjs",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

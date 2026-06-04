@@ -1,55 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 5 | AI Foundations for Everyone</title>
-<meta name="description" content="Session 5 placeholder page for AI Foundations for Everyone.">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title >Section 5 | AI Foundations for Everyone</title>
+  <meta name="description" content="Section 5: From prompts to agents, local AI, Ollama, APIs, and AI-native apps.">
+  <link rel="stylesheet" href="styles.css?v=20260604-agentactions">
 </head>
 <body>
-<header class="site-header">
-<div class="wrap header-inner">
-<a class="brand" href="index.html">AI Foundations for Everyone</a>
-<nav class="site-nav" aria-label="Main navigation">
-<a href="index.html">Home</a>
-<a href="sessions.html" class="active" aria-current="page">Sessions</a>
-<a href="ai-models.html">AI Models</a>
-</nav>
-</div>
-</header>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">AI Foundations for Everyone</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Part 1</a>
+    <a href="part2/">Part 2</a>
+    <a href="ai-models/">AI Models</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="wrap page-shell lesson-shell">
-<section class="page-title">
-<p class="eyebrow">Session 5</p>
-<h1>Practice Lab and Real-World Application</h1>
-<p class="lead">
-  This page is a temporary placeholder while Session 5 content is being developed.
-</p>
-</section>
+  <main class="wrap page-shell lesson-shell">
+    <section class="page-title">
+      <p class="eyebrow" >Section 5</p>
+      <h1>From Prompts to Agents: Local AI and AI-Native Apps</h1>
+      <p class="lead">
+        This final session brings together the main ideas from the course. We will shift from simply chatting with AI to understanding how AI models, apps, APIs, and agents can work together in practical workflows.
+      </p>
+    </section>
 
-<section class="card outcomes-card">
-<h2>Planned focus</h2>
-<ul>
-<li>Bring the course together through guided practice</li>
-<li>Use realistic role-based prompts and workplace scenarios</li>
-<li>Leave with practical examples learners can reuse</li>
-</ul>
-</section>
+    <section class="card outcomes-card">
+      <h2 >Section outcomes</h2>
+      <ul>
+        <li>Connect the major ideas from Sections 1-4</li>
+        <li>Explain how AI-native apps can turn user intent into tool and API actions</li>
+        <li>Understand what it means to run an AI model locally</li>
+        <li>Watch Ollama run a local model and expose a local API</li>
+        <li>See Codex build a small app that talks to a local Ollama model</li>
+      </ul>
+    </section>
 
-<section class="lesson-section">
-<article class="callout">
-<h3>Coming soon</h3>
-<p>Session 5 will be added here soon. For now, use the Sessions page or revisit earlier sessions for practice.</p>
-</article>
-</section>
+    <article class="card lesson-card" style="margin-bottom: 1.5rem;">
+      <h3>How to use this session</h3>
+      <p>This session can be followed as a live demo or reviewed later as a guide. During the live class, these steps are demonstrated. After class, you can use the commands and prompts as a reference if you want to explore local AI on your own.</p>
+      <p>The goal is to make the ideas visible: a local model running on a computer, an API that apps can call, and an agent-style coding tool building a small app around that model.</p>
+    </article>
 
-<section class="lesson-section">
-<div class="cta-row">
-<a href="session-4.html" class="button">← Back to Session 4</a>
-<a href="sessions.html" class="button button-primary">Back to All Sessions</a>
-</div>
-</section>
-</main>
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>1. Review: what mattered from Sections 1-4</h2>
+        <p>The tools will change, but these habits carry forward.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ul>
+          <li><strong>Prompt clearly:</strong> Say what you want, who it is for, and what format would help.</li>
+          <li><strong>Provide useful context:</strong> Give the model the background, examples, constraints, and source material it needs.</li>
+          <li><strong>Remember models are not databases:</strong> A model predicts helpful text; it does not automatically know current facts or your private information.</li>
+          <li><strong>Verify AI output:</strong> Check important facts, calculations, tone, citations, and anything that affects real decisions.</li>
+          <li><strong>Iterate:</strong> Treat AI work as a draft-and-revise process, not a perfect one-shot answer.</li>
+          <li><strong>Think in workflows:</strong> The biggest value often comes from connecting steps, tools, files, and review points.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>2. AI-native apps</h2>
+        <p>Many future apps may not start with menus and buttons.</p>
+      </div>
+
+      <article class="callout">
+        <h3>A simple pattern</h3>
+        <p><strong>User intent &rarr; AI model &rarr; Tool/API call &rarr; Result &rarr; Human review</strong></p>
+      </article>
+
+      <article class="card lesson-card">
+        <p>Instead of clicking through every screen, a user may describe a goal. An AI agent or AI-native app can then use tools, APIs, files, and services to help complete the task.</p>
+        <p>Traditional apps are not disappearing. Forms, dashboards, buttons, and review screens still matter. The change is that the front door to software is becoming more conversational and goal-driven.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>3. Local AI</h2>
+        <p>Local AI means the model runs on your own machine instead of only in a cloud service.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Why it matters</h3>
+          <ul>
+            <li>A model can run on your own computer.</li>
+            <li>It can be more private because every prompt does not have to leave your machine.</li>
+            <li>It can work without sending each request to a cloud AI service.</li>
+            <li>It helps show that AI can be part of ordinary local apps and workflows.</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Tradeoffs</h3>
+          <ul>
+            <li>Local models may be slower depending on the computer.</li>
+            <li>Smaller models may be less capable than the strongest cloud models.</li>
+            <li>Model size, memory, and hardware matter.</li>
+            <li>This session uses Ollama to run the local model.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>4. Ollama in the terminal</h2>
+        <p>These commands show the basic local AI pattern: list available models, prepare the model if needed, run it in the terminal, and call the local API from another program.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Terminal commands</h3>
+          <pre><code>ollama list
+ollama pull gpt-oss:20b
+ollama run gpt-oss:20b</code></pre>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Example prompts</h3>
+          <pre><code>Explain what an AI agent is to a beginner in five short bullet points.</code></pre>
+          <pre><code>Give me three examples of useful local AI apps a student could build.</code></pre>
+        </article>
+      </div>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Local API example</h3>
+        <pre><code>curl http://localhost:11434/api/generate \
+  -d '{
+    "model": "gpt-oss:20b",
+    "prompt": "Write a friendly one-paragraph explanation of local AI.",
+    "stream": false
+  }'</code></pre>
+        <p>Once a local model has an API, a regular app can talk to it. The app sends a prompt to the local API and receives the model's response.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>5. Building an app around local AI with Codex</h2>
+        <p>This example shows how a coding agent can help build a small app that calls the local Ollama API.</p>
+      </div>
+
+      <article class="callout">
+        <h3>App idea: Local AI Study Buddy</h3>
+        <p>The app will have a text box for a question, a model field or dropdown so the model can be changed without editing code, a button labeled <strong>Ask Local AI</strong>, a response area, a backend route that calls Ollama at <code>localhost:11434</code>, and a clear note that the answer comes from a local model.</p>
+      </article>
+
+      <article class="card lesson-card">
+        <h3>Copyable Codex prompt</h3>
+        <pre class="copy-prompt-block"><code>Build a small local AI Study Buddy app.
+
+The goal is to demonstrate how a normal web app can talk to a local LLM running through Ollama.
+
+Requirements:
+- Keep the app simple and classroom-demo friendly.
+- Build the app in the current folder selected in Codex Desktop App.
+- Use plain Node/Express plus a simple HTML/CSS/JavaScript frontend unless there is an obvious reason to use something else.
+- Create a basic web UI with:
+  - A title: Local AI Study Buddy
+  - A text area for the user's question
+  - A model field or dropdown with gpt-oss:20b as the default
+  - A button labeled Ask Local AI
+  - A response area that shows the model's answer
+- Add a small backend endpoint that sends the user's prompt to Ollama at http://localhost:11434/api/generate.
+- Use model gpt-oss:20b by default, but keep the model name easy to change from the UI or with OLLAMA_MODEL.
+- Use stream: false for simplicity.
+- Handle errors gracefully if Ollama is not running, the selected model is missing, or the model response fails.
+- Add brief comments where helpful.
+- After building, explain:
+  - What files you changed
+  - How to run the app
+  - How the frontend talks to the backend
+  - How the backend talks to Ollama
+  - What students should notice during the demo
+Do not overbuild this. Keep it small, readable, and easy to explain in class.</code></pre>
+      </article>
+
+      <article class="card lesson-card" style="margin-top: 1rem;">
+        <h3>Run the demo</h3>
+        <pre><code>npm install
+npm start</code></pre>
+        <p>Then open <code>http://localhost:3000</code>.</p>
+        <p>If port 3000 is busy:</p>
+        <pre><code>PORT=3015 npm start</code></pre>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>6. Agent tools overview</h2>
+        <p>The main trend is movement from chat toward tool use and agent workflows.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Chat and coding agents</h3>
+          <ul>
+            <li><strong>ChatGPT:</strong> Useful for explaining, planning, writing, summarizing, and reasoning.</li>
+            <li><strong>Codex / Claude Code:</strong> Coding agents that can work with project files, inspect code, make changes, and explain their work.</li>
+          </ul>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>Local and persistent agents</h3>
+          <ul>
+            <li><strong>Ollama / LM Studio:</strong> Tools for running local models on your own machine.</li>
+            <li><strong>Hermes / OpenClaw:</strong> Examples of more persistent or tool-using agent systems.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <div class="section-heading">
+        <h2>7. Closing discussion questions</h2>
+        <p>Use these to connect the demo back to real work and study habits.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ul>
+          <li>What kinds of apps become easier when users can describe goals instead of clicking through menus?</li>
+          <li>When would local AI be better than cloud AI?</li>
+          <li>What risks come with agents that can use tools?</li>
+          <li>What should humans still review before trusting AI output?</li>
+          <li>What would you build with a local AI model?</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <article class="callout">
+        <h3>Final takeaway</h3>
+        <p>The durable AI skill is not memorizing one tool. Tools will change. The durable skill is learning how to describe goals, provide context, verify results, and safely delegate work to AI systems.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section">
+      <div class="cta-row">
+        <a href="session-4.html" class="button">Back to Section 4</a>
+        <a href="sections/" class="button button-primary">Back to All Sections</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
