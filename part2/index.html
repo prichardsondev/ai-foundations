@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Foundations for Everyone - Part 2</title>
-  <meta name="description" content="A five-week hands-on follow-up course where participants run local models, build private document workflows, connect AI tools, and learn when local AI makes sense compared with cloud services.">
+  <meta name="description" content="Part 2 moves from safe AI use into practical AI systems. You will set up a local-first workflow, run models, connect AI to files and tools, use agents carefully, and learn when local AI makes sense compared with cloud services.">
   <link rel="stylesheet" href="../styles.css?v=20260604-agentactions">
 </head>
 <body>
@@ -23,29 +23,30 @@
       <p class="eyebrow">Part 2</p>
       <h1 id="course-title">AI Foundations for Everyone - Part 2</h1>
       <p class="lead">Local AI, Private Workflows, and Practical Agent Systems</p>
-      <p>A five-week hands-on follow-up course where participants run local models, build private document workflows, connect AI tools, and learn when local AI makes sense compared with cloud services.</p>
+      <p>Part 2 moves from safe AI use into practical AI systems. You will set up a local-first workflow, run models, connect AI to files and tools, use agents carefully, and learn when local AI makes sense compared with cloud services.</p>
       <div class="course-facts" aria-label="Course facts">
         <span>Five sections</span>
         <span>2-hour meetings</span>
         <span>Local AI lab focus</span>
       </div>
       <div class="hero-actions landing-actions">
-        <a class="button button-primary" href="#registration">View registration details</a>
+        <a class="button button-primary" href="session-1.html">Start Section 1</a>
+        <a class="button" href="#registration">View registration details</a>
       </div>
     </section>
     <section class="wrap page-section teaching-flow" id="why-this-matters">
       <div class="section-heading">
         <h2>Why this matters</h2>
-        
+
       </div>
       <div class="teaching-flow">
         <article class="card">
-          
+
           <h3>More control over data, tools, and infrastructure.</h3>
-          <p>Part 1 focused on safe, effective AI use. Part 2 moves into local-first AI systems: running models, building private document workflows, connecting agents to tools, and deciding when local systems make sense compared with cloud services.</p>
-          <p>The goal is not to turn everyone into an AI engineer. The goal is to help participants understand enough of the system to use AI more safely, privately, and intentionally.</p>
-          
-          
+          <p>Part 1 focused on safe, effective AI use. Part 2 moves into practical AI systems: local tools, coding agents, GitHub, deployment, local models, grounded answers from files, and tool-using workflows.</p>
+          <p>The goal is not to master every AI engineering tool. The goal is to understand the workflow well enough to build safely, review changes, and make smart local-vs-cloud decisions.</p>
+
+
         </article>
       </div>
     </section>
@@ -56,24 +57,24 @@
       </div>
       <div class="teaching-flow">
         <article class="card">
-          
-          
-          
+
+
+
           <ul>
+            <li>Local-first setup with Linux, GitHub, Codex, and deployment</li>
             <li>Running local models and understanding hardware limits</li>
-            <li>Private document workflows and retrieval concepts</li>
-            <li>Agent-assisted file, tool, and workflow tasks</li>
-            <li>Privacy, permissions, and deployment tradeoffs</li>
-            <li>Clear explanations of when local AI makes sense</li>
+            <li>Grounding AI answers in files with retrieval concepts</li>
+            <li>Agent workflows that inspect files, call tools, and create artifacts</li>
+            <li>Privacy, permissions, prompt injection, and deployment tradeoffs</li>
           </ul>
-          
+
         </article>
       </div>
     </section>
     <section class="wrap page-section" id="section-details">
       <div class="section-heading">
         <h2>Section details</h2>
-        <p>Each section includes a focused topic, practical activities, and a clear outcome participants can use after class.</p>
+        <p>Each section builds a practical workflow: local setup, models, grounded answers, tool-using agents, and a final reviewed system.</p>
       </div>
       <div class="section-list">
         <article class="section-card" id="section-1">
@@ -81,15 +82,15 @@
             <p class="label">Section 1</p>
             <p class="section-kind">Course section</p>
           </div>
-          <h2>Set Up the Local AI Lab</h2>
-          <p>Get the Raspberry Pis ready for the course: boot, update, confirm SSD storage, install Git and Node.js, configure the development environment, and install an AI agent interface such as Codex or Claude.</p>
+          <h2>Setup Path: Local Machine to Deployed App</h2>
+          <p>Move from a fresh Raspberry Pi/Linux lab machine to terminal basics, updates, Node.js, GitHub, Codex, a simple class app, a public GitHub repo for today, and Vercel deployment.</p>
           <ul>
-            <li>Raspberry Pi 5 orientation, OS updates, networking, and storage checks</li>
-            <li>Git setup and core commands: clone, status, add, commit, pull, and push</li>
-            <li>Node.js installation and basic terminal confidence</li>
-            <li>Codex or Claude agent setup, permissions, and first safe tasks</li>
+            <li>Linux terminal basics, system checks, updates, and required tools</li>
+            <li>Node.js, Git, GitHub account setup, and Git configuration</li>
+            <li>Codex install, inspect-only prompt, simple app build, review, push, and deploy</li>
+            <li>Public repo today because the app uses no private data and avoids SSH or token setup; private repos and SSH keys can come later</li>
           </ul>
-          
+          <div class="hero-actions"><a class="button button-primary" href="session-1.html">Open Section 1</a></div>
         </article>
         <article class="section-card" id="section-2">
           <div class="section-meta">
@@ -97,27 +98,29 @@
             <p class="section-kind">Course section</p>
           </div>
           <h2>Run Local Models and Understand Inference</h2>
-          <p>Introduce local language models, Ollama, model size tradeoffs, prompts, context windows, and the practical limits of small hardware.</p>
+          <p>Run a local model with Ollama or a similar tool, then compare inference, context windows, model size, hardware limits, and local-vs-cloud tradeoffs.</p>
           <ul>
-            <li>Install and test Ollama or a comparable local model runner</li>
-            <li>Compare local responses with cloud AI responses</li>
-            <li>Discuss speed, privacy, cost, capability, and reliability</li>
+            <li>Understand inference compared with training and fine-tuning</li>
+            <li>Compare small local models with larger cloud models</li>
+            <li>Discuss speed, privacy, cost, capability, context windows, and reliability</li>
+            <li>Local is not always better; quality varies by model size, hardware, and task</li>
           </ul>
-          
+          <div class="hero-actions"><a class="button button-primary" href="session-2.html">Open Section 2</a></div>
         </article>
         <article class="section-card" id="section-3">
           <div class="section-meta">
             <p class="label">Section 3</p>
             <p class="section-kind">Course section</p>
           </div>
-          <h2>Build a Private Document Assistant</h2>
-          <p>Move from chatting with a model to asking questions over local files using retrieval-augmented generation concepts.</p>
+          <h2>Ground AI with Local Files</h2>
+          <p>Use retrieval-augmented generation as grounding: how AI answers from your files instead of guessing.</p>
           <ul>
-            <li>Prepare a small private document set</li>
-            <li>Chunk, embed, search, and cite local information</li>
-            <li>Evaluate answers for usefulness, accuracy, and trust</li>
+            <li>Documents -&gt; chunks -&gt; embeddings -&gt; vector search -&gt; retrieved context -&gt; cited answer</li>
+            <li>Prepare a local or private document set and evaluate answers against sources</li>
+            <li>Check for hallucinations, weak citations, missing context, and prompt injection inside documents</li>
+            <li>This is not a vector database deep dive; the goal is to understand grounding and review</li>
           </ul>
-          
+
         </article>
         <article class="section-card" id="section-4">
           <div class="section-meta">
@@ -125,69 +128,109 @@
             <p class="section-kind">Course section</p>
           </div>
           <h2>Connect Agents to Tools and Repeatable Workflows</h2>
-          <p>Show how agents can inspect files, call tools, summarize work, create artifacts, and support repeatable tasks while still requiring human judgment.</p>
+          <p>Show how agents inspect files, call tools, run commands, create artifacts, and support repeatable workflows while still requiring human judgment.</p>
           <ul>
-            <li>Create a small workflow for summarizing, classifying, or searching files</li>
-            <li>Use an agent to assist with command-line and project tasks</li>
-            <li>Identify where automation should pause for human review</li>
+            <li>Use Codex-style project work with clear boundaries and command safety</li>
+            <li>Practice structured outputs, JSON, tool permissions, blast radius, and human checkpoints</li>
+            <li>Introduce MCP and connectors as plain-language ways for AI to reach approved tools and context</li>
+            <li>Review file changes, command output, and Git diffs before accepting work</li>
           </ul>
-          
+
         </article>
         <article class="section-card" id="section-5">
           <div class="section-meta">
             <p class="label">Section 5</p>
             <p class="section-kind">Course section</p>
           </div>
-          <h2>Customize, Secure, and Present a Local AI System</h2>
-          <p>Bring the course together with lightweight customization concepts, privacy review, deployment choices, and a final practical demonstration.</p>
+          <h2>Customize, Secure, and Present a Local AI Workflow</h2>
+          <p>Bring the course together with lightweight customization choices, privacy review, permissions, local/cloud deployment decisions, and a final practical demonstration.</p>
           <ul>
             <li>Understand when customization helps and when retrieval is enough</li>
-            <li>Review permissions, data handling, and oversight practices</li>
-            <li>Share a final local AI workflow and explain the design choices</li>
+            <li>Review privacy, permissions, data handling, and oversight practices</li>
+            <li>Decide whether a local, cloud, or hybrid workflow fits the task</li>
+            <li>Evaluate whether the workflow used the right source, cited clearly, admitted uncertainty, and can be reproduced</li>
           </ul>
-          
+
         </article>
       </div>
     </section>
     <section class="wrap page-section teaching-flow" id="expected-outcomes">
       <div class="section-heading">
         <h2>Expected outcomes</h2>
-        
+
       </div>
       <div class="teaching-flow">
         <article class="card">
-          
-          
-          
+
+
+
           <ul>
             <li>Explain the difference between cloud AI and local AI.</li>
             <li>Set up and test a Raspberry Pi based AI lab environment.</li>
             <li>Use Git basics to track course work and move between examples safely.</li>
-            <li>Describe inference, retrieval, agents, tools, and lightweight customization.</li>
-            <li>Build a simple private AI workflow over local files.</li>
-            <li>Identify privacy, permission, and automation risks in agent systems.</li>
-            <li>Make more informed decisions about AI infrastructure and deployment.</li>
+            <li>Explain inference, context windows, retrieval, agents, tools, and lightweight customization.</li>
+            <li>Build a simple local-first AI workflow.</li>
+            <li>Ground AI answers in local files and check sources.</li>
+            <li>Use agents with clear boundaries and human review.</li>
+            <li>Understand basic prompt injection and permission risks.</li>
+            <li>Decide when local AI, cloud AI, or a hybrid workflow makes sense.</li>
           </ul>
-          
+
         </article>
       </div>
     </section>
     <section class="wrap page-section teaching-flow" id="registration">
       <div class="section-heading">
         <h2>Registration</h2>
-        
+
       </div>
       <div class="teaching-flow">
         <article class="card">
-          
-          
+
+
           <p>For registration, scheduling, or questions about AI Foundations for Everyone - Part 2, please contact Workforce Development.</p>
-          
+
           <div class="hero-actions"><a class="button button-primary" href="mailto:smccworkforcereg@mainecc.edu">smccworkforcereg@mainecc.edu</a></div>
         </article>
       </div>
     </section>
-    
+    <section class="wrap page-section teaching-flow">
+      <div class="section-heading">
+        <h2>Core mental model</h2>
+
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+
+          <p>Local machine + project files -&gt; model or cloud AI -&gt; retrieval when files matter -&gt; tools when actions matter -&gt; agent workflow -&gt; human review -&gt; Git/GitHub checkpoint -&gt; deploy or share.</p>
+
+
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap page-section teaching-flow">
+      <div class="section-heading">
+        <h2>What we will not overdo</h2>
+
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+
+
+          <ul>
+            <li>Deep vector database architecture</li>
+            <li>Complex agent frameworks</li>
+            <li>Fine-tuning mechanics or LoRA setup</li>
+            <li>Kubernetes or cloud infrastructure</li>
+            <li>Paid API-heavy workflows</li>
+          </ul>
+
+        </article>
+      </div>
+    </section>
   </main>
   <footer class="site-footer">
     <div class="wrap footer-inner">

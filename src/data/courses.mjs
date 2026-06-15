@@ -231,50 +231,55 @@ export const courses = {
     title: "AI Foundations for Everyone - Part 2",
     subtitle: "Local AI, Private Workflows, and Practical Agent Systems",
     summary:
-      "A five-week hands-on follow-up course where participants run local models, build private document workflows, connect AI tools, and learn when local AI makes sense compared with cloud services.",
+      "Part 2 moves from safe AI use into practical AI systems. You will set up a local-first workflow, run models, connect AI to files and tools, use agents carefully, and learn when local AI makes sense compared with cloud services.",
     badges: ["Five sections", "2-hour meetings", "Local AI lab focus"],
     cssHref: "../styles.css?v=20260604-agentactions",
     navPrefix: "../",
     activeNav: "part2",
     primaryButtons: [
-      { label: "View registration details", href: "#registration", variant: "primary" }
+      { label: "Start Section 1", href: "session-1.html", variant: "primary" },
+      { label: "View registration details", href: "#registration" }
     ],
                 sectionDetails: [
       {
         label: "Section 1",
-        title: "Set Up the Local AI Lab",
-        href: "#section-1",
+        title: "Setup Path: Local Machine to Deployed App",
+        href: "session-1.html",
         detail:
-          "Get the Raspberry Pis ready for the course: boot, update, confirm SSD storage, install Git and Node.js, configure the development environment, and install an AI agent interface such as Codex or Claude.",
+          "Move from a fresh Raspberry Pi/Linux lab machine to terminal basics, updates, Node.js, GitHub, Codex, a simple class app, a public GitHub repo for today, and Vercel deployment.",
         bullets: [
-          "Raspberry Pi 5 orientation, OS updates, networking, and storage checks",
-          "Git setup and core commands: clone, status, add, commit, pull, and push",
-          "Node.js installation and basic terminal confidence",
-          "Codex or Claude agent setup, permissions, and first safe tasks"
-        ]
+          "Linux terminal basics, system checks, updates, and required tools",
+          "Node.js, Git, GitHub account setup, and Git configuration",
+          "Codex install, inspect-only prompt, simple app build, review, push, and deploy",
+          "Public repo today because the app uses no private data and avoids SSH or token setup; private repos and SSH keys can come later"
+        ],
+        action: { label: "Open Section 1", href: "session-1.html", variant: "primary" }
       },
       {
         label: "Section 2",
         title: "Run Local Models and Understand Inference",
-        href: "#section-2",
+        href: "session-2.html",
         detail:
-          "Introduce local language models, Ollama, model size tradeoffs, prompts, context windows, and the practical limits of small hardware.",
+          "Run a local model with Ollama or a similar tool, then compare inference, context windows, model size, hardware limits, and local-vs-cloud tradeoffs.",
         bullets: [
-          "Install and test Ollama or a comparable local model runner",
-          "Compare local responses with cloud AI responses",
-          "Discuss speed, privacy, cost, capability, and reliability"
-        ]
+          "Understand inference compared with training and fine-tuning",
+          "Compare small local models with larger cloud models",
+          "Discuss speed, privacy, cost, capability, context windows, and reliability",
+          "Local is not always better; quality varies by model size, hardware, and task"
+        ],
+        action: { label: "Open Section 2", href: "session-2.html", variant: "primary" }
       },
       {
         label: "Section 3",
-        title: "Build a Private Document Assistant",
+        title: "Ground AI with Local Files",
         href: "#section-3",
         detail:
-          "Move from chatting with a model to asking questions over local files using retrieval-augmented generation concepts.",
+          "Use retrieval-augmented generation as grounding: how AI answers from your files instead of guessing.",
         bullets: [
-          "Prepare a small private document set",
-          "Chunk, embed, search, and cite local information",
-          "Evaluate answers for usefulness, accuracy, and trust"
+          "Documents -> chunks -> embeddings -> vector search -> retrieved context -> cited answer",
+          "Prepare a local or private document set and evaluate answers against sources",
+          "Check for hallucinations, weak citations, missing context, and prompt injection inside documents",
+          "This is not a vector database deep dive; the goal is to understand grounding and review"
         ]
       },
       {
@@ -282,28 +287,30 @@ export const courses = {
         title: "Connect Agents to Tools and Repeatable Workflows",
         href: "#section-4",
         detail:
-          "Show how agents can inspect files, call tools, summarize work, create artifacts, and support repeatable tasks while still requiring human judgment.",
+          "Show how agents inspect files, call tools, run commands, create artifacts, and support repeatable workflows while still requiring human judgment.",
         bullets: [
-          "Create a small workflow for summarizing, classifying, or searching files",
-          "Use an agent to assist with command-line and project tasks",
-          "Identify where automation should pause for human review"
+          "Use Codex-style project work with clear boundaries and command safety",
+          "Practice structured outputs, JSON, tool permissions, blast radius, and human checkpoints",
+          "Introduce MCP and connectors as plain-language ways for AI to reach approved tools and context",
+          "Review file changes, command output, and Git diffs before accepting work"
         ]
       },
       {
         label: "Section 5",
-        title: "Customize, Secure, and Present a Local AI System",
+        title: "Customize, Secure, and Present a Local AI Workflow",
         href: "#section-5",
         detail:
-          "Bring the course together with lightweight customization concepts, privacy review, deployment choices, and a final practical demonstration.",
+          "Bring the course together with lightweight customization choices, privacy review, permissions, local/cloud deployment decisions, and a final practical demonstration.",
         bullets: [
           "Understand when customization helps and when retrieval is enough",
-          "Review permissions, data handling, and oversight practices",
-          "Share a final local AI workflow and explain the design choices"
+          "Review privacy, permissions, data handling, and oversight practices",
+          "Decide whether a local, cloud, or hybrid workflow fits the task",
+          "Evaluate whether the workflow used the right source, cited clearly, admitted uncertainty, and can be reproduced"
         ]
       }
     ],
     sectionDetailsIntro:
-      "Each section includes a focused topic, practical activities, and a clear outcome participants can use after class.",
+      "Each section builds a practical workflow: local setup, models, grounded answers, tool-using agents, and a final reviewed system.",
     why: {
       id: "why-this-matters",
       title: "Why this matters",
@@ -311,8 +318,8 @@ export const courses = {
         {
           title: "More control over data, tools, and infrastructure.",
           paragraphs: [
-            "Part 1 focused on safe, effective AI use. Part 2 moves into local-first AI systems: running models, building private document workflows, connecting agents to tools, and deciding when local systems make sense compared with cloud services.",
-            "The goal is not to turn everyone into an AI engineer. The goal is to help participants understand enough of the system to use AI more safely, privately, and intentionally."
+            "Part 1 focused on safe, effective AI use. Part 2 moves into practical AI systems: local tools, coding agents, GitHub, deployment, local models, grounded answers from files, and tool-using workflows.",
+            "The goal is not to master every AI engineering tool. The goal is to understand the workflow well enough to build safely, review changes, and make smart local-vs-cloud decisions."
           ]
         }
       ]
@@ -324,11 +331,11 @@ export const courses = {
       cards: [
         {
           list: [
+            "Local-first setup with Linux, GitHub, Codex, and deployment",
             "Running local models and understanding hardware limits",
-            "Private document workflows and retrieval concepts",
-            "Agent-assisted file, tool, and workflow tasks",
-            "Privacy, permissions, and deployment tradeoffs",
-            "Clear explanations of when local AI makes sense"
+            "Grounding AI answers in files with retrieval concepts",
+            "Agent workflows that inspect files, call tools, and create artifacts",
+            "Privacy, permissions, prompt injection, and deployment tradeoffs"
           ]
         }
       ]
@@ -342,10 +349,12 @@ export const courses = {
             "Explain the difference between cloud AI and local AI.",
             "Set up and test a Raspberry Pi based AI lab environment.",
             "Use Git basics to track course work and move between examples safely.",
-            "Describe inference, retrieval, agents, tools, and lightweight customization.",
-            "Build a simple private AI workflow over local files.",
-            "Identify privacy, permission, and automation risks in agent systems.",
-            "Make more informed decisions about AI infrastructure and deployment."
+            "Explain inference, context windows, retrieval, agents, tools, and lightweight customization.",
+            "Build a simple local-first AI workflow.",
+            "Ground AI answers in local files and check sources.",
+            "Use agents with clear boundaries and human review.",
+            "Understand basic prompt injection and permission risks.",
+            "Decide when local AI, cloud AI, or a hybrid workflow makes sense."
           ]
         }
       ]
@@ -366,6 +375,31 @@ export const courses = {
         }
       ]
     },
-    additionalNotes: []
+    additionalNotes: [
+      {
+        title: "Core mental model",
+        cards: [
+          {
+            paragraphs: [
+              "Local machine + project files -> model or cloud AI -> retrieval when files matter -> tools when actions matter -> agent workflow -> human review -> Git/GitHub checkpoint -> deploy or share."
+            ]
+          }
+        ]
+      },
+      {
+        title: "What we will not overdo",
+        cards: [
+          {
+            list: [
+              "Deep vector database architecture",
+              "Complex agent frameworks",
+              "Fine-tuning mechanics or LoRA setup",
+              "Kubernetes or cloud infrastructure",
+              "Paid API-heavy workflows"
+            ]
+          }
+        ]
+      }
+    ]
   }
 };

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 2 Section 2: Run Local Models and Understand Inference | AI Foundations for Everyone</title>
+<meta name="description" content="Run local models, compare local and cloud AI workflows, understand inference, context windows, hardware limits, and why local AI belongs in a practical AI stack.">
+<link rel="stylesheet" href="../styles.css?v=20260604-agentactions">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">AI Foundations for Everyone</a>
+<nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html">Part 1</a>
+    <a class="active" aria-current="page" href="./">Part 2</a>
+    <a href="../ai-models/">AI Models</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap page-shell lesson-shell">
+<section class="page-title" id="top">
+<p class="eyebrow">Part 2 - Section 2</p>
+<h1>Run Local Models and Understand Inference</h1>
+<p class="lead">
+    Today we run a local model, compare local and cloud AI workflows, and learn the practical tradeoffs behind model size, speed, privacy, context, and reliability.
+</p>
+</section>
+
+<section class="card outcomes-card">
+<h2>What you'll take away</h2>
+<ul>
+<li>Explain why local AI is useful even when it is not the most powerful option</li>
+<li>Compare local, cloud, and hybrid AI workflows</li>
+<li>Identify when a smaller local model is good enough for a task</li>
+<li>Explain inference, training, fine-tuning, and context windows in plain language</li>
+<li>Recognize how model size and hardware affect quality and speed</li>
+<li>Run a local model and review its output with realistic expectations</li>
+</ul>
+</section>
+
+<section class="lesson-section">
+<article class="callout warning">
+<h3>Safety rule</h3>
+<p>Use fictional, public, or course-provided examples. Do not paste private data, passwords, tokens, school records, work records, customer information, employee records, or confidential documents into any AI tool.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>1. Why Local AI Belongs in Your Stack</h2>
+<p>Local AI is usually not more powerful than the best cloud AI models. The point is not that local is always better. The point is that local can be good enough, available, private, and under your control.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>Practical framing</h3>
+<p>Cloud models can change quickly. A model can be renamed, restricted, repriced, removed, or replaced because of company policy, legal requirements, safety decisions, or government action. If your workflow depends completely on one hosted model, your workflow depends on that model staying available.</p>
+<p>Local AI gives you another option. If your hardware can run a model that is good enough for the task, it becomes a useful tool in your stack.</p>
+<ul>
+<li>Use cloud AI when you need the strongest available model.</li>
+<li>Use local AI when privacy, continuity, cost control, offline use, or hands-on learning matter.</li>
+<li>Use both when a hybrid workflow makes the most sense.</li>
+</ul>
+</article>
+
+<article class="callout">
+<h3>Good enough matters</h3>
+<p>A smaller local model may not win benchmarks, but it may be perfectly useful for drafts, summaries, class demos, simple code help, document search, and learning how AI systems work.</p>
+</article>
+
+<article class="callout">
+<h3>Hosted access can change</h3>
+<p>In June 2026, Anthropic had to abruptly disable access to Fable 5 and Mythos 5 after a U.S. government directive. Whatever the reason, the lesson for this course is simple: hosted AI access can change. Local AI gives you a fallback.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>2. Local, Cloud, and Hybrid</h2>
+<p>Choose the workflow based on the task, not on a slogan.</p>
+</div>
+
+<div class="grid-three">
+<article class="card lesson-card">
+<h3>Local</h3>
+<ul>
+<li>Runs on your machine</li>
+<li>Can work offline after setup</li>
+<li>Good for learning and private experiments</li>
+<li>Limited by hardware and model size</li>
+</ul>
+</article>
+
+<article class="card lesson-card">
+<h3>Cloud</h3>
+<ul>
+<li>Usually stronger models</li>
+<li>Easy to start using</li>
+<li>Depends on provider access and policies</li>
+<li>Requires careful data-sharing decisions</li>
+</ul>
+</article>
+
+<article class="card lesson-card">
+<h3>Hybrid</h3>
+<ul>
+<li>Use local for private or repeatable work</li>
+<li>Use cloud for harder reasoning or polish</li>
+<li>Keep humans reviewing key outputs</li>
+<li>Document which tool handled which step</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>3. Inference Basics</h2>
+<p>Inference is what happens when a trained model responds to your prompt.</p>
+</div>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Three terms</h3>
+<ul>
+<li><strong>Training:</strong> creating the model from large datasets</li>
+<li><strong>Fine-tuning:</strong> adjusting a model for a narrower pattern or task</li>
+<li><strong>Inference:</strong> running the model to generate an answer</li>
+</ul>
+</article>
+
+<article class="card lesson-card">
+<h3>What affects output</h3>
+<ul>
+<li>Model size and quality</li>
+<li>Available memory and processor speed</li>
+<li>Prompt clarity</li>
+<li>Context window size</li>
+<li>Whether the model has the right source material</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>4. Context Windows and Forgetting</h2>
+<p>A model can only work with the context it currently has available.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>Plain-English idea</h3>
+<p>The context window is the model's working space for the current prompt, chat, files, and instructions. If important information is outside that window or never provided, the model may guess, miss details, or lose track of earlier instructions.</p>
+<p>This is one reason retrieval matters later in the course: when files matter, we need a workflow that brings the right source material into the prompt at the right time.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>5. Run a Local Model</h2>
+<p class="small-note">Instructor-led: the exact model and install path may vary by lab machine.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>Check the local runner</h3>
+<pre class="copy-prompt-block">ollama --version
+ollama list</pre>
+</article>
+
+<article class="card lesson-card">
+<h3>Try a small prompt</h3>
+<pre class="copy-prompt-block">ollama run MODEL_NAME
+
+Explain local AI in five plain-English bullet points.
+Include one limitation.</pre>
+<p class="workshop-hint">Replace <strong>MODEL_NAME</strong> with the model selected for class.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>6. Compare Outputs</h2>
+<p>Run the same safe prompt locally and in a cloud tool, then compare the result.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>Comparison checklist</h3>
+<ul>
+<li>Which answer is clearer?</li>
+<li>Which answer follows the prompt better?</li>
+<li>Which answer is faster?</li>
+<li>Which answer needs more fact-checking?</li>
+<li>Which workflow better fits privacy, cost, continuity, and learning needs?</li>
+</ul>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>7. Closing Check</h2>
+<p>Local AI is one tool in the stack, not a replacement for judgment.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>Before moving on</h3>
+<ul>
+<li>You can explain why local AI can be useful even when cloud AI is stronger.</li>
+<li>You can name at least one local, cloud, and hybrid workflow.</li>
+<li>You can explain inference and context windows in plain language.</li>
+<li>You can identify tasks where a smaller local model is good enough.</li>
+<li>You can describe why local access can help with continuity and hands-on learning.</li>
+</ul>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="cta-row">
+<a href="./" class="button">&larr; Back to Part 2 Overview</a>
+<a href="session-1.html" class="button">Back to Section 1</a>
+<a href="#top" class="button">Back to Top</a>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<p class="footer-note">AI Foundations for Everyone</p>
+<p class="footer-bonus">Bonus: <a href="../hallucination-associates.html">Hallucination &amp; Associates</a></p>
+</div>
+</footer>
+</body>
+</html>
