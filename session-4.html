@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Section 4: APIs, Automation, and Your First AI-Built App | AI Foundations for Everyone</title>
-  <meta name="description" content="A beginner-friendly lesson that explains APIs, automation, and agents, then guides students through building a live basement monitoring dashboard.">
+  <title>Section 4: GPT Chat Models vs AI Agents | AI Foundations for Everyone</title>
+  <meta name="description" content="A beginner-friendly comparison of GPT chat models and AI agents, followed by a guided activity using ChatGPT or Codex to build a live monitoring website.">
   <link rel="stylesheet" href="styles.css?v=20260713-api-app">
 </head>
 <body>
@@ -22,16 +22,17 @@
   <main class="wrap page-shell lesson-shell">
     <section class="page-title" id="top">
       <p class="eyebrow">Part 1 - Section 4</p>
-      <h1>APIs, Automation, and Your First AI-Built App</h1>
+      <h1>GPT Chat Models vs AI Agents</h1>
       <p class="lead">
-        Today you will use a real public API from two Raspberry Pis, ask ChatGPT or Codex to build a dashboard, save one HTML file, and open your working app in a browser.
+        Learn the difference by doing something fun: give ChatGPT or Codex one prompt and use a real public API to create your own live basement monitoring website.
       </p>
     </section>
 
     <section class="card outcomes-card">
       <h2>By the end, you should be able to</h2>
       <ul class="checklist">
-        <li>Explain an API in one sentence.</li>
+        <li>Explain the difference between a chat model and an AI agent.</li>
+        <li>Explain how an API gives software access to data.</li>
         <li>Tell raw data, coded automation, and prediction apart.</li>
         <li>Use an AI assistant to build a small app from documented API data.</li>
         <li>Open the app, refresh its data, and check whether it works.</li>
@@ -62,38 +63,36 @@
 
     <section class="lesson-section">
       <div class="section-heading">
-        <h2>1. Three ideas you need</h2>
-        <p>You do not need to memorize a long vocabulary list.</p>
+        <h2>1. Chat model vs AI agent</h2>
+        <p>Both use AI, but they help in different ways.</p>
       </div>
 
-      <article class="card lesson-card">
-        <table>
-          <thead>
-            <tr><th>Idea</th><th>Plain-English meaning</th><th>Today’s example</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>API</strong></td>
-              <td>A way for one program to request data or an action from another program.</td>
-              <td>Your dashboard requests live basement readings.</td>
-            </tr>
-            <tr>
-              <td><strong>Automation</strong></td>
-              <td>A fixed process that follows rules written in advance.</td>
-              <td>The API compares humidity with a fixed threshold.</td>
-            </tr>
-            <tr>
-              <td><strong>Agent</strong></td>
-              <td>An AI system that can work through steps and use approved tools toward a goal.</td>
-              <td>ChatGPT or Codex inspects the API and builds your file.</td>
-            </tr>
-          </tbody>
-        </table>
-      </article>
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>GPT chat model</h3>
+          <p>You ask for an answer, explanation, draft, or code. The model responds in the conversation, and you decide what to do next.</p>
+          <p><strong>Today:</strong> Chat can return the complete HTML for your website.</p>
+        </article>
+
+        <article class="card lesson-card">
+          <h3>AI agent</h3>
+          <p>You give it a goal. It may work through several steps, inspect information, use approved tools, create files, test results, and ask before important actions.</p>
+          <p><strong>Today:</strong> an agent may inspect the API, build and test the file, and offer to publish it.</p>
+        </article>
+      </div>
 
       <article class="callout">
-        <h3>Simple mental model</h3>
-        <p><strong>API = connection.</strong> <strong>Automation = fixed steps.</strong> <strong>Agent = goal plus tools plus decisions within limits.</strong></p>
+        <h3>The line is not always sharp</h3>
+        <p>The same product may behave like chat for one request and like an agent when it uses tools and completes several steps. A useful mental model is: <strong>chat responds; an agent works toward a goal.</strong></p>
+      </article>
+
+      <article class="card lesson-card">
+        <h3>Two building blocks used today</h3>
+        <ul>
+          <li><strong>API:</strong> a way for one program to request data or an action from another program.</li>
+          <li><strong>Automation:</strong> a fixed process that follows rules written in advance.</li>
+        </ul>
+        <p>Your website will request data from an API. The API’s humidity status comes from a fixed rule.</p>
       </article>
     </section>
 
@@ -169,6 +168,16 @@
         <p><strong>Stop and check:</strong> the response should contain one complete HTML file in one code block.</p>
       </article>
 
+      <article class="callout">
+        <h3>Watch chat become more agent-like</h3>
+        <ul>
+          <li>If it returns code in the conversation, you are using chat-style generation.</li>
+          <li>If it opens the API and inspects live JSON, it is using a browser tool.</li>
+          <li>If it creates and tests the file for you, it is completing a multi-step task.</li>
+          <li>If it offers to publish, that is an external action—and it must ask for approval first.</li>
+        </ul>
+      </article>
+
       <article class="card lesson-card">
         <h3>Step 5: Save the HTML file</h3>
         <ol>
@@ -234,12 +243,13 @@
           <li>Raw readings are separate from coded-rule results.</li>
           <li>The page explains why one current reading is not a prediction.</li>
           <li>You can explain where the data came from.</li>
+          <li>You can identify which parts were chat-like and which were agent-like.</li>
         </ul>
       </article>
 
       <article class="callout">
         <h3>Key takeaway</h3>
-        <p>An API supplied the data. Fixed code supplied the humidity rule. An AI assistant helped build the interface. You remained responsible for checking the fields, testing the result, and deciding whether to publish.</p>
+        <p>Chat can generate an answer or website. An agent can use tools and work through several steps toward the goal. In both cases, you remain responsible for checking the result and approving any public action.</p>
       </article>
     </section>
 
