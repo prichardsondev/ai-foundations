@@ -357,23 +357,6 @@ without explicit approval.</code></pre>
         </article>
       </div>
 
-      <article class="card lesson-card" style="margin-top: 1rem;">
-        <h3>The JavaScript connection</h3>
-        <p>This is the essential code an AI-generated browser app should contain:</p>
-        <pre><code>async function loadTemperatures() {
-  const response = await fetch(
-    "https://basetemp.raspberrynode.com/api/all"
-  );
-
-  if (!response.ok) {
-    throw new Error(`API returned ${response.status}`);
-  }
-
-  const data = await response.json();
-  console.log(data);
-}</code></pre>
-        <p><code>fetch()</code> requests the endpoint. <code>response.json()</code> converts the JSON response into a JavaScript object the page can display.</p>
-      </article>
     </section>
 
     <section class="lesson-section">
