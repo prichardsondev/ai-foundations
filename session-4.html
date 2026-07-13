@@ -24,7 +24,7 @@
       <p class="eyebrow">Part 1 - Section 4</p>
       <h1>GPT Chat Models vs AI Agents</h1>
       <p class="lead">
-        Learn the difference by doing something fun: give ChatGPT or Codex one prompt and use a real public API to create your own live basement monitoring website.
+        Give ChatGPT or Codex one prompt and make a live basement monitoring website. You do not need programming experience.
       </p>
     </section>
 
@@ -32,10 +32,9 @@
       <h2>By the end, you should be able to</h2>
       <ul class="checklist">
         <li>Explain the difference between a chat model and an AI agent.</li>
-        <li>Explain how an API gives software access to data.</li>
-        <li>Tell raw data, coded automation, and prediction apart.</li>
-        <li>Use an AI assistant to build a small app from documented API data.</li>
-        <li>Open the app, refresh its data, and check whether it works.</li>
+        <li>Explain that an API lets one program request information from another.</li>
+        <li>Tell a current reading, a fixed rule, and a prediction apart.</li>
+        <li>Use an AI assistant to build and test a small website.</li>
       </ul>
     </section>
 
@@ -46,13 +45,14 @@
       </div>
 
       <article class="card lesson-card">
-        <pre class="copy-prompt-block">1. Open the BaseTemp API page
-2. Read its documentation and try its data
-3. Copy the student build prompt
-4. Paste the prompt into ChatGPT or Codex
-5. Save the returned code as basement-monitor.html
-6. Open the file in a browser
-7. Refresh the data and verify the result</pre>
+        <ol>
+          <li>Open the BaseTemp API page.</li>
+          <li>Try its three live-data links.</li>
+          <li>Copy the student prompt.</li>
+          <li>Paste the prompt into ChatGPT or Codex.</li>
+          <li>Let the AI create the website.</li>
+          <li>Open the website and test its Refresh button.</li>
+        </ol>
       </article>
 
       <article class="callout">
@@ -70,26 +70,26 @@
       <div class="grid-two">
         <article class="card lesson-card">
           <h3>GPT chat model</h3>
-          <p>You ask for an answer, explanation, draft, or code. The model responds in the conversation, and you decide what to do next.</p>
-          <p><strong>Today:</strong> Chat can return the complete HTML for your website.</p>
+          <p>You ask for something. It responds in the conversation, and you decide what to do next.</p>
+          <p><strong>Today:</strong> Chat can create the website for you.</p>
         </article>
 
         <article class="card lesson-card">
           <h3>AI agent</h3>
-          <p>You give it a goal. It may work through several steps, inspect information, use approved tools, create files, test results, and ask before important actions.</p>
-          <p><strong>Today:</strong> an agent may inspect the API, build and test the file, and offer to publish it.</p>
+          <p>You give it a goal. It can work through several steps and use tools, while asking before important actions.</p>
+          <p><strong>Today:</strong> an agent may inspect the API, create the website, and test it.</p>
         </article>
       </div>
 
       <article class="callout">
-        <h3>The line is not always sharp</h3>
-        <p>The same product may behave like chat for one request and like an agent when it uses tools and completes several steps. A useful mental model is: <strong>chat responds; an agent works toward a goal.</strong></p>
+        <h3>An easy way to remember</h3>
+        <p><strong>Chat responds. An agent works toward a goal.</strong> The same AI product may do either, depending on the task and the tools it can use.</p>
       </article>
 
       <article class="card lesson-card">
         <h3>Two building blocks used today</h3>
         <ul>
-          <li><strong>API:</strong> a way for one program to request data or an action from another program.</li>
+          <li><strong>API:</strong> a way for one program to request information from another program.</li>
           <li><strong>Automation:</strong> a fixed process that follows rules written in advance.</li>
         </ul>
         <p>Your website will request data from an API. The API’s humidity status comes from a fixed rule.</p>
@@ -145,8 +145,13 @@
     <section class="lesson-section">
       <div class="section-heading">
         <h2>3. Build your dashboard</h2>
-        <p>Complete these steps in order. Do not skip ahead.</p>
+        <p>Complete one step at a time. You do not need to write or understand the code.</p>
       </div>
+
+      <article class="callout">
+        <h3>Your job is to direct and check</h3>
+        <p>The AI will do the programming. You will give it clear instructions, follow its save directions, and check that the result works.</p>
+      </article>
 
       <article class="card lesson-card">
         <h3>Step 1: Open the API page</h3>
@@ -159,60 +164,49 @@
 
       <article class="card lesson-card">
         <h3>Step 2: Inspect the data</h3>
-        <p>On the BaseTemp page, open the three endpoints named in the student prompt. Look at the JSON each one returns.</p>
-        <p><strong>Stop and check:</strong> find both basement sensors, the humidity rule, and the Pi CPU temperature. Return to the BaseTemp page when finished.</p>
+        <p>On the BaseTemp page, open <code>/api/all</code>, <code>/api/humidity-status</code>, and <code>/api/pi</code>. Each opens in a new browser tab. Close that tab to return to BaseTemp.</p>
+        <p>The plain text you see is called JSON. You do not need to understand every line.</p>
+        <p><strong>Stop and check:</strong> each link opens and shows information instead of an error.</p>
       </article>
 
       <article class="card lesson-card">
         <h3>Step 3: Copy the student prompt</h3>
-        <p>On the BaseTemp page, find <strong>Ask ChatGPT or Codex to build an app</strong>. Copy the entire prompt from its first line through the public-publishing approval instruction.</p>
-        <p><strong>Stop and check:</strong> the copied prompt should mention <code>/api/all</code>, <code>/api/humidity-status</code>, and <code>/api/pi</code>.</p>
+        <p>Find <strong>Ask ChatGPT or Codex to build an app</strong> on the BaseTemp page. Use its Copy button to copy the entire prompt.</p>
+        <p><strong>Stop and check:</strong> the page confirms that the prompt was copied.</p>
       </article>
 
       <article class="card lesson-card">
         <h3>Step 4: Give the prompt to your AI assistant</h3>
-        <p>Open a new ChatGPT or Codex conversation, paste the prompt, and send it. Allow the assistant to inspect the public API.</p>
-        <p>If it says an automated request was blocked, let it try through its normal browser. Do not ask it to invent example fields.</p>
-        <p><strong>Stop and check:</strong> the response should contain one complete HTML file in one code block.</p>
-      </article>
-
-      <article class="callout">
-        <h3>Watch chat become more agent-like</h3>
-        <ul>
-          <li>If it returns code in the conversation, you are using chat-style generation.</li>
-          <li>If it opens the API and inspects live JSON, it is using a browser tool.</li>
-          <li>If it creates and tests the file for you, it is completing a multi-step task.</li>
-          <li>If it offers to publish, that is an external action—and it must ask for approval first.</li>
-        </ul>
+        <p>Open a new ChatGPT or Codex conversation. Paste the prompt and send it.</p>
+        <p>If it asks permission to inspect the public API, allow it.</p>
+        <p><strong>Stop and check:</strong> the assistant begins creating a basement monitoring website.</p>
       </article>
 
       <article class="card lesson-card">
-        <h3>Step 5: Save the HTML file</h3>
-        <ol>
-          <li>Create a folder named <code>basement-monitor</code>.</li>
-          <li>Open a plain-text or code editor.</li>
-          <li>Create a file named <code>basement-monitor.html</code>.</li>
-          <li>Copy everything inside the HTML code block into the file. Do not copy the three backticks around the code.</li>
-          <li>Save the file.</li>
-        </ol>
-        <p><strong>Stop and check:</strong> the filename must end in <code>.html</code>, not <code>.txt</code>.</p>
+        <h3>Step 5: Let the AI create the website</h3>
+        <p>Wait while the assistant works. Follow the save directions it gives you.</p>
+        <p>If it creates a file or preview for you, open that. If it gives you website text to save, follow its directions exactly. Ask the instructor for help before changing any code yourself.</p>
+        <p><strong>Stop and check:</strong> you have a file or preview named <code>basement-monitor.html</code>.</p>
       </article>
 
       <article class="card lesson-card">
         <h3>Step 6: Open and test the dashboard</h3>
         <ol>
-          <li>Find <code>basement-monitor.html</code> on your computer.</li>
-          <li>Double-click it to open it in your browser.</li>
-          <li>Wait for the initial loading message to disappear.</li>
-          <li>Press the Refresh button.</li>
-          <li>Confirm that the button indicates loading and then becomes available again.</li>
+          <li>Open the file or preview.</li>
+          <li>Wait for the loading message to disappear.</li>
+          <li>Press <strong>Refresh</strong>.</li>
         </ol>
         <p><strong>Stop and check:</strong> you should see two sensor readings, the summer humidity status, the Pi CPU temperature, and observation times.</p>
       </article>
 
+      <article class="callout">
+        <h3>Now notice what the AI did</h3>
+        <p>Giving you an answer was chat-like. Opening the API, creating a file, or testing the result used tools and was more agent-like.</p>
+      </article>
+
       <article class="callout warning">
         <h3>Publishing is optional</h3>
-        <p>If your AI assistant offers to publish the dashboard as a public Site, it must ask first. Publish only if you want the page visible on the internet. The dashboard contains public sensor data, but public sharing is still your decision.</p>
+        <p>If the assistant offers to make your website public, it must ask first. Say yes only if you want anyone on the internet to be able to open it.</p>
       </article>
     </section>
 
@@ -223,16 +217,17 @@
       </div>
 
       <article class="card lesson-card">
-        <table>
+        <div class="table-wrap">
+        <table class="info-table">
           <thead><tr><th>What you see</th><th>What to do next</th></tr></thead>
           <tbody>
-            <tr><td>The BaseTemp page will not open.</td><td>Confirm internet access, reload once, and tell the instructor the exact message shown.</td></tr>
-            <tr><td>The AI assistant cannot inspect the API.</td><td>Ask it to use its normal browser. If access still fails, report the failure instead of letting it guess fields.</td></tr>
-            <tr><td>The file opens as text.</td><td>Confirm its full name is <code>basement-monitor.html</code> and not <code>basement-monitor.html.txt</code>.</td></tr>
-            <tr><td>The dashboard stays on “Loading.”</td><td>Open the BaseTemp API page directly. If it works, give the AI assistant the dashboard error and ask it to repair only that problem.</td></tr>
-            <tr><td>A value says <code>undefined</code>.</td><td>The code probably guessed a field name. Ask the assistant to compare the code with the actual endpoint JSON.</td></tr>
+            <tr><td data-label="What you see"><strong>The BaseTemp page will not open.</strong></td><td data-label="What to do next">Check your internet connection, reload once, and show the instructor the message on your screen.</td></tr>
+            <tr><td data-label="What you see"><strong>The AI cannot inspect the API.</strong></td><td data-label="What to do next">Ask it to try its browser. If it still fails, show the instructor.</td></tr>
+            <tr><td data-label="What you see"><strong>The website stays on “Loading.”</strong></td><td data-label="What to do next">Tell the AI exactly what you see and ask it to fix the website.</td></tr>
+            <tr><td data-label="What you see"><strong>You are not sure what to do.</strong></td><td data-label="What to do next">Return to the last completed step and read only the next step.</td></tr>
           </tbody>
         </table>
+        </div>
       </article>
     </section>
 
@@ -244,20 +239,17 @@
 
       <article class="card lesson-card">
         <ul class="checklist">
-          <li>The dashboard is saved as one HTML file.</li>
-          <li>It displays both basement sensors.</li>
-          <li>It displays the humidity rule and Pi CPU temperature.</li>
-          <li>The Refresh button loads new data.</li>
-          <li>Raw readings are separate from coded-rule results.</li>
-          <li>The page explains why one current reading is not a prediction.</li>
-          <li>You can explain where the data came from.</li>
-          <li>You can identify which parts were chat-like and which were agent-like.</li>
+          <li>Your dashboard opens.</li>
+          <li>It shows both basement sensors, humidity status, and Pi CPU temperature.</li>
+          <li>The Refresh button works.</li>
+          <li>You know the readings came from the BaseTemp API.</li>
+          <li>You can explain the difference between chat and an agent.</li>
         </ul>
       </article>
 
       <article class="callout">
         <h3>Key takeaway</h3>
-        <p>Chat can generate an answer or website. An agent can use tools and work through several steps toward the goal. In both cases, you remain responsible for checking the result and approving any public action.</p>
+        <p><strong>Chat responds. An agent works toward a goal.</strong> In both cases, you check the result and decide whether anything should be made public.</p>
       </article>
     </section>
 
