@@ -121,16 +121,24 @@
 
       <article class="card lesson-card">
         <h3>Do not confuse these levels</h3>
-        <table>
-          <thead><tr><th>Level</th><th>Question answered</th></tr></thead>
-          <tbody>
-            <tr><td>Raw reading</td><td>What is happening now?</td></tr>
-            <tr><td>Coded rule</td><td>Did a known threshold get crossed?</td></tr>
-            <tr><td>Trend</td><td>How has the reading changed over time?</td></tr>
-            <tr><td>Prediction</td><td>What is likely to happen next?</td></tr>
-          </tbody>
-        </table>
-        <p>One current CPU-temperature reading is monitoring, not a prediction. Predicting failure would require historical readings and examples of actual outcomes.</p>
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead>
+              <tr><th>Level</th><th>Question answered</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Level"><strong>Raw reading</strong></td><td data-label="Question answered">What is happening now?</td></tr>
+              <tr><td data-label="Level"><strong>Coded rule</strong></td><td data-label="Question answered">Did a known threshold get crossed?</td></tr>
+              <tr><td data-label="Level"><strong>Trend</strong></td><td data-label="Question answered">How has the reading changed over time?</td></tr>
+              <tr><td data-label="Level"><strong>Prediction</strong></td><td data-label="Question answered">What is likely to happen next?</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="callout">
+        <h3>Monitoring is not prediction</h3>
+        <p>One current CPU-temperature reading tells us what is happening now. Predicting a failure would require readings collected over time and examples of what happened afterward.</p>
       </article>
     </section>
 
@@ -142,7 +150,7 @@
 
       <article class="card lesson-card">
         <h3>Step 1: Open the API page</h3>
-        <p>The BaseTemp page contains the endpoint documentation, live links, a JavaScript example, and the student build prompt.</p>
+        <p>The BaseTemp page contains the endpoint documentation, live links, and the student build prompt.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="https://basetemp.raspberrynode.com/" target="_blank" rel="noopener noreferrer">Open BaseTemp API</a>
         </div>
