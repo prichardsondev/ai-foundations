@@ -284,16 +284,17 @@ export const courses = {
       },
       {
         label: "Section 4",
-        title: "Connect Agents to Tools and Repeatable Workflows",
-        href: "#section-4",
+        title: "How a Neural Network Learns",
+        href: "session-4.html",
         detail:
-          "Show how agents inspect files, call tools, run commands, create artifacts, and support repeatable workflows while still requiring human judgment.",
+          "See how a small neural network learns XOR by making predictions, measuring error, and adjusting its weights and biases.",
         bullets: [
-          "Use Codex-style project work with clear boundaries and command safety",
-          "Practice structured outputs, JSON, tool permissions, blast radius, and human checkpoints",
-          "Introduce MCP and connectors as plain-language ways for AI to reach approved tools and context",
-          "Review file changes, command output, and Git diffs before accepting work"
-        ]
+          "Understand inputs, weights, biases, activation functions, predictions, targets, and loss",
+          "See how backpropagation and gradient descent adjust a model's parameters",
+          "Experiment with epochs, learning rates, saved models, and inference",
+          "Build and inspect a dependency-free XOR neural network from GitHub"
+        ],
+        action: { label: "Open Section 4", href: "session-4.html", variant: "primary" }
       },
       {
         label: "Section 5",

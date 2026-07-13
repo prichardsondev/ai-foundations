@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 2 Section 4: How a Neural Network Learns | AI Foundations for Everyone</title>
+<meta name="description" content="A simple introduction to neural networks, weights, biases, activation functions, loss, epochs, learning rates, backpropagation, training, and inference, followed by a hands-on XOR lab.">
+<link rel="stylesheet" href="../styles.css?v=20260713-xor">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">AI Foundations for Everyone</a>
+<nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html">Part 1</a>
+    <a class="active" aria-current="page" href="./">Part 2</a>
+    <a href="../ai-models/">AI Models</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap page-shell lesson-shell">
+<section class="page-title" id="top">
+<p class="eyebrow">Part 2 - Section 4</p>
+<h1>How a Neural Network Learns</h1>
+<p class="lead">
+    A neural network learns by making a prediction, measuring how wrong it was, and making small adjustments. In this lesson, you will see every part of that loop and train a tiny network to solve XOR.
+</p>
+</section>
+
+<section class="card outcomes-card">
+<h2>By the end of this lesson, you should be able to</h2>
+<ul class="checklist">
+<li>Explain inputs, weights, biases, activation functions, outputs, targets, and loss.</li>
+<li>Describe an epoch and a learning rate in plain language.</li>
+<li>Explain how backpropagation and gradient descent help a network learn.</li>
+<li>Tell the difference between training and inference.</li>
+<li>Train, save, inspect, and use a small neural network from GitHub.</li>
+</ul>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>1. The whole idea in one loop</h2>
+<p>A model does not begin with the answer. It begins with adjustable numbers and improves them through examples.</p>
+</div>
+
+<article class="card lesson-card">
+<pre class="copy-prompt-block">example inputs
+  -> make a prediction
+  -> compare prediction with the target answer
+  -> measure the error (loss)
+  -> work backward to find useful adjustments
+  -> update weights and biases
+  -> repeat with more examples</pre>
+</article>
+
+<article class="callout">
+<h3>Training means changing parameters</h3>
+<p>The adjustable numbers inside this network are its <strong>weights and biases</strong>. Training changes them. When the trained model later makes a prediction without changing them, that is <strong>inference</strong>.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>2. Our learning problem: XOR</h2>
+<p>XOR means “one or the other, but not both.” Its four examples are the network's complete training dataset.</p>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead>
+<tr><th>Input A</th><th>Input B</th><th>Target answer</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>0</td><td>0</td><td>The inputs are the same.</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>The inputs are different.</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>The inputs are different.</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>The inputs are the same.</td></tr>
+</tbody>
+</table>
+</article>
+
+<article class="callout">
+<h3>Why use such a small problem?</h3>
+<p>Real AI models may contain billions of parameters and learn from enormous datasets. XOR is small enough that we can inspect the entire dataset, count every parameter, and watch learning happen in seconds.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>3. The network's shape</h2>
+<p>Information moves from the inputs, through a hidden layer, to an output.</p>
+</div>
+
+<article class="card lesson-card">
+<pre class="copy-prompt-block">2 input values  ->  2 hidden neurons  ->  1 output value
+
+        4 input-to-hidden weights
+      + 2 hidden-to-output weights
+      + 2 hidden biases
+      + 1 output bias
+      = 9 learned parameters</pre>
+</article>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Layers</h3>
+<p>The <strong>input layer</strong> receives the two values. The <strong>hidden layer</strong> combines them into intermediate signals. The <strong>output layer</strong> produces one number between 0 and 1.</p>
+</article>
+<article class="card lesson-card">
+<h3>Parameters</h3>
+<p>The architecture describes how neurons are connected. The parameters are the weights and biases that training adjusts. This project has only nine, so the saved model is easy to inspect.</p>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>4. Every part, in plain language</h2>
+<p>These terms describe different jobs inside one learning process.</p>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead>
+<tr><th>Part</th><th>Simple explanation</th><th>In the XOR lab</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Input</strong></td><td>The information given to the model.</td><td>Two values such as <code>[0, 1]</code>.</td></tr>
+<tr><td><strong>Weight</strong></td><td>Controls how strongly one value influences the next neuron. Positive and negative weights can push a result in different directions.</td><td>Six connection strengths.</td></tr>
+<tr><td><strong>Bias</strong></td><td>An adjustable offset. It lets a neuron shift when it becomes active instead of always being anchored at zero.</td><td>Two hidden offsets and one output offset.</td></tr>
+<tr><td><strong>Activation function</strong></td><td>Transforms a neuron's combined value and adds nonlinearity, allowing the network to learn more than a straight-line rule.</td><td>The sigmoid function returns values between 0 and 1.</td></tr>
+<tr><td><strong>Prediction</strong></td><td>The answer calculated with the current parameters.</td><td>A number such as <code>0.9825</code>.</td></tr>
+<tr><td><strong>Target</strong></td><td>The correct answer in a training example.</td><td>Either 0 or 1.</td></tr>
+<tr><td><strong>Loss</strong></td><td>A number measuring how far predictions are from their targets. Lower is better.</td><td>Mean squared error across the four examples.</td></tr>
+</tbody>
+</table>
+</article>
+
+<article class="callout">
+<h3>Weights and biases are learned; settings are chosen</h3>
+<p>The network learns its weights and biases from examples. A person chooses settings such as the number of epochs, the learning rate, and the network architecture. Those choices are often called <strong>hyperparameters</strong>.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>5. What an activation function does</h2>
+<p>A neuron first calculates a weighted sum plus a bias. An activation function then transforms that value.</p>
+</div>
+
+<article class="card lesson-card">
+<pre class="copy-prompt-block">neuron output = activation((inputs x weights) + bias)</pre>
+</article>
+
+<div class="grid-three">
+<article class="card lesson-card">
+<h3>Sigmoid</h3>
+<p>Squashes any number into the range 0 to 1. That makes it convenient for this lab's yes-or-no output. Very large values can make sigmoid neurons saturate and learn slowly.</p>
+</article>
+<article class="card lesson-card">
+<h3>ReLU</h3>
+<p>Returns zero for negative values and the original value for positive values. It is common in hidden layers of larger networks, but it is not used in this tiny project.</p>
+</article>
+<article class="card lesson-card">
+<h3>Softmax</h3>
+<p>Turns several output scores into values that add to 1. It is often used when a model must choose among several categories.</p>
+</article>
+</div>
+
+<article class="callout">
+<h3>Why nonlinearity matters</h3>
+<p>Without nonlinear activation functions, stacking more layers would still behave like one linear calculation. XOR cannot be separated by one straight line, which is why it is a classic teaching example.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>6. Epochs and learning rate</h2>
+<p>These settings control how long the model practices and how large each adjustment is.</p>
+</div>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Epoch</h3>
+<p><strong>One epoch is one complete pass through the training dataset.</strong> This dataset has four examples, so one epoch shows the network all four. The program updates parameters after each example.</p>
+<p>Too few epochs may leave the model undertrained. More epochs mean more opportunities to learn, but more is not automatically better for every model.</p>
+</article>
+<article class="card lesson-card">
+<h3>Learning rate</h3>
+<p><strong>The learning rate controls the size of each parameter adjustment.</strong> A very small rate may learn slowly. A useful rate makes steady progress. A very large rate may jump past good values, behave unpredictably, or get stuck.</p>
+<p>Change one setting at a time when comparing experiments.</p>
+</article>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead>
+<tr><th>Setting</th><th>Think of it as</th><th>Possible result</th></tr>
+</thead>
+<tbody>
+<tr><td>10 epochs</td><td>A little practice</td><td>Usually not enough to solve XOR.</td></tr>
+<tr><td>10,000 epochs</td><td>Repeated practice</td><td>The default setup reliably learns XOR.</td></tr>
+<tr><td>Learning rate 0.01</td><td>Tiny steps</td><td>Progress may be slow.</td></tr>
+<tr><td>Learning rate 0.5</td><td>Useful steps for this project</td><td>Loss falls and predictions improve.</td></tr>
+<tr><td>Learning rate 100</td><td>Huge jumps</td><td>Neurons may saturate or get stuck.</td></tr>
+</tbody>
+</table>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>7. How the error becomes an adjustment</h2>
+<p>Two related ideas move the network from “wrong” toward “less wrong.”</p>
+</div>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Backpropagation</h3>
+<p>Backpropagation works backward from the output error. Using the chain rule from calculus, it calculates how much each weight and bias contributed to the error.</p>
+<p>You do not need to calculate the derivatives by hand today. Focus on its job: <strong>assign responsibility for the error</strong>.</p>
+</article>
+<article class="card lesson-card">
+<h3>Gradient descent</h3>
+<p>The calculated gradients point toward increasing loss. Gradient descent takes a small step in the opposite direction to try to reduce loss.</p>
+<p>The learning rate controls the size of that step.</p>
+</article>
+</div>
+
+<article class="card lesson-card">
+<pre class="copy-prompt-block">forward pass:       inputs -> prediction -> loss
+backpropagation:    loss -> responsibility for each parameter
+gradient descent:  responsibility -> small parameter updates</pre>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>8. Training, inference, and RAG are different</h2>
+<p>Last section added information at question time. This section changes a model's parameters through training.</p>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead>
+<tr><th>Process</th><th>What happens</th><th>Do model parameters change?</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Training</strong></td><td>Examples, targets, and loss are used to adjust weights and biases.</td><td>Yes</td></tr>
+<tr><td><strong>Inference</strong></td><td>A trained model uses fixed parameters to make a prediction.</td><td>No</td></tr>
+<tr><td><strong>RAG</strong></td><td>Relevant source material is retrieved and supplied as context to an existing model.</td><td>No</td></tr>
+</tbody>
+</table>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>9. In-class lab: watch the network learn</h2>
+<p>Work through these checkpoints in order. The repository README contains the full explanations, expected output, troubleshooting, and optional agent guide.</p>
+</div>
+
+<article class="callout">
+<h3>No account, API key, or package installation</h3>
+<p>The lab uses plain JavaScript and Node.js 18 or newer. It has no external code dependencies and makes no cloud API calls.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Checkpoint 1: download and test</h3>
+<pre class="copy-prompt-block">mkdir -p ~/projects
+cd ~/projects
+git clone https://github.com/prichardsondev/xor-neural-network-lab.git
+cd xor-neural-network-lab
+node --version
+npm test</pre>
+<p><strong>Stop and check:</strong> Node should be version 18 or newer and all six tests should pass. If the folder already exists, enter it instead of cloning it again.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Checkpoint 2: observe an untrained model</h3>
+<pre class="copy-prompt-block">node train.js --epochs 0 --no-save</pre>
+<p><strong>Before running it:</strong> predict whether the “Before training” and “After training” values will differ.</p>
+<p><strong>Stop and check:</strong> with zero epochs, no parameter updates occur. Both sections should match and the model should not be saved.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Checkpoint 3: train and save</h3>
+<pre class="copy-prompt-block">node train.js</pre>
+<p><strong>Stop and check:</strong> watch mean squared error fall from about <code>0.265</code> to about <code>0.00034</code>. After 10,000 epochs, all four predicted classes should match their targets. The model is saved to <code>model/model.json</code>.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Checkpoint 4: inspect what was learned</h3>
+<pre class="copy-prompt-block">python3 -m json.tool model/model.json | less</pre>
+<p>Press <code>q</code> to exit. Find the architecture, six weights, and three biases. The model file contains learned parameters; it does not contain the four training examples.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Checkpoint 5: run inference</h3>
+<pre class="copy-prompt-block">node predict.js</pre>
+<p><strong>Stop and check:</strong> the saved parameters produce the four predictions again. No targets, loss calculation, backpropagation, or training updates are used.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Checkpoint 6: compare epochs</h3>
+<pre class="copy-prompt-block">node train.js --epochs 10 --no-save
+node train.js --epochs 100 --no-save
+node train.js --epochs 1000 --no-save
+node train.js --epochs 10000 --no-save</pre>
+<p>Keep the default seed and learning rate unchanged. For each run, record the final loss, correct classifications, and confidence of the predictions.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Checkpoint 7: compare learning rates</h3>
+<pre class="copy-prompt-block">node train.js --learning-rate 0.01 --no-save
+node train.js --learning-rate 0.5 --no-save
+node train.js --learning-rate 100 --no-save</pre>
+<p>Keep the epoch count and seed unchanged. Decide which rate is too slow, which learns reliably, and what happens when the update size is extremely large.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Optional: have an agent guide you</h3>
+<p>Open the cloned repository with Codex or another coding agent. At the end of <strong>README.md</strong>, copy the <strong>Agent-first setup</strong> prompt. The agent will present one step at a time and wait for you to observe each result.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>10. Check your understanding</h2>
+<p>Explain these in your own words using evidence from your terminal output.</p>
+</div>
+
+<article class="card lesson-card">
+<ol>
+<li>What is the difference between a weight and a bias?</li>
+<li>Why does this network need an activation function?</li>
+<li>What happens during one epoch in this project?</li>
+<li>What did changing the learning rate change?</li>
+<li>How did loss tell you whether learning was working?</li>
+<li>What changed during training but stayed fixed during inference?</li>
+<li>How is this training process different from the RAG system in Section 3?</li>
+</ol>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>Open the complete tutorial</h2>
+<p>The public repository is the lab manual and contains all source code, explanations, troubleshooting, experiments, tests, and the agent-first guide.</p>
+</div>
+<article class="card lesson-card">
+<div class="hero-actions">
+<a class="button button-primary" href="https://github.com/prichardsondev/xor-neural-network-lab">Open XOR Neural Network Lab on GitHub</a>
+<a class="button" href="https://github.com/prichardsondev/xor-neural-network-lab#readme">Read the full tutorial</a>
+</div>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="cta-row">
+<a href="./" class="button">&larr; Back to Part 2 Overview</a>
+<a href="session-3.html" class="button">Back to Section 3</a>
+<a href="https://github.com/prichardsondev/xor-neural-network-lab" class="button button-primary">Start the XOR lab</a>
+<a href="#top" class="button">Back to Top</a>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<p class="footer-note">AI Foundations for Everyone</p>
+<p class="footer-bonus">Make a prediction. Measure the error. Learn from it.</p>
+</div>
+</footer>
+</body>
+</html>
