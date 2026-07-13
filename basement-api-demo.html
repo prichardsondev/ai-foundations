@@ -296,13 +296,54 @@
 
         <article class="card lesson-card">
           <h3>Prompt 3</h3>
-          <pre><code>First inspect https://basetemp.raspberrynode.com/ and its documented endpoints. Then build a small single-file monitoring dashboard using the public API.
+          <pre><code>Open https://basetemp.raspberrynode.com/ and review its API documentation.
 
-Show both basement temperature and humidity readings, the summer humidity status, and the Raspberry Pi CPU temperature. Include loading states, clear errors, observation times, and a Refresh button.
+Before writing code, request these documented public endpoints and inspect their
+actual JSON responses:
 
-Label raw measurements separately from coded-rule results. Add a short section explaining why one current CPU temperature is condition monitoring, not a predictive model, and what historical data would be needed to predict failure.
+- /api/all
+- /api/humidity-status
+- /api/pi
 
-Use plain HTML, CSS, and JavaScript with fetch(). Do not use a framework, do not invent fields that are not in the JSON, and do not require an API key. Explain how to save the file and open it in a browser.</code></pre>
+Then create a small, polished monitoring dashboard as one self-contained HTML
+file.
+
+Requirements:
+
+- Show the temperature and humidity readings for both basement sensors.
+- Show the summer humidity status.
+- Show the Raspberry Pi CPU temperature.
+- Display the observation time associated with each response.
+- Clearly separate raw sensor measurements from coded-rule results.
+- Include an initial loading state, a Refresh button, and clear error messages.
+- Disable or otherwise indicate the Refresh button while data is loading.
+- Make the layout readable on both desktop and mobile.
+
+Add a short educational section explaining:
+
+- Why one current CPU-temperature reading is condition monitoring rather than
+  a predictive model.
+- What historical data would be required to train or build a system that could
+  predict overheating or hardware failure.
+
+Technical constraints:
+
+- Use only plain HTML, CSS, and JavaScript.
+- Use fetch() to retrieve live API data.
+- Do not use a framework or external dependency.
+- Do not require an API key.
+- Use only fields found in the actual JSON responses.
+- Do not guess endpoint fields, timestamps, units, thresholds, or meanings.
+- If an endpoint cannot be accessed or its response cannot be inspected, report
+  the problem instead of inventing a solution.
+- Keep all HTML, CSS, and JavaScript in one file.
+
+Return the complete HTML file in one code block. Afterward, briefly explain how
+to save it as basement-monitor.html and open it in a browser.
+
+After creating the HTML file, if Sites publishing is available, ask the user
+whether they want it published as a public Site. Do not publish publicly
+without explicit approval.</code></pre>
         </article>
 
         <article class="card lesson-card">
