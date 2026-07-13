@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 2 Section 5: Containers, Sandboxes, and Safe Agent Execution | AI Foundations for Everyone</title>
+<meta name="description" content="An agent-first introduction to Docker containers, isolation boundaries, safer container settings, and Docker Sandboxes for coding agents.">
+<link rel="stylesheet" href="../styles.css?v=20260713-sandbox">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">AI Foundations for Everyone</a>
+<nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html">Part 1</a>
+    <a class="active" aria-current="page" href="./">Part 2</a>
+    <a href="../ai-models/">AI Models</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap page-shell lesson-shell">
+<section class="page-title" id="top">
+<p class="eyebrow">Part 2 - Section 5</p>
+<h1>Containers, Sandboxes, and Safe Agent Execution</h1>
+<p class="lead">
+    Coding agents can run commands, install software, and change files. This lesson uses Docker to make those powers visible, then introduces stronger sandbox boundaries for agent work.
+</p>
+</section>
+
+<section class="card outcomes-card">
+<h2>By the end of this lesson, you should be able to</h2>
+<ul class="checklist">
+<li>Explain the difference between an image, a container, and a virtual machine.</li>
+<li>Build, run, inspect, stop, and remove a basic container.</li>
+<li>Explain how mounts, ports, networks, users, and secrets cross an isolation boundary.</li>
+<li>Recognize dangerous Docker options and overly broad agent permissions.</li>
+<li>Compare host execution, ordinary containers, and Docker Sandboxes.</li>
+<li>Run an agent in an isolated clone and review its work before accepting it.</li>
+</ul>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>Start here: have an agent guide the lab</h2>
+<p>Open Codex or another coding agent in a new, empty class folder and paste this prompt. The agent must guide you one checkpoint at a time rather than performing an unattended setup.</p>
+</div>
+
+<article class="callout warning">
+<h3>This prompt changes your computer only with permission</h3>
+<p>Installing Docker and changing group membership are system-level actions. Read the proposed commands before approving them. Use a class machine or approved personal machine—not a production server or employer-managed computer without authorization.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Agent-first setup prompt</h3>
+<pre class="copy-prompt-block">Act as my Docker and agent-sandbox lab guide. Teach me one numbered checkpoint
+at a time. Explain each command in plain language, tell me exactly where to run
+it, show the important expected output, and wait for me to confirm the result
+before continuing.
+
+Safety rules:
+- Begin with read-only preflight checks. Do not install or change anything yet.
+- Identify the operating system, version, CPU architecture, available memory,
+  virtualization/KVM support, whether Docker is installed, and whether the
+  current user can access Docker.
+- Summarize what you found and whether ordinary Docker and Docker Sandboxes are
+  supported. Ask for my approval before the first installation or system change.
+- Use the current official Docker instructions for my exact operating system.
+  Do not guess package commands for a different Linux distribution.
+- Explain that membership in the docker group is effectively high privilege
+  before proposing that change. Do not make the change without my approval.
+- Never use --privileged. Never mount /, my entire home directory,
+  /var/run/docker.sock, SSH keys, cloud credentials, browser data, or .env files.
+- Do not disable security controls to make a failed command work.
+- Use only a new folder named docker-safety-lab for writable mount experiments.
+- Do not delete images, containers, volumes, or files that this lab did not create.
+- If a command fails, explain why and repair only the current checkpoint.
+
+Guide me through this sequence:
+1. Perform and explain the read-only compatibility preflight.
+2. With my approval, install or start ordinary Docker using official instructions.
+3. Verify it with docker version, docker info, and docker run --rm hello-world.
+4. Teach image versus container with docker image ls and docker container ls -a.
+5. Demonstrate that a file created only inside a disposable container does not
+   become a host file.
+6. Create ~/projects/docker-safety-lab/host-data and demonstrate that mounting
+   only that folder allows the container to change that folder. Show the exact
+   host file before and after.
+7. Run a small web container on an explicitly published localhost port, test it,
+   stop it, and confirm the port closes.
+8. Run a disposable Alpine container with --read-only, --network none,
+   --cap-drop ALL, --security-opt no-new-privileges, and a non-root user. Help me
+   observe which actions are blocked.
+9. Explain why --privileged, mounting the host Docker socket, mounting broad host
+   directories, running as root, and copying secrets into images increase risk.
+10. If and only if this machine meets the current Docker Sandboxes requirements,
+    guide me through installing the current sbx CLI with official instructions.
+    Otherwise, stop that installation and explain what requirement is missing.
+11. In a safe Git practice repository, launch Codex with sbx in --clone mode,
+    inspect the active network policy, ask the agent to make one harmless change
+    and test it, then exit the sandbox.
+12. On the host, fetch the sandbox Git remote, inspect its log and diff, and do
+    not merge the work. Explain why review is still required after isolation.
+13. Remove only the lab container and sandbox resources we created, then help me
+    summarize container isolation, sandbox isolation, permissions, blast radius,
+    secrets, network policy, and human review.
+
+Do not skip the preflight, mount demonstration, restricted-container test,
+workspace review, or cleanup. Do not describe a container as a perfect security
+boundary. Make me predict what each experiment will allow before we run it.</pre>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>1. Why this lesson follows agents</h2>
+<p>The more an AI system can do, the more carefully we must define where it can act.</p>
+</div>
+
+<article class="card lesson-card">
+<pre class="copy-prompt-block">chatbot:  produces text
+agent:    produces text + reads files + runs commands + uses tools
+
+more capability
+  -> more possible benefit
+  -> larger possible mistake
+  -> stronger need for boundaries and review</pre>
+</article>
+
+<article class="callout">
+<h3>The goal is not “make the agent safe”</h3>
+<p>No single setting removes every risk. The goal is to reduce the <strong>blast radius</strong>: limit the files, credentials, networks, tools, and machines an error or compromised dependency could affect.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>2. Docker in plain language</h2>
+<p>Docker packages an application with the environment it needs and runs it in an isolated process space.</p>
+</div>
+
+<div class="grid-three">
+<article class="card lesson-card">
+<h3>Image</h3>
+<p>A read-only packaged blueprint containing the application, runtime, libraries, and default instructions.</p>
+</article>
+<article class="card lesson-card">
+<h3>Container</h3>
+<p>A running instance of an image. It has an isolated process view and a writable container layer that can be discarded.</p>
+</article>
+<article class="card lesson-card">
+<h3>Dockerfile</h3>
+<p>A text file describing how to build an image. Because it is code, it can be reviewed, versioned, and rebuilt.</p>
+</article>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead><tr><th>Approach</th><th>Kernel</th><th>Typical strength</th><th>Typical cost</th></tr></thead>
+<tbody>
+<tr><td>Host process</td><td>Host kernel</td><td>No added isolation</td><td>Lowest overhead</td></tr>
+<tr><td>Container</td><td>Shares host kernel</td><td>Process and resource isolation</td><td>Low overhead</td></tr>
+<tr><td>Virtual machine</td><td>Separate guest kernel</td><td>Hypervisor boundary</td><td>More memory and storage</td></tr>
+</tbody>
+</table>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>3. Isolation has deliberate openings</h2>
+<p>A useful container often needs selected ways to communicate with the host or outside world. Each opening should be narrow and intentional.</p>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead><tr><th>Opening</th><th>What it enables</th><th>Question to ask</th></tr></thead>
+<tbody>
+<tr><td><strong>Port</strong></td><td>Lets the host or network reach a container service.</td><td>Which interface and exact port need exposure?</td></tr>
+<tr><td><strong>Bind mount</strong></td><td>Gives the container access to a host path.</td><td>Can it be narrower or read-only?</td></tr>
+<tr><td><strong>Volume</strong></td><td>Preserves data outside a disposable container layer.</td><td>What data persists and who can read it?</td></tr>
+<tr><td><strong>Network</strong></td><td>Allows communication with other systems.</td><td>Does this task need any network access?</td></tr>
+<tr><td><strong>Environment or secret</strong></td><td>Supplies configuration or credentials.</td><td>Could the value leak through logs, files, or child processes?</td></tr>
+</tbody>
+</table>
+</article>
+
+<article class="callout">
+<h3>The mount is the lesson</h3>
+<p>A container cannot modify an arbitrary host folder unless it is given a path to it. Once a writable folder is mounted, changes inside that path are real host changes. Isolation ends where you deliberately create a bridge.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>4. The ordinary Docker lab</h2>
+<p>The agent prompt provides the full guided sequence. These are the major checkpoints you should observe.</p>
+</div>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Installation and health</h3>
+<ul>
+<li>Detect the operating system before choosing instructions.</li>
+<li>Install from Docker's official repository or supported desktop application.</li>
+<li>Run <code>docker version</code> and <code>docker info</code>.</li>
+<li>Run the disposable <code>hello-world</code> test.</li>
+</ul>
+</article>
+<article class="card lesson-card">
+<h3>Lifecycle</h3>
+<ul>
+<li>Pull or build an image.</li>
+<li>Create and run a container.</li>
+<li>Inspect processes, logs, and published ports.</li>
+<li>Stop and remove only class resources.</li>
+</ul>
+</article>
+<article class="card lesson-card">
+<h3>Boundary experiments</h3>
+<ul>
+<li>Compare a container-only file with a mounted host file.</li>
+<li>Publish one local port and confirm when it closes.</li>
+<li>Run with no network.</li>
+<li>Run as a non-root user with a read-only filesystem.</li>
+</ul>
+</article>
+<article class="card lesson-card">
+<h3>Evidence to save</h3>
+<ul>
+<li>The exact commands you approved.</li>
+<li>Which files appeared on the host.</li>
+<li>Which restricted actions failed.</li>
+<li>What remained after cleanup.</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>5. Dangerous shortcuts to recognize</h2>
+<p>These options can erase much of the protection students think a container provides.</p>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead><tr><th>Shortcut</th><th>Why it is risky</th><th>Safer direction</th></tr></thead>
+<tbody>
+<tr><td><code>--privileged</code></td><td>Grants extensive device and kernel capabilities.</td><td>Add only the specific capability that is required.</td></tr>
+<tr><td>Mounting <code>/</code> or the whole home folder</td><td>Exposes broad host data to reading, modification, or deletion.</td><td>Mount one dedicated folder, preferably read-only.</td></tr>
+<tr><td>Mounting <code>/var/run/docker.sock</code></td><td>Lets the container control the host Docker daemon and create highly privileged workloads.</td><td>Do not expose the host daemon to an untrusted agent.</td></tr>
+<tr><td>Running everything as root</td><td>Increases what a compromised process can do inside the container and through exposed resources.</td><td>Use a non-root user and drop unnecessary capabilities.</td></tr>
+<tr><td>Baking secrets into an image</td><td>Secrets can remain in image layers and registries.</td><td>Provide narrowly scoped secrets at runtime.</td></tr>
+</tbody>
+</table>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>6. From containers to Docker Sandboxes</h2>
+<p>Docker Sandboxes are designed for autonomous coding agents that need to run tools without receiving equivalent control over the host.</p>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead><tr><th>Where the agent runs</th><th>Important boundary</th><th>What still needs attention</th></tr></thead>
+<tbody>
+<tr><td>Directly on the host</td><td>No additional execution boundary</td><td>Everything available to the current user</td></tr>
+<tr><td>Ordinary container</td><td>Container namespaces sharing the host kernel</td><td>Mounts, host Docker socket, capabilities, secrets, and network</td></tr>
+<tr><td>Docker Sandbox, direct workspace</td><td>Separate microVM, kernel, network, and Docker daemon</td><td>The real workspace is still writable by the agent</td></tr>
+<tr><td>Docker Sandbox, clone mode</td><td>MicroVM plus a private Git clone</td><td>Readable repository contents, allowed network, and review of proposed changes</td></tr>
+</tbody>
+</table>
+</article>
+
+<article class="callout warning">
+<h3>Use clone mode for the class demonstration</h3>
+<p>Direct mode allows the agent to edit the host working tree immediately. Clone mode mounts the host repository read-only and gives the agent a private clone. Students fetch and review the sandbox branch before accepting anything.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>7. Docker Sandbox compatibility checkpoint</h2>
+<p>Do not assume that every machine capable of running ordinary Docker can run Docker Sandboxes.</p>
+</div>
+
+<article class="card lesson-card">
+<ul>
+<li><strong>macOS:</strong> Apple silicon with macOS Sonoma 14 or later.</li>
+<li><strong>Windows:</strong> Windows 11 on 64-bit Intel or AMD with Windows Hypervisor Platform.</li>
+<li><strong>Linux:</strong> Ubuntu 24.04 or later on x86-64 or ARM64, with KVM virtualization enabled and the user permitted to access KVM.</li>
+</ul>
+<p>A Raspberry Pi running Raspberry Pi OS is not the same supported target as Ubuntu 24.04. Use the agent's preflight result instead of forcing installation by disabling checks.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>8. The sandbox review workflow</h2>
+<p>The sandbox limits execution. Git provides the controlled path for proposed work to leave it.</p>
+</div>
+
+<article class="card lesson-card">
+<pre class="copy-prompt-block">safe practice Git repository
+  -> sbx run --clone --name safe-agent codex
+  -> agent changes and tests its private clone
+  -> exit agent
+  -> git fetch sandbox-safe-agent
+  -> inspect log and diff on the host
+  -> accept, revise, or reject
+  -> remove the sandbox when finished</pre>
+</article>
+
+<article class="callout">
+<h3>Isolation does not replace review</h3>
+<p>A sandbox can prevent an agent from reaching much of the host while it works. It cannot prove that the resulting code is correct, secure, maintainable, or appropriate to merge.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>9. Check your understanding</h2>
+<p>Use the class experiments—not memorized definitions—to answer these questions.</p>
+</div>
+
+<article class="card lesson-card">
+<ol>
+<li>What is the difference between an image and a container?</li>
+<li>Which experiment proved that a bind mount crosses the container boundary?</li>
+<li>Why is mounting the host Docker socket especially dangerous?</li>
+<li>Which restrictions did the hardened disposable container demonstrate?</li>
+<li>Why is a Docker Sandbox stronger than an ordinary container for an autonomous agent?</li>
+<li>What can an agent still affect in direct workspace mode?</li>
+<li>What does clone mode change?</li>
+<li>Why must you still inspect the Git diff?</li>
+</ol>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>Official references for next week's lab</h2>
+<p>The commands and supported platforms can change. Use current official documentation when the agent selects installation steps.</p>
+</div>
+<article class="card lesson-card">
+<ul>
+<li><a href="https://docs.docker.com/get-started/">Docker Get Started</a></li>
+<li><a href="https://docs.docker.com/engine/security/">Docker Engine security</a></li>
+<li><a href="https://docs.docker.com/ai/sandboxes/get-started/">Docker Sandboxes: Get started</a></li>
+<li><a href="https://docs.docker.com/ai/sandboxes/security/">Docker Sandboxes security model</a></li>
+<li><a href="https://docs.docker.com/ai/sandboxes/security/isolation/">Docker Sandboxes isolation layers</a></li>
+</ul>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="cta-row">
+<a href="./" class="button">&larr; Back to Part 2 Overview</a>
+<a href="session-4.html" class="button">Back to Section 4</a>
+<a href="#top" class="button button-primary">Start the agent-first lab</a>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<p class="footer-note">AI Foundations for Everyone</p>
+<p class="footer-bonus">Isolation limits reach. Permissions limit power. Review decides what to trust.</p>
+</div>
+</footer>
+</body>
+</html>

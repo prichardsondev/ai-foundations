@@ -298,16 +298,17 @@ export const courses = {
       },
       {
         label: "Section 5",
-        title: "Customize, Secure, and Present a Local AI Workflow",
-        href: "#section-5",
+        title: "Containers, Sandboxes, and Safe Agent Execution",
+        href: "session-5.html",
         detail:
-          "Bring the course together with lightweight customization choices, privacy review, permissions, local/cloud deployment decisions, and a final practical demonstration.",
+          "Use Docker to understand isolation boundaries, then run a coding agent with controlled workspace, network, credential, and review boundaries.",
         bullets: [
-          "Understand when customization helps and when retrieval is enough",
-          "Review privacy, permissions, data handling, and oversight practices",
-          "Decide whether a local, cloud, or hybrid workflow fits the task",
-          "Evaluate whether the workflow used the right source, cited clearly, admitted uncertainty, and can be reproduced"
-        ]
+          "Install and verify Docker through an agent-guided, approval-based workflow",
+          "Explore images, containers, ports, mounts, networks, users, and secrets",
+          "Recognize dangerous privileges and reduce an agent's blast radius",
+          "Use Docker Sandbox clone mode and review changes before accepting them"
+        ],
+        action: { label: "Open Section 5", href: "session-5.html", variant: "primary" }
       }
     ],
     sectionDetailsIntro:
