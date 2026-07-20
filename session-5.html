@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title >Section 5 | AI Foundations for Everyone</title>
-  <meta name="description" content="Section 5: From prompts to agents, local AI, Ollama, APIs, and AI-native apps.">
-  <link rel="stylesheet" href="styles.css?v=20260604-agentactions">
+  <title>Section 5: Local AI, Safer Agents, and Your First Live Website | AI Foundations for Everyone</title>
+  <meta name="description" content="A beginner-friendly 90-minute lesson covering local AI, model size constraints, Docker Sandboxes, GitHub, Vercel, and the path from a project to a custom domain.">
+  <link rel="stylesheet" href="styles.css?v=20260720-local-ai-publish">
 </head>
 <body>
   <header class="site-header">
@@ -13,238 +13,370 @@
       <a class="brand" href="index.html">AI Foundations for Everyone</a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Part 1</a>
-    <a href="part2/">Part 2</a>
-    <a href="ai-models/">AI Models</a>
+        <a href="part2/">Part 2</a>
+        <a href="ai-models/">AI Models</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap page-shell lesson-shell">
-    <section class="page-title">
-      <p class="eyebrow" >Section 5</p>
-      <h1>From Prompts to Agents: Local AI and AI-Native Apps</h1>
-      <p class="lead">
-        This final session brings together the main ideas from the course. We will shift from simply chatting with AI to understanding how AI models, apps, APIs, and agents can work together in practical workflows.
-      </p>
+    <section class="page-title" id="top">
+      <p class="eyebrow">Part 1 · Section 5 · 90-minute lesson</p>
+      <h1>Local AI, Safer Agents, and Your First Live Website</h1>
+      <p class="lead">See where AI models can run, why model size matters, and how sandboxes reduce agent risk. Then take a fun starter app from GitHub to a real public Vercel address—using only a web browser.</p>
+      <div class="course-facts" aria-label="Lesson facts">
+        <span>No coding experience required</span>
+        <span>No software installation</span>
+        <span>One live website</span>
+      </div>
     </section>
 
     <section class="card outcomes-card">
-      <h2 >Section outcomes</h2>
-      <ul>
-        <li>Connect the major ideas from Sections 1-4</li>
-        <li>Explain how AI-native apps can turn user intent into tool and API actions</li>
-        <li>Understand what it means to run an AI model locally</li>
-        <li>Watch Ollama run a local model and expose a local API</li>
-        <li>See Codex build a small app that talks to a local Ollama model</li>
+      <h2>By the end, you should be able to</h2>
+      <ul class="checklist">
+        <li>Explain local AI and compare Ollama with LM Studio.</li>
+        <li>Explain why model size, available memory, context length, and speed are connected.</li>
+        <li>Describe what Docker Sandboxes help protect—and what people must still review.</li>
+        <li>Explain the jobs of Git, GitHub, Vercel, a domain registrar, and DNS.</li>
+        <li>Create your own GitHub repository from a template and publish it with Vercel.</li>
       </ul>
     </section>
 
-    <article class="card lesson-card" style="margin-bottom: 1.5rem;">
-      <h3>How to use this session</h3>
-      <p>This session can be followed as a live demo or reviewed later as a guide. During the live class, these steps are demonstrated. After class, you can use the commands and prompts as a reference if you want to explore local AI on your own.</p>
-      <p>The goal is to make the ideas visible: a local model running on a computer, an API that apps can call, and an agent-style coding tool building a small app around that model.</p>
-    </article>
-
-    <section class="lesson-section">
+    <section class="lesson-section" id="route">
       <div class="section-heading">
-        <h2>1. Review: what mattered from Sections 1-4</h2>
-        <p>The tools will change, but these habits carry forward.</p>
+        <h2>The 90-minute route</h2>
+        <p>Use the timings as a lecture guide or follow the page at your own pace.</p>
       </div>
-
       <article class="card lesson-card">
-        <ul>
-          <li><strong>Prompt clearly:</strong> Say what you want, who it is for, and what format would help.</li>
-          <li><strong>Provide useful context:</strong> Give the model the background, examples, constraints, and source material it needs.</li>
-          <li><strong>Remember models are not databases:</strong> A model predicts helpful text; it does not automatically know current facts or your private information.</li>
-          <li><strong>Verify AI output:</strong> Check important facts, calculations, tone, citations, and anything that affects real decisions.</li>
-          <li><strong>Iterate:</strong> Treat AI work as a draft-and-revise process, not a perfect one-shot answer.</li>
-          <li><strong>Think in workflows:</strong> The biggest value often comes from connecting steps, tools, files, and review points.</li>
-        </ul>
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Time</th><th>Activity</th><th>Outcome</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Time">0:00–0:18</td><td data-label="Activity">Local AI overview</td><td data-label="Outcome">Ollama, LM Studio, local versus cloud</td></tr>
+              <tr><td data-label="Time">0:18–0:28</td><td data-label="Activity">Model-size reality check</td><td data-label="Outcome">Choose a model that fits the machine</td></tr>
+              <tr><td data-label="Time">0:28–0:38</td><td data-label="Activity">Docker Sandboxes</td><td data-label="Outcome">Security boundary, not magic protection</td></tr>
+              <tr><td data-label="Time">0:38–0:48</td><td data-label="Activity">How a website reaches the internet</td><td data-label="Outcome">GitHub, Vercel, domains, and DNS</td></tr>
+              <tr><td data-label="Time">0:48–1:13</td><td data-label="Activity">Create and deploy your app</td><td data-label="Outcome">A public <code>.vercel.app</code> address</td></tr>
+              <tr><td data-label="Time">1:13–1:20</td><td data-label="Activity">Edit and redeploy</td><td data-label="Outcome">See automatic deployment</td></tr>
+              <tr><td data-label="Time">1:20–1:30</td><td data-label="Activity">Recap, help, and questions</td><td data-label="Outcome">Everyone leaves with a working link</td></tr>
+            </tbody>
+          </table>
+        </div>
       </article>
     </section>
 
-    <section class="lesson-section">
+    <section class="lesson-section" id="local-ai">
       <div class="section-heading">
-        <h2>2. AI-native apps</h2>
-        <p>Many future apps may not start with menus and buttons.</p>
-      </div>
-
-      <article class="callout">
-        <h3>A simple pattern</h3>
-        <p><strong>User intent &rarr; AI model &rarr; Tool/API call &rarr; Result &rarr; Human review</strong></p>
-      </article>
-
-      <article class="card lesson-card">
-        <p>Instead of clicking through every screen, a user may describe a goal. An AI agent or AI-native app can then use tools, APIs, files, and services to help complete the task.</p>
-        <p>Traditional apps are not disappearing. Forms, dashboards, buttons, and review screens still matter. The change is that the front door to software is becoming more conversational and goal-driven.</p>
-      </article>
-    </section>
-
-    <section class="lesson-section">
-      <div class="section-heading">
-        <h2>3. Local AI</h2>
-        <p>Local AI means the model runs on your own machine instead of only in a cloud service.</p>
+        <p class="eyebrow">Where the model runs</p>
+        <h2>1. Local AI overview</h2>
+        <p>Local AI means the model performs inference on a computer you control instead of sending every prompt to a hosted model provider.</p>
       </div>
 
       <div class="grid-two">
         <article class="card lesson-card">
-          <h3>Why it matters</h3>
-          <ul>
-            <li>A model can run on your own computer.</li>
-            <li>It can be more private because every prompt does not have to leave your machine.</li>
-            <li>It can work without sending each request to a cloud AI service.</li>
-            <li>It helps show that AI can be part of ordinary local apps and workflows.</li>
-          </ul>
-        </article>
-
-        <article class="card lesson-card">
-          <h3>Tradeoffs</h3>
-          <ul>
-            <li>Local models may be slower depending on the computer.</li>
-            <li>Smaller models may be less capable than the strongest cloud models.</li>
-            <li>Model size, memory, and hardware matter.</li>
-            <li>This session uses Ollama to run the local model.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="lesson-section">
-      <div class="section-heading">
-        <h2>4. Ollama in the terminal</h2>
-        <p>These commands show the basic local AI pattern: list available models, prepare the model if needed, run it in the terminal, and call the local API from another program.</p>
-      </div>
-
-      <div class="grid-two">
-        <article class="card lesson-card">
-          <h3>Terminal commands</h3>
+          <h3>Ollama</h3>
+          <p>A straightforward local model runner with a command-line interface and local API. It is especially useful for scripts, servers, Raspberry Pis, and developers who want a small set of commands.</p>
           <pre><code>ollama list
-ollama pull gpt-oss:20b
-ollama run gpt-oss:20b</code></pre>
+ollama run gemma3:1b
+ollama ps</code></pre>
+          <p><a href="https://docs.ollama.com/" target="_blank" rel="noopener">Ollama documentation ↗</a></p>
         </article>
 
         <article class="card lesson-card">
-          <h3>Example prompts</h3>
-          <pre><code>Explain what an AI agent is to a beginner in five short bullet points.</code></pre>
-          <pre><code>Give me three examples of useful local AI apps a student could build.</code></pre>
+          <h3>LM Studio</h3>
+          <p>A desktop application for discovering, downloading, chatting with, and serving local models through a visual interface. It is often friendlier for someone who prefers menus over terminal commands.</p>
+          <p>Current support includes Apple silicon Macs and supported Windows and Linux systems; check its requirements before installing.</p>
+          <p><a href="https://lmstudio.ai/docs/app/system-requirements" target="_blank" rel="noopener">LM Studio system requirements ↗</a></p>
         </article>
       </div>
 
-      <article class="card lesson-card" style="margin-top: 1rem;">
-        <h3>Local API example</h3>
-        <pre><code>curl http://localhost:11434/api/generate \
-  -d '{
-    "model": "gpt-oss:20b",
-    "prompt": "Write a friendly one-paragraph explanation of local AI.",
-    "stream": false
-  }'</code></pre>
-        <p>Once a local model has an API, a regular app can talk to it. The app sends a prompt to the local API and receives the model's response.</p>
-      </article>
-    </section>
-
-    <section class="lesson-section">
-      <div class="section-heading">
-        <h2>5. Building an app around local AI with Codex</h2>
-        <p>This example shows how a coding agent can help build a small app that calls the local Ollama API.</p>
-      </div>
-
-      <article class="callout">
-        <h3>App idea: Local AI Study Buddy</h3>
-        <p>The app will have a text box for a question, a model field or dropdown so the model can be changed without editing code, a button labeled <strong>Ask Local AI</strong>, a response area, a backend route that calls Ollama at <code>localhost:11434</code>, and a clear note that the answer comes from a local model.</p>
-      </article>
-
       <article class="card lesson-card">
-        <h3>Copyable Codex prompt</h3>
-        <pre class="copy-prompt-block"><code>Build a small local AI Study Buddy app.
-
-The goal is to demonstrate how a normal web app can talk to a local LLM running through Ollama.
-
-Requirements:
-- Keep the app simple and classroom-demo friendly.
-- Build the app in the current folder selected in Codex Desktop App.
-- Use plain Node/Express plus a simple HTML/CSS/JavaScript frontend unless there is an obvious reason to use something else.
-- Create a basic web UI with:
-  - A title: Local AI Study Buddy
-  - A text area for the user's question
-  - A model field or dropdown with gpt-oss:20b as the default
-  - A button labeled Ask Local AI
-  - A response area that shows the model's answer
-- Add a small backend endpoint that sends the user's prompt to Ollama at http://localhost:11434/api/generate.
-- Use model gpt-oss:20b by default, but keep the model name easy to change from the UI or with OLLAMA_MODEL.
-- Use stream: false for simplicity.
-- Handle errors gracefully if Ollama is not running, the selected model is missing, or the model response fails.
-- Add brief comments where helpful.
-- After building, explain:
-  - What files you changed
-  - How to run the app
-  - How the frontend talks to the backend
-  - How the backend talks to Ollama
-  - What students should notice during the demo
-Do not overbuild this. Keep it small, readable, and easy to explain in class.</code></pre>
+        <h3>Local and cloud are choices, not teams</h3>
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Question</th><th>Local model</th><th>Cloud model</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Question">Where inference happens</td><td data-label="Local">Your computer</td><td data-label="Cloud">A provider’s computers</td></tr>
+              <tr><td data-label="Question">Typical strength</td><td data-label="Local">Control, offline use, predictable local cost</td><td data-label="Cloud">Larger models, speed, managed service</td></tr>
+              <tr><td data-label="Question">Typical limit</td><td data-label="Local">Your RAM, storage, processor, and setup</td><td data-label="Cloud">Account, network, provider rules, and usage cost</td></tr>
+              <tr><td data-label="Question">Privacy question</td><td data-label="Local">What other apps, logs, tools, or network calls are involved?</td><td data-label="Cloud">What data is sent, retained, or used by the service?</td></tr>
+            </tbody>
+          </table>
+        </div>
       </article>
 
-      <article class="card lesson-card" style="margin-top: 1rem;">
-        <h3>Run the demo</h3>
-        <pre><code>npm install
-npm start</code></pre>
-        <p>Then open <code>http://localhost:3000</code>.</p>
-        <p>If port 3000 is busy:</p>
-        <pre><code>PORT=3015 npm start</code></pre>
+      <article class="callout warning">
+        <h3>Local does not automatically mean private or safe</h3>
+        <p>A local app can still save chat history, call online tools, expose a network port, or read files you give it. Check the whole workflow—not only the location of the model.</p>
       </article>
     </section>
 
-    <section class="lesson-section">
+    <section class="lesson-section" id="model-size">
       <div class="section-heading">
-        <h2>6. Agent tools overview</h2>
-        <p>The main trend is movement from chat toward tool use and agent workflows.</p>
+        <p class="eyebrow">Fit the model to the machine</p>
+        <h2>2. Model size constraints</h2>
+        <p>A model must fit alongside the operating system, the model runner, its working memory, and everything else using the computer.</p>
       </div>
 
       <div class="grid-two">
         <article class="card lesson-card">
-          <h3>Chat and coding agents</h3>
+          <h3>Four numbers to notice</h3>
           <ul>
-            <li><strong>ChatGPT:</strong> Useful for explaining, planning, writing, summarizing, and reasoning.</li>
-            <li><strong>Codex / Claude Code:</strong> Coding agents that can work with project files, inspect code, make changes, and explain their work.</li>
+            <li><strong>Parameters:</strong> a rough signal of model capacity—not a quality guarantee.</li>
+            <li><strong>Download size:</strong> storage used by the model file.</li>
+            <li><strong>Runtime memory:</strong> RAM or VRAM needed while the model is loaded.</li>
+            <li><strong>Context length:</strong> how much text the model can consider; more context uses more memory.</li>
           </ul>
         </article>
-
         <article class="card lesson-card">
-          <h3>Local and persistent agents</h3>
-          <ul>
-            <li><strong>Ollama / LM Studio:</strong> Tools for running local models on your own machine.</li>
-            <li><strong>Hermes / OpenClaw:</strong> Examples of more persistent or tool-using agent systems.</li>
-          </ul>
+          <h3>Quantization</h3>
+          <p>Quantization stores model numbers with less precision. That usually makes a model smaller and easier to run, with some possible quality tradeoff.</p>
+          <p><strong>Important:</strong> a model’s parameter count is not the same as its file size or exact memory requirement. Check the specific model tag.</p>
         </article>
-      </div>
-    </section>
-
-    <section class="lesson-section">
-      <div class="section-heading">
-        <h2>7. Closing discussion questions</h2>
-        <p>Use these to connect the demo back to real work and study habits.</p>
       </div>
 
       <article class="card lesson-card">
-        <ul>
-          <li>What kinds of apps become easier when users can describe goals instead of clicking through menus?</li>
-          <li>When would local AI be better than cloud AI?</li>
-          <li>What risks come with agents that can use tools?</li>
-          <li>What should humans still review before trusting AI output?</li>
-          <li>What would you build with a local AI model?</li>
-        </ul>
+        <h3>Practical starting point for a 16 GB Raspberry Pi 5</h3>
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Model range</th><th>Classroom expectation</th><th>Good decision</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Range">About 1–3B parameters, quantized</td><td data-label="Expectation">Best starting range; modest download and more memory headroom</td><td data-label="Decision">Begin here</td></tr>
+              <tr><td data-label="Range">About 4–8B, quantized</td><td data-label="Expectation">May run, but responses can be noticeably slower and context needs headroom</td><td data-label="Decision">Test before relying on it</td></tr>
+              <tr><td data-label="Range">Around 12B and above</td><td data-label="Expectation">Increasingly awkward for a 16 GB Pi; fitting is not the same as being pleasant to use</td><td data-label="Decision">Prefer stronger hardware or a cloud model</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>These are teaching guidelines, not guarantees.</strong> Architecture, quantization, context, other processes, cooling, and task all affect the result. For a quick Pi demonstration, <code>gemma3:1b</code> is a sensible small starting point.</p>
+      </article>
+
+      <article class="callout">
+        <h3>The suitcase test</h3>
+        <p>A model may technically fit in memory the way an overstuffed suitcase technically closes. Leave working room for context, the operating system, and the rest of the application.</p>
       </article>
     </section>
 
-    <section class="lesson-section">
+    <section class="lesson-section" id="sandboxes">
+      <div class="section-heading">
+        <p class="eyebrow">Help contain agent actions</p>
+        <h2>3. Docker Sandboxes security overview</h2>
+        <p>A coding agent may run commands, install packages, edit files, and use network services. Docker Sandboxes place that work inside a lightweight microVM with its own kernel, filesystem, network, and Docker daemon.</p>
+      </div>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>What the boundary helps with</h3>
+          <ul>
+            <li>Separates sandbox processes from host processes.</li>
+            <li>Limits host file access to deliberately shared workspaces.</li>
+            <li>Adds network and credential controls.</li>
+            <li>Lets experiments make a mess inside a disposable environment.</li>
+          </ul>
+        </article>
+        <article class="card lesson-card">
+          <h3>What people still decide</h3>
+          <ul>
+            <li>Which project files enter the sandbox.</li>
+            <li>Which websites and services it may reach.</li>
+            <li>Which credentials or permissions are available.</li>
+            <li>Whether the proposed code is safe and correct.</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="callout warning">
+        <h3>A sandbox helps; it does not fix security</h3>
+        <p>The agent controls what happens inside its environment. Shared files, permitted network destinations, credentials, generated code, and anything you later publish still require human review. Clone mode adds another useful review point by keeping the agent’s changes in a private Git clone.</p>
+        <p><a href="https://docs.docker.com/ai/sandboxes/security/" target="_blank" rel="noopener">Docker Sandboxes security model ↗</a></p>
+      </article>
+    </section>
+
+    <section class="lesson-section" id="internet-map">
+      <div class="section-heading">
+        <p class="eyebrow">From files to a public address</p>
+        <h2>4. Git, GitHub, Vercel, and domains</h2>
+        <p>These tools do different jobs. You do not need to memorize commands to understand the path.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Tool or idea</th><th>Its job</th><th>Beginner translation</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Tool"><strong>Git</strong></td><td data-label="Job">Records versions of project files</td><td data-label="Translation">A history of saved checkpoints</td></tr>
+              <tr><td data-label="Tool"><strong>GitHub</strong></td><td data-label="Job">Stores and shares Git repositories online</td><td data-label="Translation">The project’s online home</td></tr>
+              <tr><td data-label="Tool"><strong>Vercel</strong></td><td data-label="Job">Builds and hosts a website from a repository</td><td data-label="Translation">Turns the project into a live address</td></tr>
+              <tr><td data-label="Tool"><strong>Namecheap</strong></td><td data-label="Job">Can register and renew a domain</td><td data-label="Translation">Where you can buy a name</td></tr>
+              <tr><td data-label="Tool"><strong>Cloudflare or Namecheap DNS</strong></td><td data-label="Job">Publishes records that direct the domain</td><td data-label="Translation">The internet’s address book</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Repository, commit, deploy</h3>
+          <ul>
+            <li><strong>Repository:</strong> the project folder plus its history.</li>
+            <li><strong>Commit:</strong> a named checkpoint containing a set of changes.</li>
+            <li><strong>Deploy:</strong> make a version available on a hosting service.</li>
+          </ul>
+        </article>
+        <article class="card lesson-card">
+          <h3>Template or fork?</h3>
+          <p>A <strong>fork</strong> stays connected to the original project and is useful when contributing back. A <strong>template</strong> starts a separate project with a clean history.</p>
+          <p>Today, use the template: it creates a project you own without carrying the class repository’s history.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="hands-on">
+      <div class="section-heading">
+        <p class="eyebrow">Hands-on · Browser only</p>
+        <h2>5. Put the AI Build Brief online</h2>
+        <p>The starter is plain HTML, CSS, and JavaScript. It contains no API key, login, database, build command, or personal data.</p>
+      </div>
+
       <article class="callout">
-        <h3>Final takeaway</h3>
-        <p>The durable AI skill is not memorizing one tool. Tools will change. The durable skill is learning how to describe goals, provide context, verify results, and safely delegate work to AI systems.</p>
+        <h3>Before you begin</h3>
+        <p>Sign in to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> and <a href="https://vercel.com/" target="_blank" rel="noopener">Vercel</a>. When Vercel asks, connect the GitHub account that owns your new repository.</p>
+      </article>
+
+      <article class="card lesson-card">
+        <h3>Step 1 · Make your own repository</h3>
+        <ol>
+          <li>Open the <a href="https://github.com/prichardsondev/ai-sidekick-idea-machine" target="_blank" rel="noopener"><strong>AI Build Brief template</strong></a>.</li>
+          <li>Select <strong>Use this template</strong>, then <strong>Create a new repository</strong>.</li>
+          <li>Choose your GitHub account as the owner.</li>
+          <li>Give it a short name such as <code>my-ai-build-brief</code>.</li>
+          <li>Choose <strong>Public</strong> for this no-secrets class project, then select <strong>Create repository</strong>.</li>
+        </ol>
+        <p><a class="button button-primary" href="https://github.com/new?template_name=ai-sidekick-idea-machine&amp;template_owner=prichardsondev" target="_blank" rel="noopener">Create yours from the template ↗</a></p>
+      </article>
+
+      <article class="card lesson-card">
+        <h3>Step 2 · Notice what you own</h3>
+        <ul>
+          <li><code>index.html</code> contains the page and its controls.</li>
+          <li><code>styles.css</code> controls layout, colors, and responsive design.</li>
+          <li><code>app.js</code> combines the choices and makes the result interactive.</li>
+          <li><code>README.md</code> explains the project.</li>
+        </ul>
+        <p>Your repository is now separate from the template. Its address begins with <code>github.com/your-name/</code>.</p>
+      </article>
+
+      <article class="card lesson-card">
+        <h3>Step 3 · Import the repository into Vercel</h3>
+        <ol>
+          <li>Open the <a href="https://vercel.com/new" target="_blank" rel="noopener">Vercel New Project page</a>.</li>
+          <li>Find your new GitHub repository and select <strong>Import</strong>.</li>
+          <li>Leave the project settings at their defaults. No framework preset, build command, or environment variable is needed.</li>
+          <li>Select <strong>Deploy</strong> and wait for the success screen.</li>
+          <li>Open the <code>.vercel.app</code> address and make an idea.</li>
+        </ol>
+      </article>
+
+      <article class="card lesson-card">
+        <h3>Step 4 · Create a clear request for your AI</h3>
+        <ol>
+          <li>On your live AI Build Brief, choose an audience, outcome, and operating style.</li>
+          <li>Select <strong>Create AI brief</strong>.</li>
+          <li>Read the goal, requirements, capability check, and human approval gate.</li>
+          <li>Select <strong>Copy AI brief</strong> and paste it into ChatGPT, Claude, Codex, or another AI assistant.</li>
+          <li>Notice whether it can actually access files. Review its proposed plan before continuing.</li>
+        </ol>
+        <p><strong>The capability check matters:</strong> chat can advise and generate content; an agent with project access can inspect, edit, and test files. Neither should claim work it did not perform.</p>
+      </article>
+
+      <article class="callout warning">
+        <h3>If your repository is missing in Vercel</h3>
+        <p>Check that Vercel is connected to the correct GitHub account and that the Vercel GitHub integration has access to the new repository. Do not create tokens or paste passwords into the project.</p>
+      </article>
+    </section>
+
+    <section class="lesson-section" id="redeploy">
+      <div class="section-heading">
+        <p class="eyebrow">Make it yours</p>
+        <h2>6. Edit on GitHub and watch Vercel redeploy</h2>
+        <p>A new commit to the production branch triggers a new Vercel deployment.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ol>
+          <li>In your GitHub repository, open <code>index.html</code>.</li>
+          <li>Select the pencil icon to edit the file.</li>
+          <li>Change the introductory sentence or footer text.</li>
+          <li>Select <strong>Commit changes</strong>, add a short message, and commit directly to <code>main</code>.</li>
+          <li>Return to Vercel and watch the new deployment appear.</li>
+          <li>Refresh your public site and confirm your change.</li>
+        </ol>
+      </article>
+
+      <article class="callout">
+        <h3>The full loop</h3>
+        <p><strong>Edit a file → commit the change → GitHub stores it → Vercel deploys it → visitors see it.</strong></p>
+      </article>
+    </section>
+
+    <section class="lesson-section" id="domains">
+      <div class="section-heading">
+        <p class="eyebrow">For a future project</p>
+        <h2>7. Add your own domain later</h2>
+        <p>Your free <code>.vercel.app</code> address is already a real public website. A custom domain is an optional friendly name.</p>
+      </div>
+
+      <article class="card lesson-card">
+        <ol>
+          <li>Register a domain with a registrar such as Namecheap, Cloudflare Registrar, or another provider.</li>
+          <li>In Vercel, open the project and go to <strong>Settings → Domains</strong>. Add the domain first.</li>
+          <li>Vercel displays the exact DNS record required for that domain.</li>
+          <li>Add that record wherever the domain’s authoritative DNS is managed—perhaps Namecheap, Cloudflare, or Vercel.</li>
+          <li>Return to Vercel and wait for verification and HTTPS setup.</li>
+        </ol>
+      </article>
+
+      <div class="grid-two">
+        <article class="card lesson-card">
+          <h3>Namecheap</h3>
+          <p>Namecheap can be the registrar and can also host DNS records. If the domain uses Namecheap BasicDNS, records are managed in its Advanced DNS area.</p>
+          <p><a href="https://www.namecheap.com/support/knowledgebase/article.aspx/434/2237/how-do-i-set-up-host-records-for-a-domain/" target="_blank" rel="noopener">Namecheap host-record guide ↗</a></p>
+        </article>
+        <article class="card lesson-card">
+          <h3>Cloudflare</h3>
+          <p>Cloudflare can register a domain or become its authoritative DNS provider after you change nameservers. DNS records are then managed in Cloudflare.</p>
+          <p><a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/" target="_blank" rel="noopener">Cloudflare DNS record guide ↗</a></p>
+        </article>
+      </div>
+
+      <article class="callout warning">
+        <h3>One DNS control panel is authoritative</h3>
+        <p>Buying a domain at Namecheap does not mean its DNS must stay there. The nameserver setting decides which provider’s DNS records the internet uses. Before changing nameservers, preserve any website and email records you still need. Follow the exact current values shown by Vercel instead of copying old values from a tutorial.</p>
+        <p><a href="https://vercel.com/docs/domains/working-with-domains/add-a-domain" target="_blank" rel="noopener">Vercel custom-domain guide ↗</a></p>
+      </article>
+    </section>
+
+    <section class="lesson-section" id="recap">
+      <div class="section-heading">
+        <h2>8. Final recap</h2>
+      </div>
+      <article class="card lesson-card">
+        <ol>
+          <li>Ollama and LM Studio run models locally in different interfaces.</li>
+          <li>A model that fits is not necessarily a model that runs well; leave memory headroom.</li>
+          <li>Docker Sandboxes add boundaries, but humans still control access and review results.</li>
+          <li>Git records versions, GitHub stores the project, and Vercel publishes it.</li>
+          <li>A registrar sells the domain; authoritative DNS points the name to the host.</li>
+        </ol>
+      </article>
+      <article class="callout">
+        <h3>Your proof of completion</h3>
+        <p>You can open your GitHub repository, explain what a commit is, and share a working <code>.vercel.app</code> link that includes your own change.</p>
       </article>
     </section>
 
     <section class="lesson-section">
       <div class="cta-row">
-        <a href="session-4.html" class="button">Back to Section 4</a>
+        <a href="session-4.html" class="button">← Back to Section 4</a>
         <a href="sections/" class="button button-primary">Back to All Sections</a>
       </div>
     </section>

@@ -69,14 +69,15 @@ export const courses = {
       },
       {
         label: "Section 5",
-        title: "Security, private/local AI, and where AI is going next",
+        title: "Local AI, safer agents, and your first live website",
         href: "session-5.html",
         detail:
-          "Connect AI use to security, privacy, local/private options, and practical next steps for responsible adoption.",
+          "Compare local AI tools and hardware limits, see how sandboxes help contain agents, then publish a starter app from GitHub to Vercel.",
         bullets: [
-          "Recognize sensitive data risks and safer sharing practices",
-          "Understand why local and private AI options matter",
-          "Plan practical next steps for responsible AI use"
+          "Compare Ollama, LM Studio, local models, and cloud models",
+          "Understand model-size constraints and agent sandbox boundaries",
+          "Create a GitHub repository and deploy it with Vercel",
+          "See how registrars and DNS connect a future custom domain"
         ],
         action: { label: "Open Section 5", href: "session-5.html" }
       }
@@ -298,15 +299,15 @@ export const courses = {
       },
       {
         label: "Section 5",
-        title: "Containers, Sandboxes, and Safe Agent Execution",
+        title: "Docker, Containers, and Agent Sandboxes",
         href: "session-5.html",
         detail:
-          "Use Docker to understand isolation boundaries, then run a coding agent with controlled workspace, network, credential, and review boundaries.",
+          "Spend one focused hour learning Docker on a Raspberry Pi 5, then explore microVM isolation and Git review for coding agents on a supported Linux laptop or Mac.",
         bullets: [
-          "Install and verify Docker through an agent-guided, approval-based workflow",
-          "Explore images, containers, ports, mounts, networks, users, and secrets",
-          "Recognize dangerous privileges and reduce an agent's blast radius",
-          "Use Docker Sandbox clone mode and review changes before accepting them"
+          "Start with a plain-language Docker overview",
+          "Use bounded agent prompts to verify Docker and run a Node.js container lab",
+          "Compare containers with Docker Sandbox microVMs",
+          "Use agent prompts to explore clone mode and human Git review on a supported Linux laptop or Mac"
         ],
         action: { label: "Open Section 5", href: "session-5.html", variant: "primary" }
       }
