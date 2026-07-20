@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Foundations for Everyone - Part 2</title>
+  <meta name="description" content="Part 2 moves from safe AI use into practical AI systems. You will set up a local-first workflow, run models, connect AI to files and tools, use agents carefully, and learn when local AI makes sense compared with cloud services.">
+  <link rel="stylesheet" href="../styles.css?v=20260604-agentactions">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">AI Foundations for Everyone</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Part 1</a>
+        <a class="active" aria-current="page" href="../part2/">Part 2</a>
+        <a href="../ai-models/">AI Models</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="course-welcome wrap" aria-labelledby="course-title">
+      <p class="eyebrow">Part 2</p>
+      <h1 id="course-title">AI Foundations for Everyone - Part 2</h1>
+      <p class="lead">Local AI, Private Workflows, and Practical Agent Systems</p>
+      <p>Part 2 moves from safe AI use into practical AI systems. You will set up a local-first workflow, run models, connect AI to files and tools, use agents carefully, and learn when local AI makes sense compared with cloud services.</p>
+      <div class="course-facts" aria-label="Course facts">
+        <span>Five sections</span>
+        <span>2-hour meetings</span>
+        <span>Local AI lab focus</span>
+      </div>
+      <div class="hero-actions landing-actions">
+        <a class="button button-primary" href="session-1.html">Start Section 1</a>
+        <a class="button" href="#registration">View registration details</a>
+      </div>
+    </section>
+    <section class="wrap page-section teaching-flow" id="why-this-matters">
+      <div class="section-heading">
+        <h2>Why this matters</h2>
+
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+          <h3>More control over data, tools, and infrastructure.</h3>
+          <p>Part 1 focused on safe, effective AI use. Part 2 moves into practical AI systems: local tools, coding agents, GitHub, deployment, local models, grounded answers from files, and tool-using workflows.</p>
+          <p>The goal is not to master every AI engineering tool. The goal is to understand the workflow well enough to build safely, review changes, and make smart local-vs-cloud decisions.</p>
+
+
+        </article>
+      </div>
+    </section>
+    <section class="wrap page-section teaching-flow" id="what-this-course-is-about">
+      <div class="section-heading">
+        <h2>What this course is about</h2>
+        <p>The focus is practical local AI judgment, not hype.</p>
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+
+
+          <ul>
+            <li>Local-first setup with Linux, GitHub, Codex, and deployment</li>
+            <li>Running local models and understanding hardware limits</li>
+            <li>Grounding AI answers in files with retrieval concepts</li>
+            <li>Agent workflows that inspect files, call tools, and create artifacts</li>
+            <li>Privacy, permissions, prompt injection, and deployment tradeoffs</li>
+          </ul>
+
+        </article>
+      </div>
+    </section>
+    <section class="wrap page-section" id="section-details">
+      <div class="section-heading">
+        <h2>Section details</h2>
+        <p>Each section builds a practical workflow: local setup, models, grounded answers, tool-using agents, and a final reviewed system.</p>
+      </div>
+      <div class="section-list">
+        <article class="section-card" id="section-1">
+          <div class="section-meta">
+            <p class="label">Section 1</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>Setup Path: Local Machine to Deployed App</h2>
+          <p>Move from a fresh Raspberry Pi/Linux lab machine to terminal basics, updates, Node.js, GitHub, Codex, a simple class app, a public GitHub repo for today, and Vercel deployment.</p>
+          <ul>
+            <li>Linux terminal basics, system checks, updates, and required tools</li>
+            <li>Node.js, Git, GitHub account setup, and Git configuration</li>
+            <li>Codex install, inspect-only prompt, simple app build, review, push, and deploy</li>
+            <li>Public repo today because the app uses no private data and avoids SSH or token setup; private repos and SSH keys can come later</li>
+          </ul>
+          <div class="hero-actions"><a class="button button-primary" href="session-1.html">Open Section 1</a></div>
+        </article>
+        <article class="section-card" id="section-2">
+          <div class="section-meta">
+            <p class="label">Section 2</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>Run Local Models and Understand Inference</h2>
+          <p>Run a local model with Ollama or a similar tool, then compare inference, context windows, model size, hardware limits, and local-vs-cloud tradeoffs.</p>
+          <ul>
+            <li>Understand inference compared with training and fine-tuning</li>
+            <li>Compare small local models with larger cloud models</li>
+            <li>Discuss speed, privacy, cost, capability, context windows, and reliability</li>
+            <li>Local is not always better; quality varies by model size, hardware, and task</li>
+          </ul>
+          <div class="hero-actions"><a class="button button-primary" href="session-2.html">Open Section 2</a></div>
+        </article>
+        <article class="section-card" id="section-3">
+          <div class="section-meta">
+            <p class="label">Section 3</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>RAG: Search First, Then Answer</h2>
+          <p>Learn how retrieval-augmented generation finds relevant source passages before an AI model writes its answer.</p>
+          <ul>
+            <li>Trace documents -&gt; chunks -&gt; embeddings -&gt; vector search -&gt; retrieved context -&gt; cited answer</li>
+            <li>Separate the embedding model, vector index or database, and answer model</li>
+            <li>Build and inspect a small OpenAI-powered RAG help system from GitHub</li>
+            <li>Diagnose retrieval, grounding, citation, missing-answer, and prompt-injection failures</li>
+          </ul>
+          <div class="hero-actions"><a class="button button-primary" href="session-3.html">Open Section 3</a></div>
+        </article>
+        <article class="section-card" id="section-4">
+          <div class="section-meta">
+            <p class="label">Section 4</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>How a Neural Network Learns</h2>
+          <p>See how a small neural network learns XOR by making predictions, measuring error, and adjusting its weights and biases.</p>
+          <ul>
+            <li>Understand inputs, weights, biases, activation functions, predictions, targets, and loss</li>
+            <li>See how backpropagation and gradient descent adjust a model's parameters</li>
+            <li>Experiment with epochs, learning rates, saved models, and inference</li>
+            <li>Build and inspect a dependency-free XOR neural network from GitHub</li>
+          </ul>
+          <div class="hero-actions"><a class="button button-primary" href="session-4.html">Open Section 4</a></div>
+        </article>
+        <article class="section-card" id="section-5">
+          <div class="section-meta">
+            <p class="label">Section 5</p>
+            <p class="section-kind">Course section</p>
+          </div>
+          <h2>Docker, Containers, and Agent Sandboxes</h2>
+          <p>Spend one focused hour learning Docker on a Raspberry Pi 5, then explore microVM isolation and Git review for coding agents on a supported Linux laptop or Mac.</p>
+          <ul>
+            <li>Start with a plain-language Docker overview</li>
+            <li>Use bounded agent prompts to verify Docker and run a Node.js container lab</li>
+            <li>Compare containers with Docker Sandbox microVMs</li>
+            <li>Use agent prompts to explore clone mode and human Git review on a supported Linux laptop or Mac</li>
+          </ul>
+          <div class="hero-actions"><a class="button button-primary" href="session-5.html">Open Section 5</a></div>
+        </article>
+      </div>
+    </section>
+    <section class="wrap page-section teaching-flow" id="expected-outcomes">
+      <div class="section-heading">
+        <h2>Expected outcomes</h2>
+
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+
+
+          <ul>
+            <li>Explain the difference between cloud AI and local AI.</li>
+            <li>Set up and test a Raspberry Pi based AI lab environment.</li>
+            <li>Use Git basics to track course work and move between examples safely.</li>
+            <li>Explain inference, context windows, retrieval, agents, tools, and lightweight customization.</li>
+            <li>Build a simple local-first AI workflow.</li>
+            <li>Ground AI answers in local files and check sources.</li>
+            <li>Use agents with clear boundaries and human review.</li>
+            <li>Understand basic prompt injection and permission risks.</li>
+            <li>Decide when local AI, cloud AI, or a hybrid workflow makes sense.</li>
+          </ul>
+
+        </article>
+      </div>
+    </section>
+    <section class="wrap page-section teaching-flow" id="registration">
+      <div class="section-heading">
+        <h2>Registration</h2>
+
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+
+          <p>For registration, scheduling, or questions about AI Foundations for Everyone - Part 2, please contact Workforce Development.</p>
+
+          <div class="hero-actions"><a class="button button-primary" href="mailto:smccworkforcereg@mainecc.edu">smccworkforcereg@mainecc.edu</a></div>
+        </article>
+      </div>
+    </section>
+    <section class="wrap page-section teaching-flow">
+      <div class="section-heading">
+        <h2>Core mental model</h2>
+
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+
+          <p>Local machine + project files -&gt; model or cloud AI -&gt; retrieval when files matter -&gt; tools when actions matter -&gt; agent workflow -&gt; human review -&gt; Git/GitHub checkpoint -&gt; deploy or share.</p>
+
+
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap page-section teaching-flow">
+      <div class="section-heading">
+        <h2>What we will not overdo</h2>
+
+      </div>
+      <div class="teaching-flow">
+        <article class="card">
+
+
+
+          <ul>
+            <li>Deep vector database architecture</li>
+            <li>Complex agent frameworks</li>
+            <li>Fine-tuning mechanics or LoRA setup</li>
+            <li>Kubernetes or cloud infrastructure</li>
+            <li>Paid API-heavy workflows</li>
+          </ul>
+
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-note">AI Foundations for Everyone</p>
+      <p class="footer-bonus">Bonus: <a href="../hallucination-associates.html">Hallucination &amp; Associates</a></p>
+    </div>
+  </footer>
+</body>
+</html>

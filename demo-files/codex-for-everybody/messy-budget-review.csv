@@ -1,0 +1,16 @@
+item,category,estimated_cost,approved_budget,vendor,required,notes
+Printed quick-reference cards,Materials,85,100,Local Print Shop,Yes,Enough for 30 participants
+Instructor prep time,Staff time,250,200,Internal Training Team,Yes,Estimate may be low if custom examples are added
+Room reservation,Facilities,0,0,Main Office Conference Room,Yes,No cost if booked internally
+Captioned training video clip,Accessibility,125,150,ClearView Media,Optional,Use only if time allows
+Coffee and water,Refreshments,95,75,Corner Cafe,Optional,Over budget by 20
+AI tool demo account,Software,60,50,,Yes,Vendor missing
+Large-print handouts,Accessibility,,80,Local Print Shop,Yes,Estimated cost missing
+Follow-up office hours,Staff time,180,150,Internal Training Team,Optional,Cost may be worth it for beginner group
+Slide template cleanup,Design,40,75,Freelance Design Co,No,Optional polish
+Manager report packet,Materials,130,90,Local Print Shop,Yes,Seems high for small packet
+Evaluation form setup,Software,0,0,Microsoft Forms,Yes,Included in existing tools
+Private data redaction checklist,Materials,45,60,Internal Training Team,Yes,Could be combined with quick-reference cards
+Extra laptop cart,Equipment,300,60,IT Services,Optional,Possible typo or wrong budget
+Parking validation,Logistics,35,,Facilities Desk,Optional,Approved budget missing
+Lunch for participants,Refreshments,420,0,Corner Cafe,No,Not requested for a 60-minute session

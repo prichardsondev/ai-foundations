@@ -1,0 +1,26 @@
+respondent_id,department,role,confidence_before_1_to_5,confidence_after_1_to_5,most_helpful_topic,still_confused_about,suggested_next_training
+R001,Operations,Team Lead,2,4,Prompt examples,What can be uploaded safely,AI for meeting notes
+R002,HR,Coordinator,1,3,Privacy discussion,Company policy vs personal use,Safe AI for HR tasks
+R003,Finance,Analyst,3,4,Spreadsheet examples,How to verify formulas,AI for Excel summaries
+R004,Customer Support,Supervisor,2,5,Email rewriting,When AI tone is too casual,Customer email practice
+R005,Training,Trainer,3,5,Lesson plan example,How to cite sources,Build a short workshop
+R006,Operations,Admin Assistant,1,4,Prompt structure,Still confused about prompts,More practice with prompts
+R007,Programs,Program Manager,2,4,Checking AI answers,How much review is enough,AI for reports
+R008,Customer Support,Representative,2,3,Email drafting,Can I paste customer emails?,Email and privacy
+R009,Finance,Manager,3,4,Risk examples,Budget data and AI tools,Spreadsheet review
+R010,HR,Generalist,2,4,When not to use AI,Employee information rules,Policy examples
+R011,Operations,Dispatcher,1,3,Plain English examples,What AI is actually good at,Basic intro again
+R012,Training,Coordinator,2,5,Hands-on activity,How to make a reusable prompt,Prompt library
+R013,Programs,Case Coordinator,1,3,Privacy,Uploaded files,Privacy and files
+R014,Customer Support,Representative,2,4,Customer response examples,What if AI is wrong?,Checking answers
+R015,Operations,Team Lead,3,4,AI limits,How to explain AI to my staff,Manager talking points
+R016,Finance,Bookkeeper,2,3,Spreadsheet summary,Numbers looked too confident,AI mistakes with numbers
+R017,HR,Recruiting Assistant,2,4,Email examples,Bias in AI writing,Hiring use cases
+R018,Programs,Admin Assistant,1,2,Prompt examples,Still not sure what to ask,Beginner practice session
+R019,Training,Trainer,4,5,Activity design,Nothing major,Advanced training design
+R020,Operations,Coordinator,2,4,Safe use checklist,What counts as sensitive info,Privacy examples
+R021,Customer Support,Supervisor,3,4,Review before sending,How to set team rules,Team guidelines
+R022,Finance,Analyst,2,4,CSV demo,Messy data cleanup,Spreadsheet cleanup
+R023,Programs,Program Manager,3,4,Report drafting,How to avoid generic reports,Better summaries
+R024,HR,Coordinator,1,3,Do not use AI examples,Private employee data,HR safe-use guide
+R025,Operations,Admin Assistant,2,4,Prompt examples,prompting still feels awkward,More examples - less theory

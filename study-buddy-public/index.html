@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local AI Study Buddy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="intro">
+      <p class="eyebrow">Ollama classroom demo</p>
+      <h1>Local AI Study Buddy</h1>
+      <p>
+        This app sends your prompt to a local Ollama model through a small backend route.
+        The response comes from the model running on this computer.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="ask-heading">
+      <h2 id="ask-heading">Ask a Question</h2>
+
+      <form id="ask-form">
+        <label for="model">Model</label>
+        <input id="model" name="model" list="model-options" value="gpt-oss:20b">
+        <datalist id="model-options">
+          <option value="gpt-oss:20b"></option>
+          <option value="llama3.2"></option>
+          <option value="mistral"></option>
+        </datalist>
+
+        <label for="prompt">Your question</label>
+        <textarea id="prompt" name="prompt" rows="7" placeholder="Ask for an explanation, study guide, example, or summary." required></textarea>
+
+        <button id="ask-button" type="submit">Ask Local AI</button>
+      </form>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel response-panel" aria-labelledby="response-heading">
+      <h2 id="response-heading">Model Response</h2>
+      <div id="response" class="response">The answer will appear here.</div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

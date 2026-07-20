@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workshop Activities | SMCC AI Adoption Training</title>
+  <link rel="stylesheet" href="/smcc-ai-adoption/assets/style.css?v=20260604-fix">
+  <script src="/smcc-ai-adoption/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="/smcc-ai-adoption/">SMCC AI Training</a><nav class="nav-links" aria-label="Primary navigation"><a href="/smcc-ai-adoption/">Home</a><a href="/smcc-ai-adoption/deck.html">Deck</a><a href="/smcc-ai-adoption/faculty.html">Faculty</a><a href="/smcc-ai-adoption/staff.html">Staff</a><a href="/smcc-ai-adoption/employers.html">Employers</a><a href="/smcc-ai-adoption/activities.html" aria-current="page">Activities</a><a href="/smcc-ai-adoption/training-tracks">Training Tracks</a>
+      </nav></div></header>
+  <div class="draft-band"><div class="inner">Internal planning draft. Not official SMCC policy. Requires faculty, staff, IT/security, accessibility, and governance review before workshop or leadership use.</div></div>
+  <main id="main" class="container">
+    <div class="page-title intro-panel">
+      <h1>Workshop Activities</h1>
+      <p class="subtitle">Data boundary cards, Poor vs CLEAR AI work samples, and assignment/workflow triage</p>
+      <div class="action-row"><button type="button" data-print aria-label="Print workshop activities">Print activities</button></div>
+    </div>
+
+    <section class="section activity">
+      <h2>Activity 1: Data Boundary Cards</h2>
+      <p>Use these cards in the 60-minute intro session. All examples are public, synthetic, or de-identified. Do not add real student, employee, clinical, financial aid, disability, HR, or public safety incident data.</p>
+      <h3>Facilitator Directions</h3>
+      <ol><li>Put participants in pairs or small groups.</li><li>Give each group the category list and example cards.</li><li>Ask groups to sort each card into one category.</li><li>Debrief: "What made this easy or hard to classify?"</li><li>Reinforce: do not enter confidential/regulated data into unapproved tools.</li></ol>
+      <h3>Categories</h3>
+      <table><thead><tr><th>Category</th><th>Rule of thumb</th></tr></thead><tbody><tr><td>Public</td><td>Public SMCC pages, public event information, published catalog language, public job postings.</td></tr><tr><td>Internal</td><td>Non-sensitive drafts, meeting agendas, generic workflow notes.</td></tr><tr><td>Confidential</td><td>Student education records, grades, advising notes, financial aid information, employee data, student work with identifiers.</td></tr><tr><td>Regulated</td><td>FERPA-covered records, disability/accommodation data, clinical-like cases tied to real people, public safety incident data.</td></tr><tr><td>Never enter</td><td>Passwords, SSNs, account data, medical identifiers, active incident details, confidential investigations.</td></tr></tbody></table>
+      <p>Public does not automatically mean free to upload; copyrighted or licensed materials may still have restrictions.</p>
+      <h3>Cards To Sort</h3>
+      <table><thead><tr><th>Card</th><th>Example</th><th>Suggested category</th></tr></thead><tbody>
+        <tr><td>1</td><td>Public SMCC program webpage describing a degree pathway</td><td>Public</td></tr><tr><td>2</td><td>Published course catalog description copied from SMCC's public site</td><td>Public</td></tr><tr><td>3</td><td>Draft agenda for a department meeting with no names, records, or sensitive topics</td><td>Internal</td></tr><tr><td>4</td><td>Generic SOP draft for opening a lab space, with no access codes or safety-sensitive details</td><td>Internal</td></tr><tr><td>5</td><td>Student grade list for a course section</td><td>Confidential</td></tr><tr><td>6</td><td>Advising note about a named student's academic difficulty</td><td>Confidential</td></tr><tr><td>7</td><td>Financial aid document checklist for a named student</td><td>Confidential</td></tr><tr><td>8</td><td>Employee performance review notes</td><td>Confidential</td></tr><tr><td>9</td><td>Disability accommodation letter or documentation</td><td>Regulated</td></tr><tr><td>10</td><td>Fictional patient education scenario written by faculty with no real person details</td><td>Internal</td></tr><tr><td>11</td><td>Real clinical placement note that could identify a patient or site situation</td><td>Regulated</td></tr><tr><td>12</td><td>Public safety incident report with location, names, or active response details</td><td>Regulated</td></tr><tr><td>13</td><td>Password, API key, security credential, or access code</td><td>Never enter</td></tr><tr><td>14</td><td>Social Security number, bank account number, or medical identifier</td><td>Never enter</td></tr><tr><td>15</td><td>Publisher textbook chapter or licensed course-pack PDF</td><td>Never enter unless explicitly approved by license and SMCC process</td></tr>
+      </tbody></table>
+      <h3>Debrief Prompts</h3>
+      <ul><li>Which examples were clearly safe?</li><li>Which examples felt tempting but risky?</li><li>What would need to be removed or changed before using AI?</li><li>Who would need to approve the use?</li></ul>
+    </section>
+
+    <section class="section activity">
+      <h2>Activity 2: Poor vs CLEAR AI Work Samples</h2>
+      <p>Use these synthetic examples in the 60-minute intro session. They are not official SMCC policy or course requirements.</p>
+      <h3>Facilitator Directions</h3>
+      <ol><li>Give participants the poor sample first.</li><li>Ask: "What would make this hard to trust or review?"</li><li>Give participants the CLEAR version.</li><li>Ask: "What changed, and what would still need human review?"</li><li>Connect the discussion to Context, Limits, Evidence, Accountability, and Reviewability.</li></ol>
+      <h3>CLEAR Reminder</h3>
+      <table><thead><tr><th>Element</th><th>Standard</th></tr></thead><tbody><tr><td>Context</td><td>Define the task, audience, constraints, and success criteria</td></tr><tr><td>Limits</td><td>Define what AI may and may not do</td></tr><tr><td>Evidence</td><td>Require sources, tests, calculations, examples, or verification</td></tr><tr><td>Accountability</td><td>The human remains responsible for the final work</td></tr><tr><td>Reviewability</td><td>The output must be small enough, clear enough, and documented enough for another person to review</td></tr></tbody></table>
+      <div class="two-col">
+        <div class="callout warning"><h3>Sample A: Poor AI-Assisted Work</h3><p><strong>Prompt:</strong></p><blockquote>Write my customer email about the program.</blockquote><p><strong>Submitted output:</strong></p><blockquote>Thanks for your interest. This program is the best option and will definitely help you get a job quickly. You should apply right away because it is affordable and flexible.</blockquote><ul><li>No audience, program, source, or success criteria.</li><li>Makes promises about employment.</li><li>No link to official information.</li><li>No human judgment or review note.</li><li>Too vague to verify.</li></ul></div>
+        <div class="callout"><h3>Sample B: CLEAR AI-Assisted Work</h3><p><strong>Task brief:</strong></p><blockquote>Draft a short, plain-language email for a prospective student asking where to learn more about a public SMCC program. Use only the public webpage text pasted below. Do not promise admission, financial aid, licensure, employment, or transfer. Include a reminder to contact the official office for current details. Flag anything missing instead of inventing it.</blockquote><p><strong>Human review note:</strong></p><ul><li>Checked that the draft avoids promises.</li><li>Needs official link and contact before use.</li><li>Uses only public information.</li><li>Final send remains the staff member's responsibility.</li></ul></div>
+      </div>
+      <h3>Optional Discussion Questions</h3>
+      <ul><li>What did the clearer task brief prevent?</li><li>What still needs a human check?</li><li>What would change if the message included student-specific information?</li><li>How could this same standard apply to an assignment, SOP, code review, or patient education handout?</li></ul>
+    </section>
+
+    <section class="section activity">
+      <h2>Activity 3: Assignment / Workflow Triage Worksheet</h2>
+      <p>Practice language only; policy categories and course-use language are pending SMCC governance review. Do not include real student, employee, clinical, financial aid, disability, HR, or public safety incident data.</p>
+      <h3>Part 1: Choose One Assignment Or Workflow</h3>
+      <table><tbody><tr><th>Name of assignment/workflow</th><td></td></tr><tr><th>Owner or role</th><td></td></tr><tr><th>Audience or user</th><td></td></tr><tr><th>Learning goal or service goal</th><td></td></tr></tbody></table>
+      <h3>Part 2: Decide The AI Use Category</h3>
+      <div class="two-col">
+        <div><h4>For faculty assignments</h4><table><thead><tr><th>Category</th><th>When it fits</th></tr></thead><tbody><tr><td>AI prohibited</td><td>The task requires direct practice of the underlying skill.</td></tr><tr><td>AI limited</td><td>AI may support brainstorming, planning, or feedback.</td></tr><tr><td>AI allowed with documentation</td><td>AI may support specified steps with disclosure and verification.</td></tr><tr><td>AI integrated as workplace simulation</td><td>AI use is part of the learning goal.</td></tr></tbody></table></div>
+        <div><h4>For staff workflows</h4><table><thead><tr><th>Category</th><th>When it fits</th></tr></thead><tbody><tr><td>No AI</td><td>Data, risk, or judgment requirements make AI inappropriate.</td></tr><tr><td>AI draft only</td><td>AI may draft or organize non-sensitive content.</td></tr><tr><td>AI with verification</td><td>AI may assist if a human verifies against official sources.</td></tr><tr><td>Candidate concept pending owner review</td><td>Workflow might become a supervised pilot after owner, IT/security, accessibility, procurement, and governance review.</td></tr></tbody></table></div>
+      </div>
+      <table><tbody><tr><th>Selected category</th><td></td></tr><tr><th>Why this category?</th><td></td></tr></tbody></table>
+      <h3>Part 3: Data Boundary Check</h3>
+      <table><thead><tr><th>Question</th><th>Answer</th></tr></thead><tbody><tr><td>Is it public, internal, confidential, regulated, or never-enter?</td><td></td></tr><tr><td>Does it include student records, grades, advising notes, financial aid, disability/accommodation, employee, clinical-like, HR, or public safety incident data?</td><td></td></tr><tr><td>Is the tool approved by the relevant SMCC data owner, IT/security, accessibility, procurement, or governance process for this use?</td><td></td></tr><tr><td>What must be removed, de-identified, or replaced with synthetic content?</td><td></td></tr></tbody></table>
+      <h3>Part 4: CLEAR Check</h3>
+      <table><thead><tr><th>CLEAR element</th><th>Planning note</th></tr></thead><tbody><tr><td>Context</td><td></td></tr><tr><td>Limits</td><td></td></tr><tr><td>Evidence</td><td></td></tr><tr><td>Accountability</td><td></td></tr><tr><td>Reviewability</td><td></td></tr></tbody></table>
+      <h3>Part 5: Human Review</h3>
+      <table><tbody><tr><th>What must a human verify before this reaches another person?</th><td></td></tr><tr><th>What source, policy, rubric, test, checklist, or official page should be used?</th><td></td></tr><tr><th>What could go wrong if the AI output is inaccurate, biased, incomplete, or overconfident?</th><td></td></tr></tbody></table>
+      <h3>Part 6: Next Step</h3>
+      <ul><li>Revise the assignment/workflow language.</li><li>Bring this to a department or supervisor discussion.</li><li>Ask IT/security, accessibility, procurement, governance, or a data owner for review.</li><li>Do not use AI for this assignment/workflow.</li></ul>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="inner">SMCC AI Adoption Training Asset Pack v0.2 - internal pilot draft.</div></footer>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 2 Section 3: RAG, Embeddings, and Vector Search | AI Foundations for Everyone</title>
+<meta name="description" content="A clear introduction to retrieval-augmented generation, embeddings, vector search, grounded answers, and a hands-on RAG help-system tutorial.">
+<link rel="stylesheet" href="../styles.css?v=20260713-rag">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">AI Foundations for Everyone</a>
+<nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html">Part 1</a>
+    <a class="active" aria-current="page" href="./">Part 2</a>
+    <a href="../ai-models/">AI Models</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap page-shell lesson-shell">
+<section class="page-title" id="top">
+<p class="eyebrow">Part 2 - Section 3</p>
+<h1>RAG: Search First, Then Answer</h1>
+<p class="lead">
+    Retrieval-augmented generation, or RAG, lets an AI answer from selected source material instead of relying only on what the model learned during training. In this lesson, you will understand the moving parts and then build a small RAG help system from a public GitHub repository.
+</p>
+</section>
+
+<section class="card outcomes-card">
+<h2>By the end of this lesson, you should be able to</h2>
+<ul class="checklist">
+<li>Explain RAG in one sentence.</li>
+<li>Describe what chunks, embeddings, vector search, and retrieved context do.</li>
+<li>Explain where a vector database fits—and why a tiny learning project may not need one.</li>
+<li>Separate a retrieval failure from an answer-generation failure.</li>
+<li>Download and run the RAG Help System tutorial.</li>
+</ul>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>1. The central idea</h2>
+<p><strong>A RAG system searches its approved sources first, then gives the most relevant passages to an answer model.</strong></p>
+</div>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Without RAG</h3>
+<p>The model answers from its training and the current conversation. Its knowledge may be missing, stale, too general, or unsupported.</p>
+</article>
+<article class="card lesson-card">
+<h3>With RAG</h3>
+<p>The system retrieves relevant passages from your source collection and places them in the prompt. The model can answer from those passages and cite them.</p>
+</article>
+</div>
+
+<article class="callout">
+<h3>RAG does not retrain the model</h3>
+<p>The source documents remain outside the language model. They are searched at question time, so they can be updated without training a new model.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>2. RAG has two connected stages</h2>
+<p>One stage prepares the source material. The other uses that prepared material to answer a question.</p>
+</div>
+
+<article class="card lesson-card">
+<h3>Stage A: build the searchable index</h3>
+<pre class="copy-prompt-block">PDF documents
+  -> extract text
+  -> split text into chunks
+  -> send each chunk to an embedding model
+  -> save each chunk, source, and embedding vector</pre>
+</article>
+
+<article class="card lesson-card">
+<h3>Stage B: retrieve and answer</h3>
+<pre class="copy-prompt-block">User question
+  -> send the question to the same embedding model
+  -> compare the question vector with chunk vectors
+  -> retrieve the closest chunks
+  -> send question + retrieved chunks to an answer model
+  -> return a grounded answer with citations
+  -> human checks answer against sources</pre>
+</article>
+
+<article class="callout">
+<h3>Do not combine these into one mysterious “AI” step</h3>
+<p><strong>Retrieval</strong> selects source material. <strong>Generation</strong> writes the answer. Either stage can fail, and you diagnose them differently.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>3. Embeddings and vector storage</h2>
+<p>An embedding model, a vector store, and an answer model have different jobs.</p>
+</div>
+
+<div class="grid-three">
+<article class="card lesson-card">
+<h3>Embedding model</h3>
+<p>Turns text into a list of numbers called a vector. Text with similar meaning should produce vectors that are closer together.</p>
+</article>
+<article class="card lesson-card">
+<h3>Vector search</h3>
+<p>Compares the question vector with stored chunk vectors. A similarity score ranks which chunks are closest to the question.</p>
+</article>
+<article class="card lesson-card">
+<h3>Answer model</h3>
+<p>Receives the question and retrieved text. It writes the response, but it did not perform the vector search itself.</p>
+</article>
+</div>
+
+<article class="card lesson-card">
+<h3>Where does a vector database fit?</h3>
+<p>A vector database stores embeddings with their source text and metadata, then performs fast similarity searches. It becomes valuable when a system has many chunks, needs filtering, supports frequent updates, or serves multiple users.</p>
+<table>
+<thead>
+<tr><th>Learning-sized project</th><th>Larger application</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Save vectors in JSON and calculate cosine similarity in Python.</td>
+<td>Store and search vectors in Chroma, pgvector, Pinecone, or another vector database.</td>
+</tr>
+<tr>
+<td>Easy to open, inspect, and understand.</td>
+<td>Better persistence, filtering, indexing, concurrency, and scale.</td>
+</tr>
+</tbody>
+</table>
+</article>
+
+<article class="callout">
+<h3>What this class project does</h3>
+<p>The tutorial creates real OpenAI embeddings and performs real semantic retrieval. It saves eight small chunk vectors in a local JSON index so you can inspect the mechanics. Replacing JSON and the Python similarity loop with a vector database changes the storage and search layer—not the overall RAG pattern.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>4. What you will build</h2>
+<p>The RAG Help System answers questions about a fictional task application using two short PDF help documents.</p>
+</div>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>The program will</h3>
+<ol>
+<li>Extract text and page numbers from the PDFs.</li>
+<li>Create overlapping chunks.</li>
+<li>Create embeddings with <code>text-embedding-3-small</code>.</li>
+<li>Save vectors and source metadata locally.</li>
+<li>Embed a question and calculate cosine similarity.</li>
+<li>Display the three retrieved chunks and their scores.</li>
+<li>Generate a cited answer with the OpenAI Responses API.</li>
+</ol>
+</article>
+<article class="card lesson-card">
+<h3>You will test</h3>
+<ul>
+<li>A question the documents can answer.</li>
+<li>A question the documents cannot answer.</li>
+<li>Retrieval without answer generation.</li>
+<li>An answer in another language while keeping the original citations.</li>
+<li>Whether every citation names a source that was actually retrieved.</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>5. Start the hands-on tutorial</h2>
+<p>The repository README is the lab manual. Follow it in order; it includes expected output, troubleshooting, API-key safety, an independent path, and an agent-guided path.</p>
+</div>
+
+<article class="callout warning">
+<h3>Before you start</h3>
+<p>You need Python 3.11 or newer, Git, internet access, and an OpenAI API key with API credit. Use only fictional, public, or approved documents. Document chunks and questions are sent to the OpenAI API.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Download the project</h3>
+<pre class="copy-prompt-block">mkdir -p ~/projects
+cd ~/projects
+git clone https://github.com/prichardsondev/rag-help-system.git
+cd rag-help-system</pre>
+<p>Then open <strong>README.md</strong> and begin with Step 1. Do not skip the setup check, retrieval-only search, or source verification.</p>
+<div class="hero-actions">
+<a class="button button-primary" href="https://github.com/prichardsondev/rag-help-system">Open the RAG Help System repository</a>
+<a class="button" href="https://github.com/prichardsondev/rag-help-system#readme">Read the tutorial</a>
+</div>
+</article>
+
+<article class="card lesson-card">
+<h3>Prefer an agent guide?</h3>
+<p>The bottom of the README contains an <strong>Agent-first setup</strong> prompt. Point Codex or another coding agent at the cloned repository, paste that prompt, and have it guide you one verified step at a time. You still enter and protect your own API key.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>6. Diagnose before you trust</h2>
+<p>Seeing an answer is not the end of a RAG workflow. Inspect what happened.</p>
+</div>
+
+<article class="card lesson-card">
+<table>
+<thead>
+<tr><th>What you observe</th><th>Likely problem</th><th>What to inspect</th></tr>
+</thead>
+<tbody>
+<tr><td>The correct source was not retrieved.</td><td>Retrieval failure</td><td>Chunk boundaries, source wording, embedding model, filters, and ranking.</td></tr>
+<tr><td>The correct source was retrieved, but the answer is wrong.</td><td>Generation or grounding failure</td><td>Prompt, supplied context, unsupported additions, and model behavior.</td></tr>
+<tr><td>The documents lack the answer, but the model answers anyway.</td><td>Grounding failure</td><td>Missing-answer instruction and human review.</td></tr>
+<tr><td>A citation names a source that was not retrieved.</td><td>Citation failure</td><td>Allowed citations and the original source text.</td></tr>
+<tr><td>A document tells the model to ignore instructions.</td><td>Prompt injection</td><td>Treat document text as untrusted content, never as system instructions.</td></tr>
+</tbody>
+</table>
+</article>
+
+<article class="callout">
+<h3>The final check</h3>
+<p>Open the cited PDF page. If the source does not support the claim, the answer is not grounded—even when it sounds correct.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>7. Check your understanding</h2>
+<p>Before leaving, answer these without copying the page.</p>
+</div>
+
+<article class="card lesson-card">
+<ol>
+<li>What does the embedding model produce?</li>
+<li>Why must the question and document chunks use the same embedding model?</li>
+<li>What is the difference between a vector index and a vector database?</li>
+<li>What is the difference between retrieval and generation?</li>
+<li>Why can a cited RAG answer still be wrong?</li>
+<li>When would you replace the tutorial's JSON index with a vector database?</li>
+</ol>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="cta-row">
+<a href="./" class="button">&larr; Back to Part 2 Overview</a>
+<a href="session-2.html" class="button">Back to Section 2</a>
+<a href="https://github.com/prichardsondev/rag-help-system" class="button button-primary">Start the RAG tutorial</a>
+<a href="#top" class="button">Back to Top</a>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<p class="footer-note">AI Foundations for Everyone</p>
+<p class="footer-bonus">Build understanding first. Then build the system.</p>
+</div>
+</footer>
+</body>
+</html>

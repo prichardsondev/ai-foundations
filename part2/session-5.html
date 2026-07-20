@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 2 Section 5: Docker, Containers, and Agent Sandboxes | AI Foundations for Everyone</title>
+<meta name="description" content="A reusable one-hour, agent-guided lesson: learn Docker on a Raspberry Pi 5, then explore Docker Sandboxes on a supported Linux computer or Mac.">
+<link rel="stylesheet" href="../styles.css?v=20260720-agent-guided-docker">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">AI Foundations for Everyone</a>
+<nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html">Part 1</a>
+    <a class="active" aria-current="page" href="./">Part 2</a>
+    <a href="../ai-models/">AI Models</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap page-shell lesson-shell">
+<section class="page-title" id="top">
+<p class="eyebrow">Part 2 - Section 5 · One-hour lesson + open questions</p>
+<h1>Docker, Containers, and Agent Sandboxes</h1>
+<p class="lead">
+    Learn the basic idea first. Then use an AI agent to guide a small, permission-aware experiment. Run the Docker activities on a Raspberry Pi 5, then explore Docker Sandboxes on a supported Linux computer or Mac.
+</p>
+<div class="course-facts" aria-label="Lesson facts">
+<span>Raspberry Pi 5</span>
+<span>Raspberry Pi OS</span>
+<span>Agent guided</span>
+<span>Linux or Mac sandbox demo</span>
+</div>
+</section>
+
+<article class="callout warning">
+<h2>The one sentence to remember</h2>
+<p><strong>A sandbox can reduce an agent’s blast radius, but it cannot make the agent’s work correct or safe.</strong> We still control access and review the result.</p>
+</article>
+
+<section class="lesson-section" id="plan">
+<div class="section-heading">
+<h2>The 60-minute route</h2>
+<p>Use this route for a one-hour group lesson or follow it at your own pace. In a group, pair up when setup takes more than five minutes so everyone reaches the experiments.</p>
+</div>
+<article class="card lesson-card">
+<div class="table-wrap">
+<table class="info-table">
+<thead><tr><th>Time</th><th>Activity</th><th>Machine</th></tr></thead>
+<tbody>
+<tr><td data-label="Time">0:00–0:10</td><td data-label="Activity">Docker overview</td><td data-label="Machine">Together</td></tr>
+<tr><td data-label="Time">0:10–0:18</td><td data-label="Activity">Agent-guided Docker setup check</td><td data-label="Machine">Raspberry Pis</td></tr>
+<tr><td data-label="Time">0:18–0:35</td><td data-label="Activity">Agent-guided Docker experiments</td><td data-label="Machine">Raspberry Pis</td></tr>
+<tr><td data-label="Time">0:35–0:43</td><td data-label="Activity">Docker Sandboxes overview</td><td data-label="Machine">Together</td></tr>
+<tr><td data-label="Time">0:43–0:48</td><td data-label="Activity">Agent-guided Sandbox setup check</td><td data-label="Machine">Linux laptop or Mac</td></tr>
+<tr><td data-label="Time">0:48–0:58</td><td data-label="Activity">Agent-guided clone-mode experiment</td><td data-label="Machine">Linux laptop or Mac</td></tr>
+<tr><td data-label="Time">0:58–1:00</td><td data-label="Activity">Recap, then open questions</td><td data-label="Machine">Together</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+</section>
+
+<section class="lesson-section" id="docker-overview">
+<div class="section-heading">
+<p class="eyebrow">Docker</p>
+<h2>1. Docker overview</h2>
+<p>Docker packages an application and its environment, then runs it as an isolated process on the host computer.</p>
+</div>
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Image = packaged blueprint</h3>
+<p>The application, runtime, libraries, and starting instruction packaged together.</p>
+</article>
+<article class="card lesson-card">
+<h3>Container = running copy</h3>
+<p>A process created from an image with a separated view of files and processes.</p>
+</article>
+<article class="card lesson-card">
+<h3>Dockerfile = build recipe</h3>
+<p>A short text file that tells Docker how to assemble an image.</p>
+</article>
+<article class="card lesson-card">
+<h3>Virtual machine = another computer</h3>
+<p>A VM has its own operating-system kernel. A normal container shares the host kernel, so it is generally smaller and faster to start.</p>
+</article>
+</div>
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Port mapping: <code>HOST:CONTAINER</code></h3>
+<p>In <code>-p 80:3000</code>, traffic sent to port <code>80</code> on the Raspberry Pi is forwarded to port <code>3000</code> inside the container. The number on the left is the host port; the number on the right is the port where the app listens in the container.</p>
+<p>Our lab uses <code>-p 127.0.0.1:3000:3000</code>: only the Pi itself can connect, using host port <code>3000</code>, and Docker forwards that traffic to container port <code>3000</code>. Without <code>127.0.0.1</code>, the published port may also be reachable by other devices on the network.</p>
+</article>
+<article class="card lesson-card">
+<h3>Volumes keep selected data</h3>
+<p>A container’s writable files normally disappear when that container is removed. A Docker-managed <strong>named volume</strong> keeps selected data for later containers. A <strong>bind mount</strong> exposes a real host file or folder inside the container.</p>
+<p>Volumes are useful for databases and other persistent data. Bind mounts are useful for source code, but they also weaken the boundary: a process in the container may read or change the mounted host files.</p>
+</article>
+</div>
+<article class="card lesson-card">
+<div class="table-wrap">
+<table class="info-table">
+<thead><tr><th>Opening</th><th>What it allows</th><th>Question to ask</th></tr></thead>
+<tbody>
+<tr><td data-label="Opening">Port</td><td data-label="Allows">Reach a service in the container</td><td data-label="Question">Which exact port and interface?</td></tr>
+<tr><td data-label="Opening">Volume or mount</td><td data-label="Allows">Keep data or reach a real host folder</td><td data-label="Question">Is persistence needed, and can access be narrow or read-only?</td></tr>
+<tr><td data-label="Opening">Network</td><td data-label="Allows">Reach outside systems</td><td data-label="Question">Does this task need a network?</td></tr>
+<tr><td data-label="Opening">Credential</td><td data-label="Allows">Act on an outside service</td><td data-label="Question">How narrow and temporary can it be?</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="callout warning">
+<h3>Useful boundary, not a perfect wall</h3>
+<p>A container shares the Raspberry Pi’s kernel and can affect anything deliberately exposed to it. Do not use <code>--privileged</code> for an untrusted agent or mount the whole computer, home folder, SSH keys, <code>.env</code> files, browser data, or the host Docker socket.</p>
+</article>
+</section>
+
+<section class="lesson-section" id="docker-setup-prompt">
+<div class="section-heading">
+<p class="eyebrow">Raspberry Pi 5</p>
+<h2>2. Agent prompt: check Docker setup</h2>
+<p>Paste this into Codex or Claude on the Pi. It starts with evidence, avoids unnecessary reinstalling, and asks before making changes.</p>
+</div>
+<article class="card lesson-card">
+<pre class="copy-prompt-block">Help me verify that this Raspberry Pi is ready for today's Docker lab.
+
+Goal:
+- Confirm the operating system, CPU architecture, available disk space,
+  Docker version, Docker service status, and whether Docker can run a test image.
+
+Instructions:
+- Begin with read-only checks and explain the important result in plain language.
+- Do not reinstall Docker if it is already working.
+- Use sudo for Docker commands in this class.
+- If Docker is missing or broken, explain what you found and ask before changing
+  anything. Use the current official Docker instructions for this exact version
+  of Raspberry Pi OS; do not use an unexamined curl-pipe-shell installer.
+- Do not add me to the docker group. Explain that membership gives root-level
+  power through the Docker daemon if that option comes up.
+- Do not remove existing images, containers, volumes, files, or packages.
+- Verify the final setup with docker version, docker info, and a disposable
+  hello-world container.
+- Stop when Docker is verified or when help is required. Give me a
+  short summary of the evidence.</pre>
+</article>
+<article class="callout">
+<h3>What success looks like</h3>
+<p>The successful result is not merely “the agent says it worked.” Look for Docker client and server information plus the <code>hello-world</code> confirmation.</p>
+</article>
+</section>
+
+<section class="lesson-section" id="docker-tests-prompt">
+<div class="section-heading">
+<p class="eyebrow">Raspberry Pi 5</p>
+<h2>3. Agent prompt: run the Docker experiments</h2>
+<p>The agent guides one checkpoint at a time. Predict, observe, and explain rather than watching unattended commands scroll past.</p>
+</div>
+<article class="card lesson-card">
+<pre class="copy-prompt-block">Guide me through a short Docker lab one checkpoint at a time. At each
+checkpoint, explain the command, ask me to predict the result, run only the
+commands for that checkpoint, show the important evidence, and wait for my
+confirmation before continuing.
+
+Use sudo for Docker commands. Work only in:
+~/projects/docker-safety-lab
+
+Checkpoints:
+1. Use docker image ls and docker container ls -a to reinforce the difference
+   between an image and a container.
+2. Start a disposable interactive alpine:3.22 container. Create and read
+   /class-note.txt inside it, exit, and prove that /class-note.txt was not
+   created on the Raspberry Pi.
+3. Inspect node-app/server.js and node-app/Dockerfile. Explain each Dockerfile
+   instruction in plain language without changing either file.
+4. Build the image as foundations-node:1.
+5. Run it as foundations-web with --rm and publish container port 3000 only to
+   127.0.0.1:3000 on the Pi.
+6. Show the running container and its logs, then use curl to confirm the page
+   says "Hello from a Pi container!"
+7. Stop foundations-web and prove that the local page is no longer reachable.
+8. Summarize what crossed the boundary: the published port did; the disposable
+   container file did not.
+
+Safety rules:
+- Never use --privileged.
+- Do not create mounts or expose the Docker socket.
+- Do not access secrets, SSH keys, browser data, or files outside the lab folder.
+- Do not use broad cleanup or prune commands.
+- If a checkpoint fails, diagnose only that checkpoint and ask before making a
+  system change.</pre>
+</article>
+<details class="card lesson-card">
+<summary><strong>What the prepared Node example contains</strong></summary>
+<div class="grid-two example-grid">
+<div>
+<h3><code>server.js</code></h3>
+<pre class="copy-prompt-block">const http = require("node:http");
+
+const server = http.createServer((request, response) => {
+  response.writeHead(200, { "Content-Type": "text/plain" });
+  response.end("Hello from a Pi container!\n");
+});
+
+server.listen(3000, "0.0.0.0");</pre>
+</div>
+<div>
+<h3><code>Dockerfile</code></h3>
+<pre class="copy-prompt-block">FROM node:22-alpine
+WORKDIR /app
+COPY --chown=node:node server.js .
+USER node
+EXPOSE 3000
+CMD ["node", "server.js"]</pre>
+</div>
+</div>
+</details>
+</section>
+
+<section class="lesson-section" id="sandbox-overview">
+<div class="section-heading">
+<p class="eyebrow">Supported Linux laptop or Mac</p>
+<h2>4. Docker Sandboxes overview</h2>
+<p>Docker Sandboxes are a separate tool and do not require Docker Desktop or Docker Engine. Each sandbox is a lightweight microVM with its own kernel, filesystem, network, and Docker daemon.</p>
+</div>
+<article class="card lesson-card">
+<div class="table-wrap">
+<table class="info-table">
+<thead><tr><th>Agent location</th><th>Useful boundary</th><th>What still needs review</th></tr></thead>
+<tbody>
+<tr><td data-label="Location">On the host</td><td data-label="Boundary">No added execution boundary</td><td data-label="Review">Everything the user can reach</td></tr>
+<tr><td data-label="Location">Ordinary container</td><td data-label="Boundary">Container isolation</td><td data-label="Review">Mounts, shared kernel, network, and credentials</td></tr>
+<tr><td data-label="Location">Sandbox direct mode</td><td data-label="Boundary">Separate microVM</td><td data-label="Review">The agent edits the real project immediately</td></tr>
+<tr><td data-label="Location">Sandbox clone mode</td><td data-label="Boundary">MicroVM plus private Git clone</td><td data-label="Review">Proposed code, allowed network, and readable project content</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="callout warning">
+<h3>Use clone mode for the demonstration</h3>
+<p>Direct mode shares the project read-write by default. Clone mode mounts the host repository read-only and gives the agent a private Git clone. The work reaches the host only when we deliberately fetch it for review.</p>
+</article>
+</section>
+
+<section class="lesson-section" id="sandbox-setup-prompt">
+<div class="section-heading">
+<p class="eyebrow">Supported Linux laptop or Mac</p>
+<h2>5. Agent prompt: check Sandbox setup</h2>
+<p>Use this read-only readiness check before attempting the Sandbox experiment. Installation and sign-in are separate setup tasks.</p>
+</div>
+<article class="card lesson-card">
+<pre class="copy-prompt-block">Check whether this computer is ready for the Docker Sandbox
+experiment. Determine the operating system before choosing any checks.
+Do not install, update, sign in, or change configuration.
+
+Verify and explain:
+- On Linux: Ubuntu 24.04 or later, x86_64 or aarch64, a loaded KVM module,
+  access to /dev/kvm, and current-user membership in the kvm group
+- On macOS: Apple silicon and macOS Sonoma 14 or later
+- sbx version and diagnostic result
+- Docker sign-in status without displaying credentials or tokens
+- the active sbx network policy
+- that ~/projects/safe-agent-practice is a clean Git repository on main
+- that the repository contains no .env file, credentials, personal files, or
+  uncommitted work
+
+The planned sandbox name is foundations-agent and the demonstration must use
+clone mode. Report PASS or NEEDS ATTENTION for each item. Stop after
+the report; do not launch the sandbox.</pre>
+</article>
+</section>
+
+<section class="lesson-section" id="sandbox-tests-prompt">
+<div class="section-heading">
+<p class="eyebrow">Supported Linux laptop or Mac</p>
+<h2>6. Agent prompt: run the Sandbox experiment</h2>
+<p>Launch the sandbox from the Linux laptop or Mac, then paste the second prompt into Codex running inside it.</p>
+</div>
+<article class="card lesson-card">
+<h3>A. Launch from the host computer</h3>
+<pre class="copy-prompt-block">cd ~/projects/safe-agent-practice
+git status --short
+sbx policy ls
+sbx run --clone --name foundations-agent codex</pre>
+</article>
+<article class="card lesson-card">
+<h3>B. Paste inside the sandboxed Codex session</h3>
+<pre class="copy-prompt-block">Demonstrate this sandbox boundary using only the current practice repository.
+
+1. Show the current directory and Git status.
+2. Explain which parts of the host this clone-mode sandbox can and cannot reach.
+3. Create a branch named lesson/sandbox-review.
+4. Add this sentence to README.md:
+   "Sandboxes reduce risk, but they do not replace human review."
+5. Show the diff and commit the change with a clear commit message.
+6. Report the branch name and commit ID, then stop. Do not push, merge, access
+   other files, add credentials, or change the network policy.</pre>
+</article>
+<article class="card lesson-card">
+<h3>C. Exit and review from the host computer</h3>
+<pre class="copy-prompt-block">git status --short
+git fetch sandbox-foundations-agent
+git log --oneline sandbox-foundations-agent/lesson/sandbox-review
+git diff main..sandbox-foundations-agent/lesson/sandbox-review
+
+sbx rm foundations-agent</pre>
+<p>The host working tree should remain unchanged. Do not merge during the demonstration. Fetching exposes a proposal for review; it does not prove the change is correct.</p>
+</article>
+</section>
+
+<section class="lesson-section" id="recap">
+<div class="section-heading">
+<h2>7. Two-minute recap</h2>
+</div>
+<article class="card lesson-card">
+<ol>
+<li>An image is a packaged blueprint; a container is a running copy.</li>
+<li>A normal container shares the host kernel; a Docker Sandbox provides a separate microVM kernel.</li>
+<li>Ports, volumes, mounts, networks, workspaces, and credentials are intentional openings.</li>
+<li>Narrower access reduces the blast radius.</li>
+<li>The agent performs the experiment, but the human still approves changes and reviews evidence.</li>
+</ol>
+</article>
+</section>
+
+<section class="lesson-section" id="reuse-checklist">
+<div class="section-heading">
+<h2>Setup and reuse checklist</h2>
+<p>Use this checklist when preparing the lesson for yourself, a class, or colleagues.</p>
+</div>
+<article class="card lesson-card">
+<ul class="checklist">
+<li>Install and verify Docker Engine on each Raspberry Pi 5 that will run the lab.</li>
+<li>Place the prepared <code>docker-safety-lab/node-app</code> folder at <code>~/projects/docker-safety-lab/node-app</code> on each Pi.</li>
+<li>Pull <code>hello-world</code>, <code>alpine:3.22</code>, and <code>node:22-alpine</code> before a timed group session.</li>
+<li>Run both Raspberry Pi prompts once and confirm port 3000 is available.</li>
+<li>Prefer the Linux laptop: confirm Ubuntu 24.04+, 64-bit architecture, KVM support, <code>/dev/kvm</code> access, and membership in the <code>kvm</code> group.</li>
+<li>If using a Mac instead, confirm Apple silicon and macOS 14 or later.</li>
+<li>On the Sandbox host, confirm <code>sbx</code> login, Codex authentication, Balanced network policy, and clone mode.</li>
+<li>Create <code>safe-agent-practice</code> as a clean Git repository on <code>main</code> with only a README and no secrets.</li>
+<li>If you are leading a group, run the complete Sandbox experiment once and keep screenshots as a fallback.</li>
+</ul>
+<pre class="copy-prompt-block"># Optional preparation for a timed group session:
+sudo docker pull hello-world
+sudo docker pull alpine:3.22
+sudo docker pull node:22-alpine</pre>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>Official references</h2>
+</div>
+<article class="card lesson-card">
+<ul>
+<li><a href="https://docs.docker.com/engine/install/raspberry-pi-os/">Docker Engine on Raspberry Pi OS</a></li>
+<li><a href="https://docs.docker.com/get-started/">Docker Get Started</a></li>
+<li><a href="https://docs.docker.com/ai/sandboxes/get-started/">Docker Sandboxes prerequisites and setup</a></li>
+<li><a href="https://docs.docker.com/ai/sandboxes/security/defaults/">Docker Sandboxes default security posture</a></li>
+<li><a href="https://docs.docker.com/ai/sandboxes/workflows/">Docker Sandboxes clone-mode workflow</a></li>
+</ul>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="cta-row">
+<a href="./" class="button">&larr; Back to Part 2 Overview</a>
+<a href="session-4.html" class="button">Back to Section 4</a>
+<a href="#plan" class="button button-primary">Start the one-hour lesson</a>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<p class="footer-note">AI Foundations for Everyone</p>
+<p class="footer-bonus">Isolation limits reach. Review decides what to trust.</p>
+</div>
+</footer>
+</body>
+</html>

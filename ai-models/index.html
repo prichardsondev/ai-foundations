@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Model Categories | AI Foundations for Everyone</title>
+<meta name="description" content="A plain-English overview of major AI model categories and where they are used.">
+<link rel="stylesheet" href="../styles.css?v=20260604-agentactions">
+</head>
+<body>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">AI Foundations for Everyone</a>
+<nav class="site-nav" aria-label="Main navigation">
+<a href="../index.html">Part 1</a>
+<a href="../part2/">Part 2</a>
+<a class="active" href="../ai-models/" aria-current="page">AI Models</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap page-shell lesson-shell">
+<section class="page-title">
+<p class="eyebrow">Big picture reference</p>
+<h1>Categories of AI models</h1>
+<p class="lead">
+        AI is not one single thing. There are many different types of AI models, each built for specific jobs like chatting, creating images, understanding photos, predicting trends, and more.
+</p>
+</section>
+
+<!-- Foundational section - AI, ML, DL (placed early for beginners) -->
+<section class="lesson-section">
+<div class="section-heading">
+<h2>Understanding AI, Machine Learning, and Deep Learning</h2>
+<p>These three terms are used everywhere — here’s the simplest way to understand them and how they relate.</p>
+</div>
+
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Artificial Intelligence (AI)</h3>
+<p>The broad goal: building machines that can do tasks that normally require human intelligence — such as understanding language, recognizing objects, making decisions, or solving problems.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Machine Learning (ML)</h3>
+<p>The main way we achieve AI today. Instead of programming every rule manually, we give the computer lots of examples (data) and let it learn patterns by itself.</p>
+</article>
+
+<article class="card lesson-card">
+<h3>Deep Learning (DL)</h3>
+<p>A powerful type of Machine Learning that uses artificial neural networks with many layers. It is especially good at handling complex data like images, audio, video, and natural language.</p>
+</article>
+</div>
+
+<article class="callout">
+<h3>How they relate</h3>
+<p style="font-size: 1.15em; line-height: 1.7; margin: 1.5rem 0;">
+<strong>AI</strong> is the big umbrella goal<br>
+<span style="font-size: 1.5em;">&nbsp;&nbsp;↓</span><br>
+<strong>Machine Learning (ML)</strong> is the primary approach we use<br>
+<span style="font-size: 1.5em;">&nbsp;&nbsp;↓</span><br>
+<strong>Deep Learning (DL)</strong> is the most powerful technique inside ML
+</p>
+<p><strong>Simple analogy:</strong> AI is the house we want to build. Machine Learning is the main construction method. Deep Learning is the advanced power tool that makes difficult tasks (like understanding photos or conversations) much easier and more effective.</p>
+</article>
+</section>
+
+<section class="card outcomes-card">
+<h2>What you should take away</h2>
+<ul>
+<li>Not all AI models do the same kind of work</li>
+<li>Chat models (like GPT) are only one category of AI</li>
+<li>Vision, speech, detection, and forecasting models are very common in the real world</li>
+<li>The best model always depends on the specific job, the data available, and the level of risk</li>
+</ul>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>1. The simplest way to think about AI models</h2>
+<p>Start with one simple question: What kind of input goes in, and what kind of output needs to come out?</p>
+</div>
+<article class="callout">
+<h3>Useful mental model</h3>
+<p><strong>Text in → Text out</strong> → usually a language model</p>
+<p><strong>Image in → Labels or boxes out</strong> → usually a vision or detection model</p>
+<p><strong>Audio in → Text out</strong> → usually a speech recognition model</p>
+<p><strong>Numbers in → Future values out</strong> → usually a forecasting or prediction model</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>2. Major categories of AI models</h2>
+<p>These are the types you’re most likely to hear about or use in the workplace.</p>
+</div>
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Large language models</h3>
+<p><strong>What they do:</strong> Work with language — answering questions, summarizing, drafting, explaining, and rewriting.</p>
+<p><strong>Examples:</strong> GPT models, Claude, Grok, Gemini, Llama.</p>
+<p><strong>Common uses:</strong> Email drafts, reports, summaries, research help, chatbots, coding support.</p>
+</article>
+<article class="card lesson-card">
+<h3>Image generation models</h3>
+<p><strong>What they do:</strong> Create new images from text prompts or reference images.</p>
+<p><strong>Examples:</strong> DALL·E, Midjourney, Stable Diffusion, Flux.</p>
+<p><strong>Common uses:</strong> Marketing visuals, design mockups, storyboards, posters, product concepts.</p>
+</article>
+<article class="card lesson-card">
+<h3>Computer vision classification models</h3>
+<p><strong>What they do:</strong> Look at an image and decide what it contains.</p>
+<p><strong>Examples:</strong> ResNet-style classifiers, Vision Transformers.</p>
+<p><strong>Common uses:</strong> Quality control, medical image support, sorting, object recognition.</p>
+</article>
+<article class="card lesson-card">
+<h3>Object detection models</h3>
+<p><strong>What they do:</strong> Find and locate specific objects inside images or videos.</p>
+<p><strong>Examples:</strong> YOLO, Faster R-CNN, SSD.</p>
+<p><strong>Common uses:</strong> Safety monitoring, security cameras, traffic systems, warehouse automation.</p>
+</article>
+<article class="card lesson-card">
+<h3>Segmentation models</h3>
+<p><strong>What they do:</strong> Outline exact shapes and boundaries of objects in an image.</p>
+<p><strong>Examples:</strong> U-Net, Mask R-CNN, Segment Anything Model (SAM).</p>
+<p><strong>Common uses:</strong> Medical imaging, photo editing, robotics, precision manufacturing.</p>
+</article>
+<article class="card lesson-card">
+<h3>Speech and audio models</h3>
+<p><strong>What they do:</strong> Convert speech to text, text to speech, or analyze audio patterns.</p>
+<p><strong>Examples:</strong> Whisper, modern text-to-speech models.</p>
+<p><strong>Common uses:</strong> Meeting transcription, voice assistants, captions, call analysis.</p>
+</article>
+<article class="card lesson-card">
+<h3>Recommendation models</h3>
+<p><strong>What they do:</strong> Suggest the next item, product, video, or action.</p>
+<p><strong>Examples:</strong> Collaborative filtering and ranking systems.</p>
+<p><strong>Common uses:</strong> Streaming services, e-commerce suggestions, internal search ranking.</p>
+</article>
+<article class="card lesson-card">
+<h3>Prediction and forecasting models</h3>
+<p><strong>What they do:</strong> Predict future values or trends from structured data.</p>
+<p><strong>Examples:</strong> XGBoost, random forests, time-series models.</p>
+<p><strong>Common uses:</strong> Demand forecasting, maintenance prediction, fraud detection, staffing estimates.</p>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>3. Popular model names people hear a lot</h2>
+<p>These names come up often, but they belong to different categories.</p>
+</div>
+<div class="grid-three">
+<article class="card lesson-card">
+<h3>GPT</h3>
+<p>A family of generative language models used for conversation, writing, reasoning, and coding help.</p>
+</article>
+<article class="card lesson-card">
+<h3>Claude</h3>
+<p>A family of language models known for careful writing, analysis, and long-document work.</p>
+</article>
+<article class="card lesson-card">
+<h3>Grok</h3>
+<p>A helpful chat-oriented language model for answering questions and general assistance.</p>
+</article>
+<article class="card lesson-card">
+<h3>YOLO</h3>
+<p>A fast and popular family of object detection models for real-time vision tasks.</p>
+</article>
+<article class="card lesson-card">
+<h3>SAM</h3>
+<p>The Segment Anything Model — great at outlining objects in images.</p>
+</article>
+<article class="card lesson-card">
+<h3>Whisper</h3>
+<p>A powerful speech recognition model that turns audio into text.</p>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>4. Where these models show up in real life</h2>
+<p>Most organizations use several different types of AI models.</p>
+</div>
+<div class="grid-two">
+<article class="card lesson-card">
+<h3>Office and knowledge work</h3>
+<ul>
+<li>Language models for drafting, summarizing, and brainstorming</li>
+<li>Speech models for transcription and meeting notes</li>
+<li>Recommendation models for better search and knowledge discovery</li>
+</ul>
+</article>
+<article class="card lesson-card">
+<h3>Manufacturing and operations</h3>
+<ul>
+<li>Detection and vision models for safety and quality inspection</li>
+<li>Forecasting models for inventory and maintenance planning</li>
+</ul>
+</article>
+<article class="card lesson-card">
+<h3>Healthcare</h3>
+<ul>
+<li>Vision models to support medical image review</li>
+<li>Language models for documentation and patient summaries</li>
+<li>Prediction models for risk assessment</li>
+</ul>
+</article>
+<article class="card lesson-card">
+<h3>Consumer apps and products</h3>
+<ul>
+<li>Chatbots and virtual assistants</li>
+<li>Speech recognition in phones and smart devices</li>
+<li>Recommendation engines in shopping and entertainment</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>5. Important reminder</h2>
+</div>
+<article class="callout">
+<h3>Choose the right model for the job</h3>
+<p>The most popular or “smartest” model is not always the best one. Start with the task: What input do you have? What output do you need? Then pick the model that fits best.</p>
+</article>
+</section>
+
+<section class="lesson-section">
+<div class="section-heading">
+<h2>6. Quick comparison table</h2>
+<p>A fast reference you can scan during class.</p>
+</div>
+<div class="card lesson-card">
+<div class="table-wrap">
+<table class="info-table">
+<thead>
+<tr>
+<th>Model category</th>
+<th>Main input</th>
+<th>Main output</th>
+<th>Common example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language model</td>
+<td>Text</td>
+<td>Text</td>
+<td>GPT, Claude</td>
+</tr>
+<tr>
+<td>Image generation</td>
+<td>Text or image</td>
+<td>Image</td>
+<td>DALL·E, Stable Diffusion</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Image</td>
+<td>Label</td>
+<td>ResNet classifier</td>
+</tr>
+<tr>
+<td>Detection</td>
+<td>Image or video</td>
+<td>Boxes + labels</td>
+<td>YOLO</td>
+</tr>
+<tr>
+<td>Segmentation</td>
+<td>Image</td>
+<td>Pixel masks</td>
+<td>SAM</td>
+</tr>
+<tr>
+<td>Speech recognition</td>
+<td>Audio</td>
+<td>Text</td>
+<td>Whisper</td>
+</tr>
+<tr>
+<td>Forecasting</td>
+<td>Numbers / structured data</td>
+<td>Predicted value</td>
+<td>XGBoost, time-series models</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="lesson-section">
+<div class="cta-row">
+<a href="../session-1.html" class="button">Back to Section 1</a>
+<a href="../sections/" class="button button-primary">Back to all sections</a>
+</div>
+</section>
+</main>
+</body>
+</html>

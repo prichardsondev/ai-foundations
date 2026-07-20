@@ -1,0 +1,145 @@
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --border: #d6dde8;
+  --text: #18212b;
+  --text-soft: #556273;
+  --accent: #1f5fa8;
+  --accent-strong: #184e89;
+  --error: #9f1d1d;
+  --error-bg: #fff1f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.app-shell {
+  width: min(920px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.intro {
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.intro p {
+  max-width: 66ch;
+  color: var(--text-soft);
+}
+
+.panel {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 14px 30px rgba(19, 35, 58, 0.08);
+}
+
+form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  justify-self: start;
+  min-height: 2.8rem;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.status {
+  min-height: 1.5rem;
+  margin: 1rem 0 0;
+  color: var(--text-soft);
+}
+
+.status.error {
+  display: inline-block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+.response {
+  min-height: 10rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fbfcfe;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 2rem 0;
+  }
+
+  button {
+    width: 100%;
+  }
+}
